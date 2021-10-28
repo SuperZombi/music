@@ -26,6 +26,7 @@ function show_email(){
 function try_dark(e){
 	if (darkThemeMq){
 		name = e.src.split('.')[0].split('/').slice(-1)[0]
+		console.log(name)
 		if (name.split("_").slice(-1)[0] != "dark"){
 			e.src = e.src.split('.').slice(0, -1).join('.') + "_dark.svg"
 		}
