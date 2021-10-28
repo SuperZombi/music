@@ -95,7 +95,7 @@ window.onload = function(){
 
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
-	document.head.innerHTML += `<meta property="og:image" content="${config.main_img}">`
+	document.head.innerHTML += `<meta property="og:image" content="${document.getElementById("main_img").src}">`
 	set_background()
 
 	build_links()
