@@ -1,13 +1,6 @@
 function set_background(){
-	if (window.innerWidth < window.innerHeight){
-		comand = `background:url(${config.main_img}) center center/auto 100% no-repeat fixed !important`
-	}
-	else{
-		comand = `background:url(${config.main_img}) center center/100% no-repeat fixed !important`
-	}
-	document.getElementById("background").setAttribute('style', comand);	
+	document.getElementById("background").setAttribute('style', `background:url(${config.main_img}) center center no-repeat fixed !important`);	
 }
-
 
 function try_dark(e){
 	if (darkThemeMq){
@@ -283,23 +276,5 @@ function play(e){
 				hide_anim_t()
 			}
 	  	})
-	}
-}
-
-window.onresize = function(){ set_background() }
-window.orientationchange = function(){ set_background() }
-
-
-let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-if (!isMobile) {
-	scrollPos = 0;
-	window.onscroll = function(){
-		var st = window.scrollY;
-		if (st > scrollPos){
-			if (scrollPos == 0){
-				window.scrollTo(0, 70)
-			}
-		}
-		scrollPos = st;
 	}
 }
