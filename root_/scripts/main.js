@@ -78,20 +78,23 @@ function build_links(){
 }
 
 
-window.onload = function() {
-	document.title = `${config.artist} - ${config.track_name}`
-	
-	(function load_page(){
+
+window.onload = function(){
+(function load_page(){
 	if (typeof header !== 'undefined' && typeof body !== 'undefined' && typeof footer !== 'undefined'){
 		document.body.innerHTML += header
 		document.body.innerHTML += body
 		document.body.innerHTML += footer
+		main()
 	}
 	else{
 		setTimeout(function(){load_page()}, 500)
 	}
-	})()
+	})()	
+}
 
+function main(){
+	document.title = `${config.artist} - ${config.track_name}`
 	set_background()
 
 	build_links()
