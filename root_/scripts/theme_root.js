@@ -28,7 +28,7 @@ else{
 		l.setAttribute("href", "root_/styles/dark.css");
 		l.setAttribute("id", "dark_file");
 		document.head.appendChild(l)
-		document.getElementById("swicher").title = LANG.light
+		change_switcher_title()
 	}	
 }
 
