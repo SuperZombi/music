@@ -1,0 +1,21 @@
+LANG = {
+	"main": "Zombi Music",
+	"nothing": "There is nothing here yet",
+
+	"main_link": "Home",
+	"track": "Track",
+	"author": "Author",
+	"play": "Play",
+	"watch": "Watch",
+	"contact": "Contact us",
+	"download": "Download",
+	"player_play": "Play",
+	"player_stop": "Pause",
+
+	//Support
+	"report": "Report abuse",
+	"post": "Post my track",
+	"donate": "Donate",
+	"subject_report": "Zombi Music - Complaint",
+	"subject_post": "Zombi Music - Cooperation"
+}
