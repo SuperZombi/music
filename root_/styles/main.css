@@ -316,11 +316,11 @@ hr{
 	border-radius: 30px;
 	background: #C0D8F1;
 	border: 1px solid black;
-	transition: 0.4s;
+	transition: 0.35s;
 	cursor: pointer;
-	display: block;
 	text-decoration: none;
 	color: black;
+	display: inline-block;
 }
 .about_box:hover{
 	border-radius: 40px;
