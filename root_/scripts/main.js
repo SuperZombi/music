@@ -1,6 +1,14 @@
 function set_background(){
-	document.getElementById("background").setAttribute('style', `background:url(${config.main_img}) center center no-repeat fixed !important`);	
+	if (window.innerWidth < window.innerHeight){
+		comand = `background:url(${config.main_img}) center center/auto 100% no-repeat fixed !important`
+	}
+	else{
+		comand = `background:url(${config.main_img}) center center/100% no-repeat fixed !important`
+	}
+	document.getElementById("background").setAttribute('style', comand);	
 }
+window.onresize = function(){ set_background() }
+window.orientationchange = function(){ set_background() }
 
 function try_dark(e){
 	if (darkThemeMq){
