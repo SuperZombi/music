@@ -28,6 +28,7 @@ else{
 		l.setAttribute("href", "../../root_/styles/dark.css");
 		l.setAttribute("id", "dark_file");
 		document.head.appendChild(l)
+		change_switcher_title()
 	}	
 }
 
