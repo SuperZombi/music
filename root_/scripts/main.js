@@ -95,7 +95,6 @@ window.onload = function(){
 
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
-	document.getElementById("meta_img").content = document.getElementById("main_img").src
 	set_background()
 
 	build_links()
