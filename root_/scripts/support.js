@@ -1,6 +1,13 @@
 window.onload = function() {
-	document.body.innerHTML += header
-	document.body.innerHTML += body
+	(function load_page(){
+	if (typeof header !== 'undefined' && typeof body !== 'undefined'){
+		document.body.innerHTML += header
+		document.body.innerHTML += body
+	}
+	else{
+		setTimeout(function(){load_page()}, 500)
+	}
+	})()
 }
 
 function show_email(){
