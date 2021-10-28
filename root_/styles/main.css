@@ -84,7 +84,8 @@ body{
 	filter: drop-shadow(0 0 2px orange);
 }
 
-#header_{white-space: nowrap;user-select: none;cursor: pointer;height: 70px;font-size: 31pt;font-family: 'Architects Daughter', cursive;background: #4dbfc8;transition: all 1s;overflow: hidden;}
+
+#header_{position: relative;white-space: nowrap;user-select: none;cursor: pointer;height: 70px;font-size: 31pt;font-family: 'Architects Daughter', cursive;background: #4dbfc8;transition: all 1s;overflow: hidden;}
 #header_ img{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
 #header_ a{text-decoration: none;color: black;transition: 0.2s;}
 
@@ -340,7 +341,7 @@ hr{
 	position: absolute;
 	top: 8px;
 	right: 12px;
-	transform: scale(0.95)
+	transform: scale(0.95);
 }
 #moon{
   width:50px;
