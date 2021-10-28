@@ -1,3 +1,5 @@
+(function load_lang(){
+if (typeof LANG !== 'undefined'){
 body = `
 <div id="background"></div>
 <div id="wraper">
@@ -22,3 +24,8 @@ body = `
 
 </div>
 `
+}
+else{
+	setTimeout(function(){load_lang()}, 500)
+}
+})()
