@@ -26,7 +26,7 @@ else{
 function change_switcher(){
 	if (darkThemeMq){
 		document.getElementById("moon").style.background = "#F6D602"
-		document.getElementById("moon").style.border = "1px solid #f5eb71"
+		document.getElementById("moon").style.border = "2px solid #f5eb71"
 		document.getElementById("moonspot1").style.background = "#F6D602"
 		document.getElementById("moonspot2").style.background = "#F6D602"
 		document.getElementById("cover").style.transform = "translate(42px,-92px)"
