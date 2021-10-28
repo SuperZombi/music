@@ -15,6 +15,6 @@ config = {
 	"audio_preview": "Super Zombi - Marionette Life.mp3",
 	"show_time": true,
 	"animate_time": true,
-	//"preview_z": true,
-	//"preview_zone": [71.22, 90.4]
+	"preview_z": true,
+	"preview_zone": [101, 131]
 }
