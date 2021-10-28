@@ -1,6 +1,8 @@
 LANG = {
 	"main": "Zombi Music",
 	"nothing": "Тут пока ничего нет",
+	"dark": "Тёмная тема",
+	"light": "Светлая тема",
 
 	"main_link": "Главная",
 	"track": "Трек",
