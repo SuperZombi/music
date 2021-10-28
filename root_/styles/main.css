@@ -131,7 +131,7 @@ hr{
 }
 #player{
 	padding: 0 10px;
-	height: 96px;
+	height: 72px;
 	transition: 0.3s;
 	overflow: hidden;
 }
@@ -150,10 +150,12 @@ hr{
 	transform: translateY(-10px);
 }
 #time-total{
+	display: none;
 	float: right;
 	transition: 0.3s;
 }
 #time-current{
+	display: none;
 	float: left;
 	transition: 0.3s;
 }
