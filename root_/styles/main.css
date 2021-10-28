@@ -40,16 +40,21 @@ body{
 	height: 100%;
 }
 #background{
-	height: 112.5%;
-	width: 112.5%;
-	left: -6.25%;
-	top: -6.25%;
-	position: fixed;
-	z-index: -1;
+	height: 100%;
+	width: 100%;
 	overflow: hidden;
-	filter: blur(30px);
+	filter: blur(25px);
 	opacity: 0.7;
 	transition: all 1s;
+	transform: scale(1.1)
+}
+#back{
+	height: 100%;
+	width: 100%;
+	left: 0%;
+	top: 0%;
+	position: fixed;
+	z-index: -1;
 }
 
 #header{
