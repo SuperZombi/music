@@ -3,7 +3,7 @@ config = {
 	"artist": "Super Zombi",
 	"main_img": "img.jpg",
 	"allow_download": true,
-	"download_file": "Super-Zombi - Dragon.mp3",
+	"download_file": "Super Zombi - Dragon.mp3",
 
 	"links": {
 		"spotify": "https://open.spotify.com/track/3wWb1V9jIQLT0LBxNAHsuw",
@@ -15,9 +15,9 @@ config = {
 		"newgrounds": "https://www.newgrounds.com/audio/listen/1025364"
 	},
 
-	"audio_preview": "Super-Zombi - Dragon.mp3",
+	"audio_preview": "Super Zombi - Dragon.mp3",
 	"show_time": true,
 	"animate_time": true,
-	// "preview_z": true,
-	// "preview_zone": [71.22, 90.4]
+	"preview_z": true,
+	"preview_zone": [19.85, 49.71]
 }
