@@ -1,3 +1,8 @@
+function change_switcher_title(){
+	try{document.getElementById("swicher").title = LANG.light}
+	catch{setTimeout(function(){change_switcher_title()}, 5)}
+}
+
 (function load_lang(){if (typeof LANG !== 'undefined'){
 
 var th = location.hash.split("#")[2]
@@ -9,7 +14,7 @@ if (th){
 		l.setAttribute("href", "root_/styles/dark.css");
 		l.setAttribute("id", "dark_file");
 		document.head.appendChild(l)
-		document.getElementById("swicher").title = LANG.light
+		change_switcher_title()
 	}
 	else{
 		darkThemeMq = false
