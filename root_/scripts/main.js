@@ -90,7 +90,7 @@ window.onload = function(){
 		else{
 			setTimeout(function(){load_page()}, 500)
 		}
-	})()	
+	})()
 }
 
 function main(){
@@ -292,13 +292,17 @@ function play(e){
 window.onresize = function(){ set_background() }
 window.orientationchange = function(){ set_background() }
 
-var scrollPos = 0;
-window.onscroll = function(){
-	var st = window.scrollY;
-	if (st > scrollPos){
-		if (scrollPos == 0){
-			window.scrollTo(0, 70)
+
+let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+if (!isMobile) {
+	scrollPos = 0;
+	window.onscroll = function(){
+		var st = window.scrollY;
+		if (st > scrollPos){
+			if (scrollPos == 0){
+				window.scrollTo(0, 70)
+			}
 		}
+		scrollPos = st;
 	}
-	scrollPos = st;
 }
