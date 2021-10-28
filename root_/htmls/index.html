@@ -1,3 +1,5 @@
+(function load_lang(){
+if (typeof LANG !== 'undefined'){
 body = `
 <div id="wraper">
 <div id="main_page">
@@ -8,3 +10,8 @@ body = `
 </div>
 </div>
 `
+}
+else{
+	setTimeout(function(){load_lang()}, 500)
+}
+})()
