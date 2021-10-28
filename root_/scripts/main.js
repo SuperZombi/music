@@ -154,12 +154,10 @@ function main(){
 		hide_time = true;
 		tracking()
 	}
-	if (hide_time){
-		document.getElementById("time-current").style.display = "none"
-		document.getElementById("time-total").style.display = "none"
-		document.getElementById("player").style.height = "72px"
-	}
-	else{
+	if (!hide_time){
+		document.getElementById("time-current").style.display = "block"
+		document.getElementById("time-total").style.display = "block"
+		document.getElementById("player").style.height = "96px"
 		tracking()
 	}
 }
