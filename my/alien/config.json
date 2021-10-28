@@ -15,7 +15,7 @@ config = {
 		"newgrounds": "https://www.newgrounds.com/audio/listen/937474"
 	},
 
-	"audio_preview": "https://superzombi.github.io/music/Super%20Zombi%20-%20Alien.mp3",
+	"audio_preview": "Super Zombi - Alien.mp3",
 	"show_time": true,
 	"animate_time": true,
 	"preview_z": true,
