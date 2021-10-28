@@ -89,8 +89,8 @@ body{
 #header_ a{text-decoration: none;color: black;transition: 0.2s;}
 
 #page{
-    max-width: 380px;
-    background: #bfe0da;
+  max-width: 380px;
+  background: #bfe0da;
 	margin: auto;
 	text-align: center;
 	font-family: 'Nunito', sans-serif;
@@ -297,7 +297,43 @@ hr{
 }
 
 
+/* ---------------- */
 
+.about_box{
+	font-family: 'Nunito', sans-serif;
+	height: 100%;
+	width: 200px;
+	padding: 10px;
+	margin: 20px;
+	border-radius: 30px;
+	background: #C0D8F1;
+	border: 1px solid black;
+	transition: 0.4s;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+.about_box:hover{
+	border-radius: 40px;
+}
+.about_box:hover img{
+	border-radius: 30px;
+}
+.about_box img{
+	height: 150px;
+	border-radius: 50px;
+	transition: 0.4s;
+	user-select: none;
+	pointer-events: none;
+}
+.track_name{
+	font-size: 2em;
+	font-weight: bold;
+}
+.artist{
+	font-size: 1em;
+}
 
 /* ---------------- */
 #swicher{
