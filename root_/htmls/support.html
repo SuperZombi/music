@@ -1,3 +1,5 @@
+(function load_lang(){
+if (typeof LANG !== 'undefined'){
 body = `
 <div id="support">
 	<a href="mailto:super.zombi.yt@gmail.com?subject=${LANG.subject_report}" target="_blank" onmousedown="show_email()"><img src="root_/images/flag.svg" onload="try_dark(this)">${LANG.report}</a>
@@ -7,3 +9,8 @@ body = `
 	<div id="email">super.zombi.yt@gmail.com</div>
 </div>
 `
+}
+else{
+	setTimeout(function(){load_lang()}, 500)
+}
+})()
