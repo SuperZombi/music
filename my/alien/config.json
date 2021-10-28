@@ -1,7 +1,7 @@
 config = {
 	"track_name": "Alien",
 	"artist": "Super Zombi",
-	"main_img": "img.jpg",
+	"main_img": "image.png",
 	"allow_download": true,
 	"download_file": "Super Zombi - Alien.mp3",
 
