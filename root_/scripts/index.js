@@ -1,7 +1,14 @@
 window.onload = function() {
-	document.body.innerHTML += header
-	document.body.innerHTML += body
-	document.body.innerHTML += footer
+	(function load_page(){
+	if (typeof header !== 'undefined' && typeof body !== 'undefined' typeof footer !== 'undefined'){
+		document.body.innerHTML += header
+		document.body.innerHTML += body
+		document.body.innerHTML += footer
+	}
+	else{
+		setTimeout(function(){load_page()}, 500)
+	}
+	})()
 }
 
 function try_dark(e){
