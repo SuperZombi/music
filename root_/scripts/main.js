@@ -97,7 +97,7 @@ function main(){
 	document.title = `${config.artist} - ${config.track_name}`
 	meta = document.createElement("meta")
 	meta.setAttribute('property', 'og:image');
-	meta.content = config.main_img
+	meta.content = document.getElementById("main_img").src
 	document.head.appendChild(meta)
 	set_background()
 
