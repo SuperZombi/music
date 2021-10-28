@@ -1,19 +1,22 @@
+(function load_lang(){if (typeof LANG !== 'undefined'){
+
 var th = location.hash.split("#")[2]
 if (th){
 	if (th == "dark"){
-		var darkThemeMq = true
+		darkThemeMq = true
 		var l = document.createElement("link")
 		l.rel = "stylesheet"
 		l.setAttribute("href", "../../root_/styles/dark.css");
 		l.setAttribute("id", "dark_file");
 		document.head.appendChild(l)
+		document.getElementById("swicher").title = LANG.light
 	}
 	else{
-		var darkThemeMq = false
+		darkThemeMq = false
 	}
 }
 else{
-	var darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)").matches
+	darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)").matches
 	if (darkThemeMq) {
 		var l = document.createElement("link")
 		l.rel = "stylesheet"
@@ -22,6 +25,9 @@ else{
 		document.head.appendChild(l)
 	}	
 }
+
+}else{setTimeout(function(){load_lang()}, 2)}})()
+
 
 function change_switcher(){
 	if (darkThemeMq){
@@ -32,6 +38,7 @@ function change_switcher(){
 		document.getElementById("cover").style.transform = "translate(42px,-92px)"
 		document.getElementById("cover").style.background = "#4DBFC8"
 		document.getElementById("dark_file").remove()
+		document.getElementById("swicher").title = LANG.dark
 		location.hash = `#${language}#light`
 	}
 	else{
@@ -39,6 +46,7 @@ function change_switcher(){
 		l.rel = "stylesheet"
 		l.setAttribute("href", "../../root_/styles/dark.css");
 		document.head.appendChild(l)
+		document.getElementById("swicher").title = LANG.light
 		location.hash = `#${language}#dark`
 	}
 	setTimeout(function(){
