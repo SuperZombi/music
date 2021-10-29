@@ -98,7 +98,7 @@ body{
 
 #header_{position: relative;white-space: nowrap;user-select: none;cursor: pointer;height: 70px;font-size: 31pt;font-family: 'Architects Daughter', cursive;background: var(--header-color);transition: all 1s;overflow: hidden;}
 #header_ img{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
-#header_ a{text-decoration: none;color: black;transition: 0.2s;}
+#header_ a{text-decoration: none;color: black;transition: 0.35s;}
 
 #page{
   max-width: 380px;
