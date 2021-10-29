@@ -42,7 +42,7 @@ function change_switcher(){
 		document.getElementById("moonspot1").style.background = "#F6D602"
 		document.getElementById("moonspot2").style.background = "#F6D602"
 		document.getElementById("cover").style.transform = "translate(42px,-92px)"
-		document.getElementById("cover").style.background = "#4DBFC8"
+		document.getElementById("cover").style.background = "var(--header-color)"
 		document.getElementById("dark_file").remove()
 		document.getElementById("swicher").title = LANG.dark
 		location.hash = `#${language}#light`
