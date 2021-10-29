@@ -57,4 +57,13 @@ function change_switcher(){
 		location.hash = `#${language}#dark`
 	}
 	darkThemeMq = !darkThemeMq
+	setTimeout(function(){
+		var tmp_ = document.getElementById("support")
+		if (tmp_){
+			tmp_2 = tmp_.getElementsByTagName("img")
+			Object.keys(tmp_2).forEach(function(e){
+				try_dark(tmp_2[e])
+			})
+		}	
+	}, 300)	
 }
