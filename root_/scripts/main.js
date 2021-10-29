@@ -99,6 +99,8 @@ window.onload = function(){
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
 	document.head.innerHTML += `<meta property="og:image" content="${config.main_img}">`
+	document.head.innerHTML += `<meta property="og:title" content="${config.artist} - ${config.track_name}">`
+	document.head.innerHTML += `<meta property="og:description" content="Zombi Music">`
 	set_background()
 
 	build_links()
