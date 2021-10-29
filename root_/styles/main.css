@@ -4,6 +4,10 @@
 
 :root{
 	scroll-behavior: smooth;
+	/* vars  */
+	--header-color: #EDEEF0;
+	--body-color: white;
+	--page_head-color: #E2E2E2;
 }
 ::-webkit-scrollbar
 {
@@ -28,7 +32,7 @@
 body{
 	margin: 0;
 	padding: 0;
-	background: #bfe0da;
+	background: var(--body-color);
 	overflow-x: hidden;
 	display: table;
 	height: 100vh;
@@ -64,7 +68,7 @@ body{
 	height: 70px;
 	font-size: 31pt;
 	font-family: 'Architects Daughter', cursive;
-	background: #4dbfc8;
+	background: var(--header-color);
 	transition: all 1s;
 	overflow: hidden;
 }
@@ -82,20 +86,20 @@ body{
 	transition: 0.2s;
 }
 #header a:hover{
-	color: orange;
+	color: #0077FF;
 }
 #header a:hover img{
-	filter: drop-shadow(0 0 2px orange);
+	filter: drop-shadow(0 0 1px #0077FF);
 }
 
 
-#header_{position: relative;white-space: nowrap;user-select: none;cursor: pointer;height: 70px;font-size: 31pt;font-family: 'Architects Daughter', cursive;background: #4dbfc8;transition: all 1s;overflow: hidden;}
+#header_{position: relative;white-space: nowrap;user-select: none;cursor: pointer;height: 70px;font-size: 31pt;font-family: 'Architects Daughter', cursive;background: var(--header-color);transition: all 1s;overflow: hidden;}
 #header_ img{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
 #header_ a{text-decoration: none;color: black;transition: 0.2s;}
 
 #page{
   max-width: 380px;
-  background: #bfe0da;
+  background: var(--page_head-color);
 	margin: auto;
 	text-align: center;
 	font-family: 'Nunito', sans-serif;
@@ -130,7 +134,7 @@ hr{
 #links_area{
 	border-radius: 0 0 25px 25px;
 	padding-bottom: 5px;
-	background: #D9EFEB;
+	background: var(--body-color);
 	height: 100%;
 }
 #player{
@@ -216,7 +220,7 @@ hr{
 }
 
 #footer{
-	background: #4dbfc8;
+	background: var(--header-color);
 	font-family: 'Ubuntu Mono', monospace;
 	text-align: center;
 	padding: 20px 0;
@@ -313,7 +317,7 @@ hr{
 	padding: 10px;
 	margin: 20px;
 	border-radius: 30px;
-	background: #C0D8F1;
+	background: #F3F9FF;
 	border: 1px solid black;
 	transition: 0.35s;
 	cursor: pointer;
@@ -376,7 +380,7 @@ hr{
 #cover{
   width:50px;
   height:50px;
-  background: #4DBFC8;
+  background: var(--header-color);
   border-radius:50%;
   transform:translate(42px,-92px);
   transition:all 1s;
