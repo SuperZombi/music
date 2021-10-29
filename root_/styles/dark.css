@@ -49,10 +49,10 @@ hr{
     color: white;
 }
 #time-total{
-    color: white;
+    color: white !important;
 }
 #time-current{
-    color: white;
+    color: white !important;
 }
 #links_area{
     background: #1A242F !important;
