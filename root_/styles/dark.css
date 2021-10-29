@@ -48,6 +48,12 @@ hr{
 #player i{
     color: white;
 }
+#time-total{
+    color: white;
+}
+#time-current{
+    color: white;
+}
 #links_area{
     background: #1A242F !important;
 }
