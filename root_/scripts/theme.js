@@ -51,11 +51,19 @@ function change_switcher(){
 		var l = document.createElement("link")
 		l.rel = "stylesheet"
 		l.setAttribute("href", "../../root_/styles/dark.css");
+		l.setAttribute("id", "dark_file");
 		document.head.appendChild(l)
 		document.getElementById("swicher").title = LANG.light
 		location.hash = `#${language}#dark`
 	}
+	darkThemeMq = !darkThemeMq
 	setTimeout(function(){
-		location.reload()
-	}, 800)
+		arr = document.getElementById("links_area").getElementsByClassName("link")
+		Object.keys(arr).forEach(function(e){
+			var el = arr[e].getElementsByTagName("img")[0]
+			if (typeof el !== 'undefined'){
+				try_dark(el)
+			}
+		})
+	}, 300)
 }
