@@ -7,7 +7,7 @@ else{
 }
 var l = document.createElement("script")
 l.setAttribute("src", `../../root_/Langs/${language.toUpperCase()}.json`);
-document.head.appendChild(l)
+document.head.appendChild(l);
 
 (function (){
 	if (typeof LANG === 'undefined'){
