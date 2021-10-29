@@ -12,9 +12,9 @@ config = {
 		"newgrounds": "https://www.newgrounds.com/audio/listen/1087206"
 	},
 
-	"audio_preview": "Super Zombi - Marionette Life.mp3",
+	"audio_preview": "Marionette Life.mp3",
 	"show_time": true,
 	"animate_time": true,
-	"preview_z": true,
-	"preview_zone": [101, 131]
+	//"preview_z": true,
+	//"preview_zone": [101, 131]
 }
