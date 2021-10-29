@@ -159,6 +159,8 @@ hr{
 	cursor: pointer;
 	top: 25px;
 	position: relative;
+	color: black;
+	transition: 0.5s;
 }
 #player span{
 	border: 1px solid;
@@ -197,6 +199,7 @@ hr{
 }
 .link svg{
 	height: 70%;
+	transition: 0.75s;
 }
 .link img{
 	height: 70%;
