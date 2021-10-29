@@ -10,16 +10,17 @@ function set_background(){
 window.onresize = function(){ set_background() }
 window.orientationchange = function(){ set_background() }
 
+
 function try_dark(e){
 	if (darkThemeMq){
-		name = e.src.split('/').slice(-1)[0].split('.')[0]
-		if (name.split("_").slice(-1)[0] != "dark"){
-			e.src = e.src.split('.').slice(0, -1).join('.') + "_dark.svg"
-		}
+		e.src = e.src.split('.').slice(0, -1).join('.') + "_dark.svg"
+	}
+	else{
+		e.src = e.src.split('.').slice(0, -1).join('.').split("_dark")[0] + ".svg"
 	}
 }
 
-function create_link(name, link, but, img, _dark=false) {
+function create_link(name, link, but, img) {
 	if (name == "Download"){
 		document.getElementById("links_area").innerHTML +=
 		`<div class="link" id="download">
@@ -27,19 +28,21 @@ function create_link(name, link, but, img, _dark=false) {
 			<a href="${link}" download>${but}</a>
 		</div>`
 	}
-	else if (_dark){
-		document.getElementById("links_area").innerHTML +=
-		`<div class="link">
-			<img src="${img}" alt="${name}" onload="try_dark(this)">
-			<a href="${link}">${but}</a>
-		</div>`
-	}
 	else{
-		document.getElementById("links_area").innerHTML +=
-		`<div class="link">
-			<img src="${img}" alt="${name}">
-			<a href="${link}">${but}</a>
-		</div>`
+		function append_link(name, link, but, image){
+			document.getElementById("links_area").innerHTML +=
+			`<div class="link">
+				<img src="${image}" alt="${name}">
+				<a href="${link}">${but}</a>
+			</div>`
+		}
+		if (darkThemeMq){
+			var temp = img.split('.').slice(0, -1).join('.') + "_dark.svg"
+			append_link(name, link, but, temp)
+		}
+		else{
+			append_link(name, link, but, img)
+		}
 	}
 }
 
@@ -49,35 +52,33 @@ function build_links(){
 			create_link("Spotify", config.links.spotify, LANG.play, "../../root_/images/spotify.svg")
 		}
 		if (config.links.youtube_music){
-			create_link("YouTube Music", config.links.youtube_music, LANG.play, "../../root_/images/youtube_music.svg", true)
+			create_link("YouTube Music", config.links.youtube_music, LANG.play, "../../root_/images/youtube_music.svg")
 		}
 		if (config.links.youtube){
-			create_link("YouTube", config.links.youtube, LANG.watch, "../../root_/images/youtube.svg", true)
+			create_link("YouTube", config.links.youtube, LANG.watch, "../../root_/images/youtube.svg")
 		}
 		if (config.links.apple_music){
-			create_link("Apple Music", config.links.apple_music, LANG.play, "../../root_/images/apple_music.svg", true)
+			create_link("Apple Music", config.links.apple_music, LANG.play, "../../root_/images/apple_music.svg")
 		}
 		if (config.links.deezer){
-			create_link("Deezer", config.links.deezer, LANG.play, "../../root_/images/deezer.svg", true)
+			create_link("Deezer", config.links.deezer, LANG.play, "../../root_/images/deezer.svg")
 		}
 		if (config.links.soundcloud){
 			create_link("Soundcloud", config.links.soundcloud, LANG.play, "../../root_/images/soundcloud.svg")
 		}
 		if (config.links.newgrounds){
-			create_link("Newgrounds", config.links.newgrounds, LANG.watch, "../../root_/images/newgrounds.svg", true)
+			create_link("Newgrounds", config.links.newgrounds, LANG.watch, "../../root_/images/newgrounds.svg")
 		}
 	}
 	else{
 		if (!config.allow_download){
-			document.getElementById("links_area").style.display = "none"
 			document.getElementById("page").style.paddingBottom = "10px"
 		}
 	}
 	if (config.allow_download){
 		create_link("Download", config.download_file, LANG.download)
-	}
+	}	
 }
-
 
 
 window.onload = function(){
@@ -143,11 +144,22 @@ function main(){
 	    hideScrollbar: true,
 	    plugins: plugin
 	}, theme_params));
-	try{
-		wavesurfer.load(config.audio_preview);
-	}catch{
+
+	if(!config.audio_preview){
 		document.getElementById("player").style.display = "none";
 		document.getElementById("hr_").style.display = "none";
+	}
+	else{
+		try{
+			wavesurfer.load(config.audio_preview);
+		}catch{
+			document.getElementById("player").style.display = "none";
+			document.getElementById("hr_").style.display = "none";
+		}
+	}
+
+	if (!config.audio_preview && !config.allow_download && !config.links){
+		document.getElementById("links_area").style.display = "none"
 	}
 	
 
