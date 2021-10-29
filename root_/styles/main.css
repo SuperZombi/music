@@ -330,7 +330,7 @@ hr{
 	border-radius: 30px;
 	background: #F3F9FF;
 	border: 1px solid black;
-	transition: 0.35s;
+	transition: 0.75s;
 	cursor: pointer;
 	text-decoration: none;
 	color: black;
@@ -352,9 +352,13 @@ hr{
 .track_name{
 	font-size: 1.8em;
 	font-weight: bold;
+	color: black;
+	transition: 0.5s;
 }
 .artist{
 	font-size: 1em;
+	color: black;
+	transition: 0.5s;
 }
 
 /* ---------------- */
