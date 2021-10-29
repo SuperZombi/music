@@ -94,6 +94,12 @@ hr{
     border: 1px solid white !important;
     color: white !important;
 }
+.track_name{
+    color: white;
+}
+.artist{
+    color: white;
+}
 
 /* ---------------- */
 #moon{
