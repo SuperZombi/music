@@ -4,6 +4,8 @@ window.onload = function() {
 		document.body.innerHTML += header
 		document.body.innerHTML += body
 		document.body.innerHTML += footer
+
+		setTimeout(function(){document.body.style.transition = "1s"}, 500)
 	}
 	else{
 		setTimeout(function(){load_page()}, 500)
