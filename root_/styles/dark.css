@@ -45,6 +45,9 @@ hr{
     border-color: white !important;
     background-color: white !important;
 }
+#player i{
+    color: white;
+}
 #links_area{
     background: #1A242F !important;
 }
