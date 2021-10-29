@@ -3,6 +3,8 @@ window.onload = function() {
 	if (typeof header !== 'undefined' && typeof body !== 'undefined'){
 		document.body.innerHTML += header
 		document.body.innerHTML += body
+
+		setTimeout(function(){document.body.style.transition = "1s"}, 500)
 	}
 	else{
 		setTimeout(function(){load_page()}, 500)
