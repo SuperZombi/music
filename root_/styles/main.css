@@ -172,11 +172,13 @@ hr{
 	display: none;
 	float: right;
 	transition: 0.3s;
+	color: black;
 }
 #time-current{
 	display: none;
 	float: left;
 	transition: 0.3s;
+	color: black;
 }
 
 .link{
