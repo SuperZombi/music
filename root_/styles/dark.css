@@ -30,6 +30,13 @@ body{
 #header_{background: #222222 !important;}
 #header_ a{color: white !important;}
 
+#track_name{
+    color: white;
+}
+#artist{
+    color: white;
+}
+
 #page{
     background: #13181E !important;
     border: 1px solid white !important;
@@ -68,6 +75,9 @@ hr{
 }
 #footer a:hover{
     color: yellow !important;
+}
+#footer div{
+    color: white;
 }
 
 
