@@ -51,11 +51,10 @@ function change_switcher(){
 		var l = document.createElement("link")
 		l.rel = "stylesheet"
 		l.setAttribute("href", "root_/styles/dark.css");
+		l.setAttribute("id", "dark_file");
 		document.head.appendChild(l)
 		document.getElementById("swicher").title = LANG.light
 		location.hash = `#${language}#dark`
 	}
-	setTimeout(function(){
-		location.reload()
-	}, 800)
+	darkThemeMq = !darkThemeMq
 }
