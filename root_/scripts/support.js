@@ -1,6 +1,7 @@
 window.onload = function() {
 	(function load_page(){
 	if (typeof header !== 'undefined' && typeof body !== 'undefined'){
+		document.title = `Zombi Music - ${LANG.support_title}`
 		document.body.innerHTML += header
 		document.body.innerHTML += body
 
@@ -32,15 +33,4 @@ function try_dark(e){
 	else{
 		e.src = e.src.split('.').slice(0, -1).join('.').split("_dark")[0] + ".svg"
 	}
-}
-
-var scrollPos = 0;
-window.onscroll = function(){
-	var st = window.scrollY;
-	if (st > scrollPos){
-		if (scrollPos == 0){
-			window.scrollTo(0, 70)
-		}
-	}
-	scrollPos = st;
 }
