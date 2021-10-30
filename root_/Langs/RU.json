@@ -29,5 +29,7 @@ LANG = {
 	"f_type": "Тип файла",
 	"f_size": "Размер файла",
 	"image": "Изображение",
-	"audio": "Аудио файл"
+	"audio": "Аудио файл",
+
+	"config_example": "Пример <i>config.json</i>"
 }
