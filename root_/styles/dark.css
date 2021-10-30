@@ -116,8 +116,14 @@ hr{
     border-bottom: 1px dashed white !important;
 }
 .config_link:hover{
-    color: yellow !important;
-    border-bottom: 2px solid yellow !important;
+    color: #7ACBFF !important;
+    border-bottom: 2px solid #7ACBFF !important;
+}
+i{
+    color: #009CFF !important;
+}
+.config_link:hover i{
+    color: #7ACBFF !important;
 }
 
 
