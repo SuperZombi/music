@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 :root{
 	scroll-behavior: smooth;
@@ -266,7 +267,7 @@ hr{
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-    align-items: center;
+  align-items: center;
 }
 #support a{
 	text-decoration: none;
@@ -315,12 +316,51 @@ hr{
 	text-align: center;
 	font-family: sans-serif;
 }
+#main_page h1{
+	font-family: 'Comfortaa', cursive;
+}
+#main_page table{
+	border: 2px solid white;
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 15pt;
+	border-collapse: collapse;
+	background: #252F48;
+	margin: auto;
+}
+#main_page table th {
+  color: white;
+  border-bottom: 1px solid #37B5A5;
+  padding: 12px 20px;
+  font-size: 16pt;
+}
+#main_page table tr:nth-child(2n) {
+  background: #303B56;
+}
+#main_page table td {
+  color: lightgrey;
+  border-bottom: 1px solid #37B5A5;
+  border-right:1px solid #37B5A5;
+  padding: 7px 17px;
+}
+#main_page table tr:last-child td { border-bottom: none; }
+#main_page table td:last-child { border-right: none; }
 
 
+/* Phone  */
 @media all and (max-width: 500px) {
 	#page{
 	    max-width: 100%;
-	}	
+	}
+	#main_page table{
+		font-size: 14pt;
+	}
+	#main_page table th {
+		font-size: 15pt;
+	  padding: 12px 5px;
+	}
+	#main_page table td {
+	  padding: 7px 5px;
+	}
 }
 
 
