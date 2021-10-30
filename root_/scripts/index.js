@@ -21,14 +21,3 @@ function try_dark(e){
 		e.src = e.src.split('.').slice(0, -1).join('.').split("_dark")[0] + ".svg"
 	}
 }
-
-var scrollPos = 0;
-window.onscroll = function(){
-	var st = window.scrollY;
-	if (st > scrollPos){
-		if (scrollPos == 0){
-			window.scrollTo(0, 70)
-		}
-	}
-	scrollPos = st;
-}
