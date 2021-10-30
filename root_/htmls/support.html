@@ -2,12 +2,16 @@
 if (typeof LANG !== 'undefined'){
 body = `
 <div id="support">
+	<a href="https://www.donationalerts.com/r/super_zombi" target="_blank"><img src="root_/images/dollar.svg">${LANG.donate}</a>
 	<a href="mailto:super.zombi.yt@gmail.com?subject=${LANG.subject_report}" target="_blank" onmousedown="show_email()"><img src="root_/images/flag.svg">${LANG.report}</a>
 	<a href="mailto:super.zombi.yt@gmail.com?subject=${LANG.subject_post}" target="_blank" onmousedown="show_email()"><img src="root_/images/publish.svg">${LANG.post}</a>
-	<a href="https://www.donationalerts.com/r/super_zombi" target="_blank"><img src="root_/images/dollar.svg">${LANG.donate}</a>
-
-	<div id="email">super.zombi.yt@gmail.com</div>
+	
 </div>
+<div style="text-align:center;">
+<a class="config_link" style="margin-top:0;font-size:unset;" href="requirements">${LANG.watch_r}</a>
+</div>
+
+<div id="email">super.zombi.yt@gmail.com</div>
 `
 }
 else{
