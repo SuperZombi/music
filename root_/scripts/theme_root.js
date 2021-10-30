@@ -57,13 +57,21 @@ function change_switcher(){
 		location.hash = `#${language}#dark`
 	}
 	darkThemeMq = !darkThemeMq
-	setTimeout(function(){
-		var tmp_ = document.getElementById("support")
-		if (tmp_){
-			tmp_2 = tmp_.getElementsByTagName("img")
-			Object.keys(tmp_2).forEach(function(e){
-				try_dark(tmp_2[e])
-			})
-		}	
-	}, 300)	
+	darking_images()
+}
+
+function darking_images(){
+	var path = window.location.pathname;
+	var page = path.split("/").pop().split(".html")[0];
+	if (page == "support"){
+		setTimeout(function(){
+			var tmp_ = document.getElementById("support")
+			if (tmp_){
+				tmp_2 = tmp_.getElementsByTagName("img")
+				Object.keys(tmp_2).forEach(function(e){
+					try_dark(tmp_2[e])
+				})
+			}	
+		}, 300)	
+	}
 }
