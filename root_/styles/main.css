@@ -532,6 +532,9 @@ i{
 		margin: 5px;
 		border-radius: 25px;
 	}
+	.about_box:hover{
+		border-radius: 30px;
+	}
 	.track_name{
 		font-size: 1.3em;
 	}
