@@ -16,6 +16,7 @@ window.onload = function() {
 }
 window.onresize = function(){ overflowed() }
 window.orientationchange = function(){ overflowed() }
+window.onscroll = function(){showScrollTop()}
 
 
 async function main(){
@@ -26,6 +27,14 @@ async function main(){
 }
 
 
+function showScrollTop(){
+	if (window.scrollY > 200){
+		document.getElementById("toTop").style.bottom = "10px"
+	}
+	else{
+		document.getElementById("toTop").style.bottom = "-50%"
+	}
+}
 function overflowed() {
 	var arr = document.getElementsByClassName('track_name')
 	Object.keys(arr).forEach(function(e){
