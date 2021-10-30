@@ -1,0 +1,23 @@
+config = {
+	"track_name": "Название трека", // обязательно
+	"artist": "Автор", // обязательно
+	"main_img": "путь_к_картинке", // обязательно
+	"allow_download": true, // Разрешить скачивание (true-ДА / false-НЕТ)(не обязательно)
+	"download_file": "путь_к_mp3", // Если предыдущее, то обязательно
+
+	"links": { // Ссылки (все не обязательно)
+		"spotify": "",
+		"youtube_music": "",
+		"youtube": "",
+		"apple_music": "",
+		"deezer": "",
+		"soundcloud": "",
+		"newgrounds": ""
+	},
+
+	"audio_preview": "путь_к_mp3", // Предпросмотр аудио (не обязательно)
+	"show_time": true, // Показывать время под плеером (не обязательно)
+	"animate_time": true, // Анимированное время (true/false)(не обязательно)
+	"preview_z": true, // Зона предпросмотра (true/false) (не обязательно)
+	"preview_zone": [start_time, end_time] // (секунды) Если предыдущее, то обязательно
+}

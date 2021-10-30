@@ -1,0 +1,23 @@
+config = {
+	"track_name": "Track name", // required
+	"artist": "Artist", // required
+	"main_img": "path_to_image", // required
+	"allow_download": true, // true/false (optional)
+	"download_file": "path_to_mp3", // If the previous then required
+
+	"links": { // all optional
+		"spotify": "",
+		"youtube_music": "",
+		"youtube": "",
+		"apple_music": "",
+		"deezer": "",
+		"soundcloud": "",
+		"newgrounds": ""
+	},
+
+	"audio_preview": "path_to_mp3", // optional
+	"show_time": true, // true/false (optional)
+	"animate_time": true, // true/false (optional)
+	"preview_z": true, // true/false (Limit preview area) (optional)
+	"preview_zone": [start_time, end_time] // (seconds) If the previous then required
+}
