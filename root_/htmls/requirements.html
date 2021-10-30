@@ -1,0 +1,35 @@
+(function load_lang(){
+if (typeof LANG !== 'undefined'){
+body = `
+<div id="wraper">
+<div id="main_page">
+	<h1>${LANG.requirements_title}:</h1>
+	<table>
+		<tr>
+			<th>${LANG.limitation}</th>
+			<th>${LANG.resolution}</th>
+			<th>${LANG.f_type}</th>
+			<th>${LANG.f_size}</th>
+		</tr>
+		<tr>
+			<td>${LANG.image}</td>
+			<td>⩽1080×1080</td>
+			<td>png/jpg</td>
+			<td>⩽1Mb</td>
+		</tr>
+		<tr>
+			<td>${LANG.audio}</td>
+			<td>⩽192kbps</td>
+			<td>mp3</td>
+			<td>⩽10Mb</td>
+		</tr>
+	</table>
+
+</div>
+</div>
+`
+}
+else{
+	setTimeout(function(){load_lang()}, 500)
+}
+})()
