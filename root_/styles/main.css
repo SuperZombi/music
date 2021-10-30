@@ -491,6 +491,14 @@ i{
   transition:all 1s;
 }
 
+#toTop{
+	height: 90px;
+	position: fixed;
+	bottom: -50%;
+	right: 0;
+	transition: ease-in-out 0.75s;
+	cursor: pointer;
+}
 
 
 
@@ -498,6 +506,9 @@ i{
 @media all and (max-width: 500px) {
 	#page{
 	    max-width: 100%;
+	}
+	#toTop{
+		height: 80px;
 	}
 	#main_page table{
 		font-size: 14pt;
