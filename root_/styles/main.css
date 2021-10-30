@@ -320,30 +320,50 @@ hr{
 	font-family: 'Comfortaa', cursive;
 }
 #main_page table{
-	border: 2px solid white;
+	border: 2px solid black;
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 15pt;
 	border-collapse: collapse;
-	background: #252F48;
+	background: #F3F9FF;
 	margin: auto;
+	transition: 0.75s;
 }
 #main_page table th {
-  color: white;
-  border-bottom: 1px solid #37B5A5;
+  color: black;
+  border-bottom: 1px solid grey;
   padding: 12px 20px;
   font-size: 16pt;
+  transition: 0.75s;
 }
 #main_page table tr:nth-child(2n) {
-  background: #303B56;
+  background: #DFE7EE;
+  transition: 0.75s;
 }
 #main_page table td {
-  color: lightgrey;
-  border-bottom: 1px solid #37B5A5;
-  border-right:1px solid #37B5A5;
+  color: black;
+  border-bottom: 1px solid grey;
+  border-right:1px solid grey;
   padding: 7px 17px;
+  transition: 0.75s;
 }
 #main_page table tr:last-child td { border-bottom: none; }
 #main_page table td:last-child { border-right: none; }
+.config_link{
+	display: inline-block;
+	margin-top: 50px;
+	font-family: sans-serif;
+	font-size: 13pt;
+	color: black;
+	border-bottom: 1px dashed black;
+	padding-bottom: 1px;
+  text-decoration: none;
+  transition: 0.35s;
+}
+.config_link:hover{
+	color: blue;
+	padding-bottom: 0px;
+	border-bottom: 2px solid blue;
+}
 
 
 /* Phone  */
