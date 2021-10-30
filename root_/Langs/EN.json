@@ -15,6 +15,7 @@ LANG = {
 	"player_stop": "Pause",
 
 	//Support
+	"support_title": "Support",
 	"report": "Report abuse",
 	"post": "Post my track",
 	"donate": "Donate",
