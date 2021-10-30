@@ -1,6 +1,7 @@
 config = {
 	"track_name": "Marionette Life",
 	"artist": "Super Zombi",
+	"genre": "Dubstep",
 	"main_img": "img.jpg",
 	"allow_download": true,
 	"download_file": "Super Zombi - Marionette Life.mp3",
@@ -15,6 +16,6 @@ config = {
 	"audio_preview": "Marionette Life.mp3",
 	"show_time": true,
 	"animate_time": true,
-	//"preview_z": true,
-	//"preview_zone": [101, 131]
+	// "preview_z": true,
+	// "preview_zone": [101, 131]
 }
