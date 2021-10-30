@@ -46,7 +46,7 @@ hr{
     background-color: white !important;
 }
 #player i{
-    color: white;
+    color: white !important;
 }
 #time-total{
     color: white !important;
