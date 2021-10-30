@@ -364,6 +364,13 @@ hr{
 	padding-bottom: 0px;
 	border-bottom: 2px solid blue;
 }
+i{
+	color: #0074BE;
+	transition: 0.35s;
+}
+.config_link:hover i{
+	color: blue;
+}
 
 
 /* Phone  */
