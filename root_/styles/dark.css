@@ -95,6 +95,31 @@ hr{
     border: 2px solid white !important;
 }
 
+#main_page table{
+    border: 2px solid white !important;
+    background: #252F48 !important;
+}
+#main_page table th {
+  color: white !important;
+  border-bottom: 1px solid #37B5A5 !important;
+}
+#main_page table tr:nth-child(2n) {
+  background: #303B56 !important;
+}
+#main_page table td {
+  color: lightgrey !important;
+  border-bottom: 1px solid #37B5A5 !important;
+  border-right: 1px solid #37B5A5 !important;
+}
+.config_link{
+    color: white !important;
+    border-bottom: 1px dashed white !important;
+}
+.config_link:hover{
+    color: yellow !important;
+    border-bottom: 2px solid yellow !important;
+}
+
 
 
 /* ---------------- */
