@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
 
 :root{
 	scroll-behavior: smooth;
@@ -13,6 +13,7 @@
 ::-webkit-scrollbar
 {
 	width: 10px;
+	height: 8px;
 	background-color: white;
 	transition: 1s;
 }
@@ -32,7 +33,7 @@
 	background-color: #A8A8A8;
 	transition: 1s;
 }
-
+html{margin: 0; padding: 0; overflow-x:hidden;}
 body{
 	margin: 0;
 	padding: 0;
@@ -317,9 +318,6 @@ hr{
 	text-align: center;
 	font-family: sans-serif;
 }
-#main_page h1{
-	font-family: 'Comfortaa', cursive;
-}
 #main_page table{
 	border: 2px solid black;
 	font-family: 'Ubuntu Mono', monospace;
@@ -374,32 +372,34 @@ i{
 }
 
 
-/* Phone  */
-@media all and (max-width: 500px) {
-	#page{
-	    max-width: 100%;
-	}
-	#main_page table{
-		font-size: 14pt;
-	}
-	#main_page table th {
-		font-size: 15pt;
-	  padding: 12px 5px;
-	}
-	#main_page table td {
-	  padding: 7px 5px;
-	}
+/* ---------------- */
+
+.category{
+	width: calc(100vw - 20px);
+	margin: auto;
+	margin-top: 25px;
+	margin-bottom: 30px;
+	text-align: left;
+	padding-left: 20px;
+}
+.category_title{
+	font-family: 'Balsamiq Sans', cursive;
+	font-size: 30pt;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.category_body{
+	overflow-x: auto;
+	white-space: nowrap;
 }
 
-
-/* ---------------- */
 
 .about_box{
 	font-family: 'Nunito', sans-serif;
 	height: 100%;
 	width: 200px;
 	padding: 10px;
-	margin: 20px;
+	margin: 10px;
 	border-radius: 30px;
 	background: #F3F9FF;
 	border: 1px solid black;
@@ -408,6 +408,7 @@ i{
 	text-decoration: none;
 	color: black;
 	display: inline-block;
+	text-align: center;
 }
 .about_box:hover{
 	border-radius: 40px;
@@ -416,17 +417,33 @@ i{
 	border-radius: 30px;
 }
 .about_box img{
-	height: 150px;
+	width: 70%;
 	border-radius: 50px;
 	transition: 0.4s;
 	user-select: none;
 	pointer-events: none;
 }
 .track_name{
+	white-space: nowrap;
+	overflow: hidden;
 	font-size: 1.8em;
 	font-weight: bold;
 	color: black;
 	transition: 0.5s;
+}
+.marquee {
+ display: inline-block;
+ padding-left: 0%;
+ animation: marquee 10s linear infinite;
+}
+.marquee:hover {
+	animation: none;
+}
+@keyframes marquee {
+ 0%   { transform: translate(5%, 0); opacity:0; }
+ 5%   { opacity:1; }
+ 95%  { opacity:1; }
+ 100% { transform: translate(-100%, 0); opacity:0;}
 }
 .artist{
 	font-size: 1em;
@@ -472,4 +489,45 @@ i{
   border-radius:50%;
   transform:translate(42px,-92px);
   transition:all 1s;
+}
+
+
+
+
+/* Phone  */
+@media all and (max-width: 500px) {
+	#page{
+	    max-width: 100%;
+	}
+	#main_page table{
+		font-size: 14pt;
+	}
+	#main_page table th {
+		font-size: 15pt;
+	  padding: 12px 5px;
+	}
+	#main_page table td {
+	  padding: 7px 5px;
+	}
+	.category{
+		width: 100vw;
+	}
+	::-webkit-scrollbar
+	{
+		height: 4px;
+	}
+	.about_box{
+		width: 140px;
+		padding: 5px;
+		margin: 5px;
+	}
+	.track_name{
+		font-size: 1.3em;
+	}
+	.artist{
+		font-size: 0.9em;
+	}
+	.category_title{
+		font-size: 24pt;
+	}
 }
