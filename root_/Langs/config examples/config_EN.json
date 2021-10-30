@@ -1,6 +1,7 @@
 config = {
 	"track_name": "Track name", // required
 	"artist": "Artist", // required
+	"genre": "Genre",  // required
 	"main_img": "path_to_image", // required
 	"allow_download": true, // true/false (optional)
 	"download_file": "path_to_mp3", // If the previous then required
