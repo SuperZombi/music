@@ -501,7 +501,6 @@ i{
 }
 
 
-
 /* Phone  */
 @media all and (max-width: 500px) {
 	#page{
@@ -531,6 +530,7 @@ i{
 		width: 140px;
 		padding: 5px;
 		margin: 5px;
+		border-radius: 25px;
 	}
 	.track_name{
 		font-size: 1.3em;
