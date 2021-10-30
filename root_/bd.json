@@ -1,0 +1,25 @@
+bd = {
+	"Super Zombi":{
+		"path":"my",
+		"tracks":{
+			"Alien":{
+				"path":"alien",
+				"image":"img.jpg",
+				"genre": "Dubstep",
+				"date":"17.07.2020"
+			},
+			"Dragon":{
+				"path":"dragon",
+				"image":"img.jpg",
+				"genre": "Dubstep",
+				"date":"15.05.2021"
+			},
+			"Marionette Life":{
+				"path":"marionette-life",
+				"image":"img.jpg",
+				"genre": "Dubstep",
+				"date":"30.10.2021"
+			},
+		}
+	},
+}
