@@ -20,5 +20,14 @@ LANG = {
 	"post": "Post my track",
 	"donate": "Donate",
 	"subject_report": "Zombi Music - Complaint",
-	"subject_post": "Zombi Music - Cooperation"
+	"subject_post": "Zombi Music - Cooperation",
+
+	//Requirements
+	"requirements_title": "Requirements",
+	"limitation": "Limitation",
+	"resolution": "Resolution",
+	"f_type": "File type",
+	"f_size": "File size",
+	"image": "Image file",
+	"audio": "Audio file"
 }
