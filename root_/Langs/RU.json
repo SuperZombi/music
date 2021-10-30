@@ -20,5 +20,14 @@ LANG = {
 	"post": "Опубликовать мой трек",
 	"donate": "Задонатить",
 	"subject_report": "Zombi Music - Жалоба",
-	"subject_post": "Zombi Music - Сотрудничество"
+	"subject_post": "Zombi Music - Сотрудничество",
+
+	//Requirements
+	"requirements_title": "Требования",
+	"limitation": "Ограничение",
+	"resolution": "Разрешение",
+	"f_type": "Тип файла",
+	"f_size": "Размер файла",
+	"image": "Изображение",
+	"audio": "Аудио файл"
 }
