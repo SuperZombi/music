@@ -21,6 +21,7 @@ LANG = {
 	"donate": "Donate",
 	"subject_report": "Zombi Music - Complaint",
 	"subject_post": "Zombi Music - Cooperation",
+	"watch_r": "View Requirements",
 
 	//Requirements
 	"requirements_title": "Requirements",
