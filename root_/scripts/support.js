@@ -4,6 +4,7 @@ window.onload = function() {
 		document.title = `Zombi Music - ${LANG.support_title}`
 		document.body.innerHTML += header
 		document.body.innerHTML += body
+		darking_images()
 
 		setTimeout(function(){document.body.style.transition = "1s"}, 500)
 	}
