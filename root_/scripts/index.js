@@ -20,9 +20,8 @@ window.onscroll = function(){showScrollTop()}
 
 
 async function main(){
-	await addNewCategory("Super Zombi", sortByDate(getAllAuthorTracks("Super Zombi")))
-
-	//await addNewCategory("All", sortByDate("all"))
+	//await addNewCategory("Super Zombi", sortByDate(getAllAuthorTracks("Super Zombi")))
+	await addNewCategory(LANG.all, sortByDate("all"))
 	overflowed()
 }
 
