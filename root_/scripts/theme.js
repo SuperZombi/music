@@ -1,3 +1,20 @@
+/* Leaves */
+(function leaves_(){
+  if (typeof leaves_area !== 'undefined'){
+	var lea = document.createElement("link")
+	lea.rel = "stylesheet"
+	lea.setAttribute("href", "../../root_/styles/leaves.css");
+	document.head.appendChild(lea)
+	var scr = document.createElement("script")
+	scr.setAttribute("src", "../../root_/scripts/leaves.js");
+	document.head.appendChild(scr)   
+  }
+  else{
+    setTimeout(function(){leaves_()}, 500)
+  }
+})()
+/**/
+
 function change_switcher_title(){
 	try{document.getElementById("swicher").title = LANG.light}
 	catch{setTimeout(function(){change_switcher_title()}, 5)}
