@@ -104,7 +104,7 @@ body{
 #header_ a{text-decoration: none;color: black;transition: 0.35s;}
 #header_ svg{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
 #svg_eyes{
-	animation: eyes_blink 3s infinite;
+	animation: eyes_blink 2.5s infinite;
 	transition: 1s;
 }
 @keyframes eyes_blink{
@@ -460,7 +460,7 @@ i{
 	animation: none;
 }
 @keyframes marquee {
- 0%   { transform: translate(5%, 0); opacity:0; }
+ 0%   { transform: translate(5.5%, 0); opacity:0; }
  5%   { opacity:1; }
  95%  { opacity:1; }
  100% { transform: translate(-100%, 0); opacity:0;}
