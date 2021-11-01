@@ -20,11 +20,12 @@ window.onscroll = function(){showScrollTop()}
 
 
 async function main(){
-	await addNewCategory("Super Zombi", sortByDate(getAllAuthorTracks("Super Zombi", true)))
+	await addNewCategory("Super Zombi", sortByDate(getAllAuthorTracks("Super Zombi")))
 
 	//await addNewCategory("All", sortByDate("all"))
 	overflowed()
 }
+
 
 
 function showScrollTop(){
@@ -76,7 +77,7 @@ async function addNewCategory(category_title, tracks){
 function getAllAuthors(){
 	return Object.keys(bd)
 }
-function getAllAuthorTracks(author, obj=false){
+function getAllAuthorTracks(author, obj=true){
 	if (obj){
 		var tracks = bd[author].tracks
 		var tracks_obj = []
@@ -100,7 +101,7 @@ function getAllGenres(){
 	})
 	return ganres
 }
-function getAllTracksByGenre(genr, full=false){
+function getAllTracksByGenre(genr, full=true){
 	/* returns array with tracks and them authors */
 	var tracks = []
 	Object.keys(bd).forEach(function(e){
@@ -120,6 +121,26 @@ function getAllTracksByGenre(genr, full=false){
 	})
 	return tracks
 }
+function last_updates(days=7){
+	var all_tracks = []
+	var authors = getAllAuthors()
+	var now = new Date()
+	Object.keys(authors).forEach(function(e){
+		var author = authors[e]
+		var info = getAllAuthorTracks(author)
+		Object.keys(info).forEach(function(e){
+			var tmp = info[e].date.split(".")
+			var x = new Date(tmp[2], tmp[1]-1, tmp[0])
+			var diff = Math.floor((now - x) / (1000 * 60 * 60 * 24))
+			if (diff < days){
+				var track_name = e
+				var track_info = info[e]
+				all_tracks.push( Object.assign({"author":author, "track":track_name}, track_info) )
+			}
+		})
+	})
+	return all_tracks
+}
 function sortByDate(what){
 	if (what === "all")
 	{
@@ -127,7 +148,7 @@ function sortByDate(what){
 		var authors = getAllAuthors()
 		Object.keys(authors).forEach(function(e){
 			var author = authors[e]
-			var info = getAllAuthorTracks(author, true)
+			var info = getAllAuthorTracks(author)
 			Object.keys(info).forEach(function(e){
 				var track_name = e
 				var track_info = info[e]
