@@ -4,6 +4,7 @@ LANG = {
 	"dark": "Dark theme",
 	"light": "Light theme",
 	"up": "Go Up",
+	"last_upd": "Last Updates",
 
 	"main_link": "Home",
 	"track": "Track",
