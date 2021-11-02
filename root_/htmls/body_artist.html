@@ -1,0 +1,22 @@
+(function load_lang(){
+if (typeof LANG !== 'undefined' && typeof ARTIST !== 'undefined'){
+body = `
+
+<img id="artist_image" src="${ARTIST.image}">
+<h1 class="category_title" align="center">${ARTIST.name}</h1>
+
+
+
+<div id="wraper">
+<div id="main_page">
+
+</div>
+
+<img id="toTop" title="${LANG.up}" onclick="window.scrollTo(0,0)" src="../root_/images/return-to-the-top.svg">
+</div>
+`
+}
+else{
+	setTimeout(function(){load_lang()}, 500)
+}
+})()
