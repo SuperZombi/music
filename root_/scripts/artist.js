@@ -20,6 +20,7 @@ window.onscroll = function(){showScrollTop()}
 
 
 async function main(){
+	document.title = ARTIST.name
 	if (document.getElementById('artist_image').src.split('.').pop() == "svg"){
 		try_dark(document.getElementById('artist_image'))
 	}
