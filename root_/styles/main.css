@@ -164,6 +164,10 @@ body{
 	display: inline-block;
 	color: black;
 	transition: 0.4s;
+	text-decoration: none;
+}
+#artist:hover{
+	color: #0077FF;
 }
 hr{
 	margin-bottom: 0;
