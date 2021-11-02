@@ -1,0 +1,5 @@
+ARTIST = {
+	"name": "Super Zombi",
+	// "image": "../root_/images/people.svg"
+	"image": "logo.jpg"
+}
