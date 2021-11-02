@@ -31,13 +31,13 @@ body{
 #header_ a{color: white !important;}
 
 #track_name{
-    color: white;
+    color: white !important;
 }
 #artist{
-    color: white;
+    color: white !important;
 }
 #artist:hover{
-    color: yellow;
+    color: yellow !important;
 }
 
 #page{
@@ -138,10 +138,10 @@ i{
     color: white !important;
 }
 .track_name{
-    color: white;
+    color: white !important;
 }
 .artist{
-    color: white;
+    color: white !important;
 }
 
 /* ---------------- */
