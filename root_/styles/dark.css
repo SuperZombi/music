@@ -36,6 +36,9 @@ body{
 #artist{
     color: white;
 }
+#artist:hover{
+    color: yellow;
+}
 
 #page{
     background: #13181E !important;
