@@ -422,6 +422,13 @@ i{
 	overflow-x: auto;
 	white-space: nowrap;
 }
+#artist_image{
+	margin-top: 10px !important;
+	height: 200px;
+	display: block;
+	margin: auto;
+	border-radius: 50%;
+}
 
 
 .about_box{
@@ -587,5 +594,8 @@ i{
 	}
 	.category_title{
 		font-size: 24pt;
+	}
+	#artist_image{
+		height: 150px;
 	}
 }
