@@ -146,8 +146,9 @@ i{
 
 /* ---------------- */
 #moon{
-  background:#eef !important;
+  background: #eef !important;
   border: none !important;
+  filter: none !important;
 }
 #moonspot1{
   background:#ccd !important;
