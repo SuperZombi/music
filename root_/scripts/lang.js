@@ -13,16 +13,20 @@ document.head.appendChild(l);
 	if (typeof LANG === 'undefined'){
 		setTimeout(function(){
 			if (typeof LANG === 'undefined'){
-				var l = document.createElement("script")
-				l.setAttribute("src", `../../root_/Langs/EN.json`);
-				document.head.appendChild(l);
-				var th = location.hash.split("#")[2]
-				if (typeof th === 'undefined'){
-					location.hash = "en"
-				}
-				else{
-					location.hash = `#en#${th}`
-				}
+				setTimeout(function (){
+					if (typeof LANG === 'undefined'){
+						var l = document.createElement("script")
+						l.setAttribute("src", `../../root_/Langs/EN.json`);
+						document.head.appendChild(l);
+						var th = location.hash.split("#")[2]
+						if (typeof th === 'undefined'){
+							location.hash = "en"
+						}
+						else{
+							location.hash = `#en#${th}`
+						}
+					}
+				}, 500)
 			}
 		}, 500)
 	}
