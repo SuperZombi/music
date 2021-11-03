@@ -506,6 +506,7 @@ i{
   border-radius:50%;
   transition: 1s;
   border: 2px solid #f5eb71;
+  filter: drop-shadow(0 0 5px yellow);
 }
 #moonspot1{
   width:8px;
