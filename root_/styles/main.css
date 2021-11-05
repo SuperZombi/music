@@ -453,6 +453,7 @@ i{
 	text-align: center;
 }
 .about_box:hover{
+	background: #C7E3FF;
 	border-radius: 40px;
 }
 .about_box:hover img{
