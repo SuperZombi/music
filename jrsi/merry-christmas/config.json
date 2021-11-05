@@ -1,0 +1,16 @@
+config = {
+	"track_name": "Merry Christmas ^_^ {2020}", // обязательно
+	"artist": "JrSi", // обязательно
+	"genre": "Trap",  // обязательно
+	"main_img": "MyLogo.png", // обязательно
+	"allow_download": true, // Разрешить скачивание (true-ДА / false-НЕТ)(не обязательно)
+	"download_file": "JrSi - Merry Christmas ^_^ {2020}.mp3", // Если предыдущее, то обязательно
+
+	"links": { // Ссылки (все не обязательно)
+		"soundcloud": "https://soundcloud.com/jr_00_si/25-jrsi-merry-christmas-2020"
+	},
+
+	"audio_preview": "JrSi - Merry Christmas ^_^ {2020}.mp3", // Предпросмотр аудио (не обязательно)
+	"show_time": true, // Показывать время под плеером (не обязательно)
+	"animate_time": true, // Анимированное время (true/false)(не обязательно)
+}
