@@ -478,7 +478,7 @@ i{
  padding-left: 0%;
  animation: marquee 10s linear infinite;
 }
-.marquee:hover {
+.about_box:hover .marquee {
 	animation: none;
 }
 @keyframes marquee {
