@@ -482,10 +482,10 @@ i{
 	animation: none;
 }
 @keyframes marquee {
- 0%   { transform: translate(5.5%, 0); opacity:0; }
- 5%   { opacity:1; }
+ 0%   { transform: translate(40%, 0); opacity:0; }
+ 7%   { opacity:1; }
  95%  { opacity:1; }
- 100% { transform: translate(-100%, 0); opacity:0;}
+ 100% { transform: translate(-60%, 0); opacity:0;}
 }
 .artist{
 	font-size: 1em;
