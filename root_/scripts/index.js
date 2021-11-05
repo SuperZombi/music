@@ -20,7 +20,13 @@ window.onscroll = function(){showScrollTop()}
 
 
 async function main(){
-	//await addNewCategory("Super Zombi", sortByDate(getAllAuthorTracks("Super Zombi")))
+	// getAllGenres().forEach(async function(genre){
+	// 	await addNewCategory(genre, sortByDate(getAllTracksByGenre(genre)))
+	// })
+
+	getAllAuthors().forEach(async function(author){
+		await addNewCategory(author, sortByDate(getAllAuthorTracks(author)))
+	})
 	await addNewCategory(LANG.all, sortByDate("all"))
 	overflowed()
 }
@@ -110,7 +116,7 @@ function getAllTracksByGenre(genr, full=true){
 				let track = el
 				let author = e
 				if (full){
-					tracks.push(Object.assign({"author":author,"track":track},tmp[el]))
+					tracks.push(Object.assign({"author":author,"track":track, "href":`${bd[author].path}/${tmp[el].path}`}, tmp[el]))
 				}
 				else{
 					tracks.push({"author":author, "track":track})
