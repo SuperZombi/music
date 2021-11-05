@@ -506,7 +506,7 @@ i{
 #swicher{
 	position: absolute;
 	top: 8px;
-	right: 12px;
+	right: 14px;
 	transform: scale(0.95);
 }
 #moon{
@@ -574,6 +574,9 @@ i{
 	#header_ svg{height: 65px;margin-left: 5px;}
 	#toTop{
 		height: 80px;
+	}
+	#swicher{
+		right: 10px;
 	}
 	#support a{
 		font-size: 1.5em;
