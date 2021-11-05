@@ -306,7 +306,7 @@ hr{
 }
 #support a{
 	text-decoration: none;
-	font-size: 20pt;
+	font-size: 1.55em;
 	display: inline-block;
 	margin: 15px;
 	color: black;
@@ -314,12 +314,13 @@ hr{
 	border-radius: 25px;
 	padding: 5px 20px;
 	transition: 0.3s;
+	white-space: nowrap;
 }
 #support a:hover{
 	padding: 5px 40px;
 }
 #support a img{
-	height: 26px;
+	height: 25px;
 	vertical-align: top;
 	margin-right: 15px;
 }
@@ -564,6 +565,17 @@ i{
 	#header_ svg{height: 65px;margin-left: 5px;}
 	#toTop{
 		height: 80px;
+	}
+	#support a{
+		font-size: 1.5em;
+		padding: 5px 15px;
+	}
+	#support a img{
+		height: 22px;
+		margin-right: 10px;
+	}
+	#support a:hover{
+		padding: 5px 25px;
 	}
 	#main_page table{
 		font-size: 14pt;
