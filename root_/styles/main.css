@@ -160,7 +160,7 @@ body{
 	transition: 0.4s;
 }
 #artist{
-	font-size: 1em;
+	font-size: 1.1em;
 	display: inline-block;
 	color: black;
 	transition: 0.4s;
@@ -428,7 +428,7 @@ i{
 .category_title{
 	font-family: 'Balsamiq Sans', cursive;
 	font-size: 30pt;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	margin-left: 10px;
 }
 .category_body{
