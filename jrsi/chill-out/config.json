@@ -4,13 +4,13 @@ config = {
 	"genre": "Trap",  // обязательно
 	"main_img": "MyLogo.jpg", // обязательно
 	"allow_download": true, // Разрешить скачивание (true-ДА / false-НЕТ)(не обязательно)
-	"download_file": "JrSi - CHILL OUT (MINUS).mp3", // Если предыдущее, то обязательно
+	"download_file": "JrSi - CHILL OUT {MINUS}.mp3", // Если предыдущее, то обязательно
 
 	"links": { // Ссылки (все не обязательно)
 		"soundcloud": "https://soundcloud.com/jr_00_si/jrsi-chill-out-minus"
 	},
 
-	"audio_preview": "JrSi - CHILL OUT (MINUS).mp3", // Предпросмотр аудио (не обязательно)
+	"audio_preview": "JrSi - CHILL OUT {MINUS}.mp3", // Предпросмотр аудио (не обязательно)
 	"show_time": true, // Показывать время под плеером (не обязательно)
 	"animate_time": true, // Анимированное время (true/false)(не обязательно)
 }
