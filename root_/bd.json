@@ -22,4 +22,15 @@ bd = {
 			},
 		}
 	},
+	"JrSi": {
+		"path":"jrsi",
+		"tracks":{
+			"Chill Out (Minus)":{
+				"path":"chill-out",
+				"image":"MyLogo.jpg",
+				"genre": "Trap",
+				"date":"30.06.2020"
+			}
+		}
+	}
 }
