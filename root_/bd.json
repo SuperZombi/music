@@ -36,6 +36,12 @@ bd = {
 				"image":"MyLogo.jpg",
 				"genre": "Trap",
 				"date":"04.11.2020"
+			},
+			"Merry Christmas":{
+				"path":"merry-christmas",
+				"image":"MyLogo.png",
+				"genre": "Trap",
+				"date":"09.12.2020"
 			}
 		}
 	}
