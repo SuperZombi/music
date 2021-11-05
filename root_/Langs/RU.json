@@ -26,6 +26,9 @@ LANG = {
 	"subject_post": "Zombi Music - Сотрудничество",
 	"watch_r": "Посмотреть требования",
 
+	"site_desc_title": "О нас",
+	"site_desc": "Этот сайт позволяет музыкантам собрать все ссылки на их треки в одном месте",
+
 	//Requirements
 	"requirements_title": "Требования",
 	"limitation": "Ограничение",
