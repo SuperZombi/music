@@ -182,15 +182,21 @@ hr{
 	height: 100%;
 	transition: all 1s;
 }
+#waveform{
+	width: calc(100% - 57px);
+	display: inline-block;
+	padding-right: 5px;
+}
 #player{
-	padding: 0 10px;
+	padding-bottom: 5px;
 	height: 72px;
 	transition: 0.3s;
 	overflow: hidden;
 }
 #player i{
 	font-size: 30px;
-	margin-right: 10px;
+	margin-right: 12px;
+	margin-left: 10px;
 	float: left;
 	cursor: pointer;
 	top: 25px;
@@ -209,12 +215,14 @@ hr{
 	float: right;
 	transition: 0.3s;
 	color: black;
+	margin-right: 10px;
 }
 #time-current{
 	display: none;
 	float: left;
 	transition: 0.3s;
 	color: black;
+	margin-left: 10px;
 }
 
 .link{
