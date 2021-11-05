@@ -25,7 +25,7 @@ bd = {
 	"JrSi": {
 		"path":"jrsi",
 		"tracks":{
-			"Chill Out (Minus)":{
+			"Chill Out":{
 				"path":"chill-out",
 				"image":"MyLogo.jpg",
 				"genre": "Trap",
