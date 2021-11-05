@@ -30,6 +30,12 @@ bd = {
 				"image":"MyLogo.jpg",
 				"genre": "Trap",
 				"date":"30.06.2020"
+			},
+			"Dystopia 2015":{
+				"path":"dystopia",
+				"image":"MyLogo.jpg",
+				"genre": "Trap",
+				"date":"04.11.2020"
 			}
 		}
 	}
