@@ -137,6 +137,9 @@ i{
     border: 1px solid white !important;
     color: white !important;
 }
+.about_box:hover{
+    background: #345171 !important;
+}
 .track_name{
     color: white !important;
 }
