@@ -25,6 +25,9 @@ LANG = {
 	"subject_report": "Zombi Music - Complaint",
 	"subject_post": "Zombi Music - Cooperation",
 	"watch_r": "View Requirements",
+	
+	"site_desc_title": "About Us",
+	"site_desc": "This site allows musicians to collect all links to their tracks in one place.",
 
 	//Requirements
 	"requirements_title": "Requirements",
