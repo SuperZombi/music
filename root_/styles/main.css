@@ -113,6 +113,8 @@ body{
 #header_ img{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
 #header_ a{position: relative;z-index: 4;text-decoration: none;color: black;transition: 0.35s;}
 #header_ svg{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
+
+/*
 #svg_eyes{
 	animation: eyes_blink 2.5s infinite;
 	transition: 1s;
@@ -130,7 +132,7 @@ body{
 	100%{
 		fill: black;
 	}
-}
+}*/
 
 #page{
   max-width: 380px;
