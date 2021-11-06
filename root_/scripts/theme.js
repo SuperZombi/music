@@ -80,6 +80,7 @@ function change_switcher(){
 		document.getElementById("dark_file").remove()
 		document.getElementById("swicher").title = LANG.dark
 		location.hash = `#${language}#light`
+		window.localStorage.setItem('theme', 'light');
 	}
 	else{
 		var l = document.createElement("link")
@@ -89,6 +90,7 @@ function change_switcher(){
 		document.head.appendChild(l)
 		document.getElementById("swicher").title = LANG.light
 		location.hash = `#${language}#dark`
+		window.localStorage.setItem('theme', 'dark');
 	}
 	darkThemeMq = !darkThemeMq
 	setTimeout(function(){
