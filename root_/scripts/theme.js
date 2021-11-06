@@ -32,15 +32,15 @@ if (th){
 		l.setAttribute("id", "dark_file");
 		document.head.appendChild(l)
 		change_switcher_title()
-		localStorage.setItem('theme', 'dark');
+		window.localStorage.setItem('theme', 'dark');
 	}
 	else{
 		darkThemeMq = false
-		localStorage.setItem('theme', 'light');
+		window.localStorage.setItem('theme', 'light');
 	}
 }
 else{
-	var tmp_th = localStorage.getItem('theme')
+	var tmp_th = window.localStorage.getItem('theme')
 	if(tmp_th){
 		if (tmp_th == "dark"){
 			darkThemeMq = true
@@ -64,10 +64,10 @@ else{
 			l.setAttribute("id", "dark_file");
 			document.head.appendChild(l)
 			change_switcher_title()
-			localStorage.setItem('theme', 'dark');
+			window.localStorage.setItem('theme', 'dark');
 		}
 		else{
-			localStorage.setItem('theme', 'light');
+			window.localStorage.setItem('theme', 'light');
 		}
 	}
 }
