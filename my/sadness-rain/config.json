@@ -13,7 +13,7 @@ config = {
 		// "apple_music": "https://music.apple.com/us/album/marionette-life/1591445674",
 		// "deezer": "https://deezer.page.link/yVFYZmBEjHhs84ZP8",
 		"soundcloud": "https://soundcloud.com/super-zombi/sadness-rain",
-		// "newgrounds": "https://www.newgrounds.com/audio/listen/1087206"
+		"newgrounds": "https://www.newgrounds.com/audio/listen/1093155"
 	},
 
 	"audio_preview": "Super Zombi - Sadness Rain.mp3",
