@@ -259,11 +259,13 @@ let $mm = Object.assign((s, attrs) => {
 const fragment = document.createDocumentFragment();
 
 const root = $mm.createSvg('svg', {
-  viewBox: `0 0 ${window.innerWidth} ${window.innerHeight}` });
+  viewBox: `0 0 ${body_.offsetWidth} ${body_.offsetHeight}`,
+  style: "margin: auto;"
+});
 
 fragment.append(root);
 
-window.addEventListener('resize', () => root.attr('viewBox', `0 0 ${window.innerWidth} ${window.innerHeight}`));
+window.addEventListener('resize', () => root.attr('viewBox', `0 0 ${body_.offsetWidth} ${body_.offsetHeight}`));
 
 let side = [-60, 0];
 let cBot = [side[0], 70];
