@@ -112,7 +112,6 @@ function easter_egg() {
 	}, 2000);
 	if (easter_egg_counter == 0){
 		document.getElementById("leaves_area").style.opacity = ""
-		document.getElementById("leaves_area").style.zIndex = ""
 		document.getElementById("leaves_area").style.position = ""
 		document.getElementById("header").style.overflow = ""
 		document.getElementById("leaves_area").getElementsByTagName("svg")[0].setAttribute("viewBox", 
@@ -154,8 +153,7 @@ function easter_egg() {
 				document.getElementById("easter_egg").remove()
 			}
 		}, 1500)
-		document.getElementById("leaves_area").style.opacity = 0.9
-		document.getElementById("leaves_area").style.zIndex = 4
+		document.getElementById("leaves_area").style.opacity = 0.85
 		document.getElementById("leaves_area").style.position = "fixed"
 		document.getElementById("header").style.overflow = "unset"
 
