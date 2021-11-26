@@ -16,7 +16,7 @@ config = {
 		// "newgrounds": "https://www.newgrounds.com/audio/listen/1087206"
 	},
 
-	"audio_preview": "https://superzombi.github.io/music/my/sadness-rain/Super Zombi - Sadness Rain.mp3",
+	"audio_preview": "Super Zombi - Sadness Rain.mp3",
 	"show_time": true,
 	"animate_time": true,
 	"preview_z": true,
