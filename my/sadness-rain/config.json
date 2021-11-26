@@ -8,8 +8,8 @@ config = {
 
 	"links": {
 		// "spotify": "https://open.spotify.com/track/0ue3sg57vHXVYCQ2BU3F5J",
-		// "youtube_music": "https://music.youtube.com/watch?v=eGfrBP6Ex7w",
-		// "youtube": "https://youtu.be/O7QivUUh3sw",
+		"youtube_music": "https://music.youtube.com/watch?v=FxbbPp3j-uo",
+		"youtube": "https://youtu.be/FxbbPp3j-uo",
 		// "apple_music": "https://music.apple.com/us/album/marionette-life/1591445674",
 		// "deezer": "https://deezer.page.link/yVFYZmBEjHhs84ZP8",
 		"soundcloud": "https://soundcloud.com/super-zombi/sadness-rain",
