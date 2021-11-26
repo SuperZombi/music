@@ -20,6 +20,12 @@ bd = {
 				"genre": "Dubstep",
 				"date":"30.10.2021"
 			},
+			"Sadness Rain":{
+				"path":"sadness-rain",
+				"image":"image.png",
+				"genre": "Lo-Fi",
+				"date":"01.12.2021"
+			},
 		}
 	},
 	"JrSi": {
