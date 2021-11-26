@@ -97,11 +97,72 @@ window.onload = function(){
 	})()
 }
 
+easter_egg_counter = 0
+var easter_egg_timer;
+function easter_egg() {
+	if (easter_egg_timer) {
+		clearTimeout(easter_egg_timer);
+	}
+	easter_egg_timer = setTimeout(function(){
+		easter_egg_counter = 0
+		document.getElementById("main_img").style.borderRadius = "20px"
+		if (document.getElementById("easter_egg")){
+			document.getElementById("easter_egg").remove()
+		}
+	}, 2000);
+	if (easter_egg_counter == 0){
+		document.getElementById("leaves_area").style.opacity = ""
+		document.getElementById("header").style.overflow = ""
+	}
+
+	easter_egg_counter += 1
+	document.getElementById("main_img").style.transition = "0.5s"
+	document.getElementById("main_img").style.cursor = "pointer"
+	document.getElementById("main_img").title = LANG.easter_egg
+
+	if (easter_egg_counter == 5){
+		if (!document.getElementById("easter_egg")){
+			new_div = document.createElement("div")
+			new_div.id = "easter_egg"
+			new_div.innerHTML = 10 - easter_egg_counter
+			document.getElementById("main_img").after(new_div)
+		}
+	}
+	if (easter_egg_counter > 3){
+		document.getElementById("main_img").style.borderRadius = "50%"
+	}
+	else{
+		document.getElementById("main_img").style.borderRadius = "50px"
+	}
+	if (easter_egg_counter > 5){
+		document.getElementById("easter_egg").innerHTML = Math.max(10 - easter_egg_counter, 0)
+	}
+	if (easter_egg_counter == 10){
+		setTimeout(function(){
+		if (document.getElementById("easter_egg")){
+				easter_egg_counter = 0
+				document.getElementById("main_img").style.borderRadius = "20px"
+				document.getElementById("main_img").title = ""
+				document.getElementById("easter_egg").remove()
+			}
+		}, 1500)
+		document.getElementById("leaves_area").style.opacity = 0.9
+		document.getElementById("leaves_area").style.zIndex = 4
+		document.getElementById("header").style.overflow = "unset"
+		document.getElementById("leaves_area").getElementsByTagName("svg")[0].setAttribute("viewBox", 
+			`0 0 ${document.body.offsetWidth} ${document.body.offsetHeight - 20}`)
+	}
+}
+
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
 	set_background()
 
 	build_links()
+
+	document.getElementById("main_img").onclick = function(){
+		easter_egg()
+	}
 
 	if (darkThemeMq){
 		theme_params = {
