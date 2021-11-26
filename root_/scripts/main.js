@@ -113,6 +113,7 @@ function easter_egg() {
 	if (easter_egg_counter == 0){
 		document.getElementById("leaves_area").style.opacity = ""
 		document.getElementById("header").style.overflow = ""
+		document.getElementById("leaves_area").style.zIndex = ""
 	}
 
 	easter_egg_counter += 1
