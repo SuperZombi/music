@@ -136,7 +136,7 @@ function easter_egg() {
 		}
 	}
 	if (easter_egg_counter > 3){
-		document.getElementById("main_img").style.borderRadius = "50%"
+		document.getElementById("main_img").style.borderRadius = "40%"
 	}
 	else{
 		document.getElementById("main_img").style.borderRadius = "50px"
