@@ -38,5 +38,7 @@ LANG = {
 	"image": "Image file",
 	"audio": "Audio file",
 
-	"config_example": "Example of <i>config.json</i>"
+	"config_example": "Example of <i>config.json</i>",
+
+	"easter_egg": "Click a few more times"
 }
