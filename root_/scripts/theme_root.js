@@ -1,16 +1,37 @@
 /* Leaves */
-(function leaves_(){
+// (function leaves_(){
+//   if (typeof leaves_area !== 'undefined'){
+// 	var lea = document.createElement("link")
+// 	lea.rel = "stylesheet"
+// 	lea.setAttribute("href", "root_/styles/leaves.css");
+// 	document.head.appendChild(lea)
+// 	var scr = document.createElement("script")
+// 	scr.setAttribute("src", "root_/scripts/leaves.js");
+// 	document.head.appendChild(scr)   
+//   }
+//   else{
+//     setTimeout(function(){leaves_()}, 500)
+//   }
+// })()
+/**/
+
+/* Snowflakes */
+(function snowflakes(){
   if (typeof leaves_area !== 'undefined'){
-	var lea = document.createElement("link")
-	lea.rel = "stylesheet"
-	lea.setAttribute("href", "root_/styles/leaves.css");
-	document.head.appendChild(lea)
-	var scr = document.createElement("script")
-	scr.setAttribute("src", "root_/scripts/leaves.js");
-	document.head.appendChild(scr)   
+		var lea = document.createElement("link")
+		lea.rel = "stylesheet"
+		lea.setAttribute("href", "root_/styles/snowfall.css");
+		document.head.appendChild(lea)
+		document.getElementById("leaves_area").innerHTML = `
+			<snowfall style="height:inherit;color:#43c7fa;">
+				${'<snowflake><span>❄</span></snowflake>'.repeat(20)}
+				${'<snowflake><span>•</span></snowflake>'.repeat(20)}
+				${'<snowflake><span>.</span></snowflake>'.repeat(20)}
+			</snowfall>
+		`
   }
   else{
-    setTimeout(function(){leaves_()}, 500)
+    setTimeout(function(){snowflakes()}, 500)
   }
 })()
 /**/
