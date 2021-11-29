@@ -23,7 +23,7 @@
 		lea.setAttribute("href", "../../root_/styles/snowfall.css");
 		document.head.appendChild(lea)
 		document.getElementById("leaves_area").innerHTML = `
-			<snowfall style="height:inherit;color:#43c7fa;">
+			<snowfall style="height:inherit;position:absolute;color:#43c7fa;">
 				${'<snowflake><span>❄</span></snowflake>'.repeat(20)}
 				${'<snowflake><span>•</span></snowflake>'.repeat(20)}
 				${'<snowflake><span>.</span></snowflake>'.repeat(20)}
