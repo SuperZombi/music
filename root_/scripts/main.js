@@ -83,7 +83,7 @@ function build_links(){
 
 window.onload = function(){
 	(function load_page(){
-		if (typeof header !== 'undefined' && typeof body !== 'undefined' && typeof footer !== 'undefined'){
+		if (typeof header !== 'undefined' && typeof body !== 'undefined' && typeof footer !== 'undefined' && darkThemeMq !== 'undefined'){
 			document.body.innerHTML += header
 			document.body.innerHTML += body
 			document.body.innerHTML += footer
@@ -111,6 +111,12 @@ function easter_egg() {
 		}
 	}, 2000);
 	if (easter_egg_counter == 0){
+		// Snowflakes
+		document.getElementById("leaves_area").getElementsByTagName("snowfall")[0].style.height = "inherit"
+		document.getElementById("leaves_area").style.opacity = ""
+
+		/*
+		// Leaves
 		document.getElementById("leaves_area").style.opacity = ""
 		document.getElementById("leaves_area").style.position = ""
 		document.getElementById("header").style.overflow = ""
@@ -119,7 +125,7 @@ function easter_egg() {
 		
 		window.addEventListener('resize', () => document.getElementById("leaves_area").getElementsByTagName("svg")[0].setAttribute("viewBox", 
 		 	`0 0 ${document.getElementById("leaves_area").offsetWidth} ${document.getElementById("leaves_area").offsetHeight}`));
-
+		*/
 	}
 
 	easter_egg_counter += 1
@@ -136,7 +142,7 @@ function easter_egg() {
 		}
 	}
 	if (easter_egg_counter > 3){
-		document.getElementById("main_img").style.borderRadius = "40%"
+		document.getElementById("main_img").style.borderRadius = "50%"
 	}
 	else{
 		document.getElementById("main_img").style.borderRadius = "50px"
@@ -153,6 +159,13 @@ function easter_egg() {
 				document.getElementById("easter_egg").remove()
 			}
 		}, 1500)
+
+		// Snowflakes
+		document.getElementById("leaves_area").getElementsByTagName("snowfall")[0].style.height = "unset"
+		document.getElementById("leaves_area").style.opacity = 0.85
+
+		/*
+		// Leaves
 		document.getElementById("leaves_area").style.opacity = 0.85
 		document.getElementById("leaves_area").style.position = "fixed"
 		document.getElementById("header").style.overflow = "unset"
@@ -162,6 +175,7 @@ function easter_egg() {
 
 		window.addEventListener('resize', () => document.getElementById("leaves_area").getElementsByTagName("svg")[0].setAttribute("viewBox", 
 		 	`0 0 ${document.body.offsetWidth} ${document.body.offsetHeight}`));
+		*/
 	}
 }
 
