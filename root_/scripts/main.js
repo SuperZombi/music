@@ -114,6 +114,7 @@ function easter_egg() {
 		// Snowflakes
 		document.getElementById("leaves_area").getElementsByTagName("snowfall")[0].style.height = "inherit"
 		document.getElementById("leaves_area").style.opacity = ""
+		document.getElementById("leaves_area").style.position = ""
 		document.getElementById("header").style.overflow = ""
 
 		/*
@@ -163,6 +164,7 @@ function easter_egg() {
 
 		// Snowflakes
 		document.getElementById("leaves_area").getElementsByTagName("snowfall")[0].style.height = "100vh"
+		document.getElementById("leaves_area").style.position = "fixed"
 		document.getElementById("leaves_area").style.opacity = 0.85
 		document.getElementById("header").style.overflow = "unset"
 
