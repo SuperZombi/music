@@ -16,7 +16,7 @@ window.onload = function() {
 }
 window.onresize = function(){ overflowed() }
 window.orientationchange = function(){ overflowed() }
-window.onscroll = function(){showScrollTop()}
+window.onscroll = function(){showScrollTop(); footer_anim();}
 
 
 async function main(){
@@ -25,10 +25,11 @@ async function main(){
 	// })
 
 	getAllAuthors().forEach(async function(author){
-		await addNewCategory(author, sortByDate(getAllAuthorTracks(author)))
+		await addNewCategory(author, sortByDate(getAllAuthorTracks(author)), bd[author].path)
 	})
 	await addNewCategory(LANG.all, sortByDate("all"))
 	overflowed()
+	footer_anim()
 }
 
 
@@ -40,6 +41,28 @@ function showScrollTop(){
 	else{
 		document.getElementById("toTop").style.bottom = "-50%"
 	}
+}
+function footer_anim(){
+	var timer;
+	var footer_ = document.getElementById("footer");
+	if (window.scrollY < 50){
+		if (timer){
+			clearTimeout(timer);
+		}
+		footer_.style.position = "fixed"
+		footer_.style.bottom = "0"
+		footer_.style.padding = "10px 0"
+		footer_.style.opacity = "0.9"
+		footer_.getElementsByTagName("div")[0].style.marginTop = "10px"
+	}
+	else{
+		footer_.style.bottom = "-25%"
+		footer_.style.padding = ""
+		footer_.style.opacity = ""
+		footer_.getElementsByTagName("div")[0].style.marginTop = ""
+		timer = setTimeout(function(){footer_.style.position = "";}, 250)
+	}
+	setTimeout(function(){footer_anim()}, 250)
 }
 function overflowed() {
 	var arr = document.getElementsByClassName('track_name')
@@ -54,7 +77,7 @@ function overflowed() {
 		}
 	})
 }
-async function addNewCategory(category_title, tracks){
+async function addNewCategory(category_title, tracks, href){
 	await new Promise((resolve, reject) => {
 		var html = ""
 		tracks.forEach(function(e){
@@ -66,14 +89,26 @@ async function addNewCategory(category_title, tracks){
 				</a>
 			`
 		})
-		document.getElementById("main_page").innerHTML += `
-			<div class="category">
-				<div class="category_title">${category_title}</div>
-				<div class="category_body">
-					${html}
+		if (href){
+			document.getElementById("main_page").innerHTML += `
+				<div class="category">
+					<div class="category_title"><a href="${href}">${category_title}</a></div>
+					<div class="category_body">
+						${html}
+					</div>
 				</div>
-			</div>
-		`;
+			`;
+		}
+		else{
+			document.getElementById("main_page").innerHTML += `
+				<div class="category flexable">
+					<div class="category_title">${category_title}</div>
+					<div class="category_body">
+						${html}
+					</div>
+				</div>
+			`;
+		}
 		resolve()
 	});
 }
