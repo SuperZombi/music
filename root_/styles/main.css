@@ -571,7 +571,7 @@ i{
 	height: 85px;
 	position: fixed;
 	bottom: -50%;
-	right: 0;
+	right: 5px;
 	transition: ease-in-out 0.75s;
 	cursor: pointer;
 }
@@ -598,6 +598,7 @@ i{
 	#header_ svg{height: 65px;margin-left: 5px;}
 	#toTop{
 		height: 80px;
+		right: 0;
 	}
 	#swicher{
 		right: 10px;
