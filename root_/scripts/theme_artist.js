@@ -29,11 +29,49 @@
 				${'<snowflake><span>.</span></snowflake>'.repeat(20)}
 			</snowfall>
 		`
+		lights()
   }
   else{
     setTimeout(function(){snowflakes()}, 500)
   }
 })()
+/**/
+
+/* Lights */
+function lights(){
+		var lea = document.createElement("link")
+		lea.rel = "stylesheet"
+		lea.setAttribute("href", "../root_/styles/lights.css");
+		document.head.appendChild(lea)
+		document.getElementById("leaves_area").innerHTML += `
+        <ul class="line">
+            <li class="red"></li>
+            <li class="yellow"></li>
+            <li class="blue"></li>
+            <li class="pink"></li>
+            <li class="red"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+            <li class="yellow"></li>
+            <li class="red"></li>
+            <li class="pink"></li>
+            <li class="blue"></li>
+            <li class="yellow"></li>
+            <li class="red"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+            <li class="yellow"></li>
+            <li class="red"></li>
+            <li class="pink"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+            <li class="pink"></li>
+            <li class="red"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+        </ul>
+		`
+}
 /**/
 
 function change_switcher_title(){
