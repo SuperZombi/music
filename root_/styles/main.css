@@ -655,3 +655,16 @@ i{
 		height: 150px;
 	}
 }
+
+/**/
+#leaves_area{
+	opacity: 0.6;
+}
+#leaves_area:hover{
+	opacity: 1 !important;
+}
+#header a{
+  backdrop-filter: blur(2px);
+}
+#header_ a{backdrop-filter: blur(2px);border-radius: 50%;}
+/**/
