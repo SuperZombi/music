@@ -122,7 +122,7 @@ hr{
     color: #7ACBFF !important;
     border-bottom: 2px solid #7ACBFF !important;
 }
-i{
+.config_link i{
     color: #009CFF !important;
 }
 .config_link:hover i{
