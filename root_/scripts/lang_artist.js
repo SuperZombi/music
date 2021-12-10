@@ -6,14 +6,13 @@ else{
 	location.hash = language
 }
 
-
 (function executeIfFileExist() {
 	var src = `../../root_/Langs/${language.toUpperCase()}.json`;
-    var xhr = new XMLHttpRequest()
-    xhr.open('HEAD', src, true)
-    xhr.onreadystatechange = function() {
-        if (this.readyState === this.DONE) {
-        	if (xhr.status==200){
+	var xhr = new XMLHttpRequest()
+	xhr.open('HEAD', src, true)
+	xhr.onreadystatechange = function() {
+		if (this.readyState === this.DONE) {
+			if (xhr.status==200){
 				var l = document.createElement("script")
 				l.setAttribute("src", `../root_/Langs/${language.toUpperCase()}.json`);
 				document.head.appendChild(l);
@@ -30,7 +29,7 @@ else{
 					location.hash = `#en#${th}`
 				}
 			}
-        }
-    }
-    xhr.send();
+		}
+	}
+	xhr.send();
 })()
