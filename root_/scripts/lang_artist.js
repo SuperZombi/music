@@ -1,6 +1,10 @@
 if (location.hash){
 	language = location.hash.split("#")[1]
 }
+else if (window.localStorage.getItem('lang')){
+	language = window.localStorage.getItem('lang')
+	location.hash = language
+}
 else{
 	language = window.navigator.language.substr(0, 2)
 	location.hash = language
@@ -16,6 +20,7 @@ else{
 				var l = document.createElement("script")
 				l.setAttribute("src", `../root_/Langs/${language.toUpperCase()}.json`);
 				document.head.appendChild(l);
+				window.localStorage.setItem('lang', language.toUpperCase());
 			}
 			else{
 				var l = document.createElement("script")
