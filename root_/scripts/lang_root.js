@@ -20,7 +20,7 @@ else{
 				var l = document.createElement("script")
 				l.setAttribute("src", `root_/Langs/${language.toUpperCase()}.json`);
 				document.head.appendChild(l);
-				window.localStorage.setItem('lang', language.toUpperCase());
+				window.localStorage.setItem('lang', language);
 			}
 			else{
 				var l = document.createElement("script")
