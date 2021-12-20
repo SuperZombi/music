@@ -37,6 +37,7 @@ LANG = {
 	"f_size": "Размер файла",
 	"image": "Изображение",
 	"audio": "Аудио файл",
+	"create_json": "Создать JSON",
 
 	"config_example": "Пример <i>config.json</i>",
 
