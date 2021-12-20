@@ -687,6 +687,8 @@ hr{
 	margin: 5px 10px;
 }
 .link_button:hover{
+	border-radius: 20px;
+	padding: 8px 12px;
 	color: black;
 	border-color: white;
 	background-color: #E6E6E6;
