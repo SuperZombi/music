@@ -29,7 +29,6 @@
 </head>
 <body>
 	<div id="header">
-		<div id="leaves_area"></div>
 		<a href="../" title="Home">
 			<img src="../root_/images/logo.png">
 			Zombi Music
@@ -38,7 +37,9 @@
 
 	<form onsubmit="sendForm(this);return false;" id="mainForm">
 	<table>
-		<tr><td colspan="2"><h2>New Release</h2></td></tr>
+		<tr><td colspan="2"><h2>New Release</h2>
+			<div id="beta">Beta</div>
+		</td></tr>
 		<tr>
 			<td>Track:</td>
 			<td><input type="text" id="form_track_name" placeholder="Track name" required></td>
@@ -134,7 +135,7 @@
 			</details>	
 		</td>
 		</tr>
-		
+
 		<tr><td colspan="2"><input type="submit"></td></tr>
 	</table>
 	</form>
