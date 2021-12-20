@@ -325,6 +325,7 @@ hr{
 	opacity: 0;
 	display: none;
 	text-align: center;
+	font-family: sans-serif;
 }
 .anim_email{
 	animation: blinking 1.5s infinite;
