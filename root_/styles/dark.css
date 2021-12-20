@@ -163,3 +163,15 @@ hr{
   background: #222222 !important;
   transform:translate(14.5px,-62.5px) !important;
 }
+
+/*  */
+
+.link_button{
+    color: lightgrey !important;
+    border: 2px solid lightgrey !important;
+}
+.link_button:hover{
+    color: white !important;
+    border-color: #555555 !important;
+    background-color: #101010 !important;
+}
