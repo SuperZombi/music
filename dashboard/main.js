@@ -46,7 +46,7 @@ var hosts = {
 async function linkExists(url){
     return await new Promise((resolve, reject) => {
         var http = new XMLHttpRequest();
-        http.open('HEAD', url, true); // true = Asynchronous
+        http.open('GET', url, true); // true = Asynchronous
         http.onreadystatechange = function() {
             if (this.readyState == this.DONE) {
                 if (this.status === 200) {
