@@ -43,36 +43,38 @@ var hosts = {
     'soundcloud': ["https://soundcloud.com"],
     'newgrounds': ["https://www.newgrounds.com"]
 }
-async function linkExists(url){
-    return await new Promise((resolve, reject) => {
-        var http = new XMLHttpRequest();
-        http.open('GET', url, true); // true = Asynchronous
-        http.onreadystatechange = function() {
-            if (this.readyState == this.DONE) {
-                if (this.status === 200) {
-                    resolve(true)
-                }
-                else{
-                    resolve(false)
-                }
-            }
-            else{
-                resolve(false)
-            }
+function ifUrlExist(url, callback) {
+    let request = new XMLHttpRequest;
+    request.open('GET', url, true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.setRequestHeader('Accept', '*/*');
+    request.onprogress = function(event) {
+        let status = event.target.status;
+        let statusFirstNumber = (status).toString()[0];
+        switch (statusFirstNumber) {
+            case '2':
+                request.abort();
+                return callback(true);
+            default:
+                request.abort();
+                return callback(false);
         };
-        http.send();
-    })
-}
+    };
+    request.send('');
+};
 async function checkLink(target){
     if (target.value){
         const domain = (new URL(target.value)).origin;
         if (hosts[  target.id.split("form_")[1]  ].includes(domain)){
-            if (await linkExists(target.value)){
-                console.log("correct")
-            }
-            else{
-                console.log("NOT")
-            }
+            ifUrlExist(target.value, function(exists) {
+                console.log(exists);
+            });
+            // if (linkExists(target.value)){
+            //     console.log("correct")
+            // }
+            // else{
+            //     console.log("NOT")
+            // }
         }
         else{
             console.log("NOT")
