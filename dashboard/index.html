@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard - Zombi Music</title>
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="../root_/images/logo2.png" type="image/png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="../root_/styles/main.css">
+	<link rel="stylesheet" href="main.css">
+
+	<script src="main.js"></script>
+
+	<script>
+		var darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)").matches
+		if (darkThemeMq) {
+			var l = document.createElement("link")
+			l.rel = "stylesheet"
+			l.setAttribute("href", "../root_/styles/dark.css");
+			document.head.appendChild(l)
+
+			var s = document.createElement("style")
+			s.innerHTML = `
+				.other a{
+					color: yellow;
+				}
+			`
+			document.head.appendChild(s)
+		}
+	</script>
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</head>
+<body>
+	<div id="header">
+		<div id="leaves_area"></div>
+		<a href="../" title="Home">
+			<img src="../root_/images/logo.png">
+			Zombi Music
+		</a>
+	</div>
+
+	<form onsubmit="sendForm(this);return false;" id="mainForm">
+	<table>
+		<tr><td colspan="2"><h2>New Release</h2></td></tr>
+		<tr>
+			<td>Track:</td>
+			<td><input type="text" id="form_track_name" placeholder="Track name" required></td>
+		</tr>
+		<tr>
+			<td>Artist:</td>
+			<td><input type="text" id="form_artist" placeholder="Artist" required></td>
+		</tr>
+		<tr>
+			<td>Genre:</td>
+			<td><input type="text" id="form_genre" placeholder="Genre" required></td>
+		</tr>
+		<tr>
+			<td>Image:</td>
+			<td>
+				<input type="file" id="form_image" accept="image/png, image/jpeg" onchange="checkPhoto(this)" required>
+				<div id="photoLabel" class="checkFile"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>Audio:</td>
+			<td>
+				<input type="file" id="form_audio" accept="audio/mp3" onchange="checkAudio(this)" required>
+				<div id="audioLabel" class="checkFile"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>Release Date:</td>
+			<td><input id="form_release_date" type="date" required></td>
+		</tr>
+		<tr>
+			<td>Allow Download:</td>
+			<td><input id="form_allow_download" type="checkbox" checked></td>
+		</tr>
+
+		<tr><td colspan="2" style="padding-left:0;padding-right:0;"> <hr> </td></tr>
+		<tr><td colspan="2" style="padding-left:0;padding-right:0;">
+			<details>
+			<summary>Links:</summary>
+			
+			<table>
+				<tr>
+					<td><img src="..\root_\images\spotify.svg" alt="Spotify"></td>
+					<td>
+						<input id="form_spotify" onkeyup="checkLink(this)" type="text" placeholder="Optional">
+						<i class="fa-solid fa-square-arrow-up-right" title="Open" onclick="openLink(this)"></i>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="..\root_\images\youtube_music.svg" alt="Youtube Music"></td>
+					<td>
+						<input id="form_youtube_music" onkeyup="checkLink(this)" type="text" placeholder="Optional">
+						<i class="fa-solid fa-square-arrow-up-right" title="Open" onclick="openLink(this)"></i>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="..\root_\images\youtube.svg" alt="Youtube"></td>
+					<td>
+						<input id="form_youtube" onkeyup="checkLink(this)" type="text" placeholder="Optional">
+						<i class="fa-solid fa-square-arrow-up-right" title="Open" onclick="openLink(this)"></i>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="..\root_\images\apple_music.svg" alt="Apple Music"></td>
+					<td>
+						<input id="form_apple_music" onkeyup="checkLink(this)" type="text" placeholder="Optional">
+						<i class="fa-solid fa-square-arrow-up-right" title="Open" onclick="openLink(this)"></i>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="..\root_\images\deezer.svg" alt="Deezer"></td>
+					<td>
+						<input id="form_deezer" onkeyup="checkLink(this)" type="text" placeholder="Optional">
+						<i class="fa-solid fa-square-arrow-up-right" title="Open" onclick="openLink(this)"></i>
+					</td>
+				</tr>
+				<tr>
+					<td><img src="..\root_\images\soundcloud.svg" alt="Soundcloud"></td>
+					<td>
+						<input id="form_soundcloud" onkeyup="checkLink(this)" type="text" placeholder="Optional">
+						<i class="fa-solid fa-square-arrow-up-right" title="Open" onclick="openLink(this)"></i>
+					</td>
+				</tr>
+				<tr>
+					<td><img style="padding: 0 15px;max-width: 75%;" src="..\root_\images\newgrounds.svg" alt="Newgrounds"></td>
+					<td>
+						<input id="form_newgrounds" onkeyup="checkLink(this)" type="text" placeholder="Optional">
+						<i class="fa-solid fa-square-arrow-up-right" title="Open" onclick="openLink(this)"></i>
+					</td>
+				</tr>
+			</table>
+
+			</details>	
+		</td>
+		</tr>
+		
+
+		<tr><td colspan="2"><input type="submit"></td></tr>
+	</table>
+	</form>
+
+	<div class="other">
+		<h2>
+			Unfortunately, moderation is currently working in manual mode. <br>
+			In the future, we will add automatic upload to the server.
+		</h2>
+		<h2>
+			So please add your image, audio and generated json file to archive <br> and send it to this email:
+		</h2>
+		<h3 class="anim_email">
+			<a href="mailto:super.zombi.yt@gmail.com?subject=Zombi Music - Post my Track" target="_blank">
+			super.zombi.yt@gmail.com</a>
+		</h3>
+	</div>
+	
+</body>
+</html>
