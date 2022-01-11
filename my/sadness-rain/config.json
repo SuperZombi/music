@@ -7,11 +7,11 @@ config = {
 	"download_file": "Super Zombi - Sadness Rain.mp3",
 
 	"links": {
-		// "spotify": "https://open.spotify.com/track/0ue3sg57vHXVYCQ2BU3F5J",
-		"youtube_music": "https://music.youtube.com/watch?v=FxbbPp3j-uo",
+		"spotify": "https://open.spotify.com/track/4mvX2wdawZWie0Q7zUFg6b",
+		"youtube_music": "https://music.youtube.com/watch?v=B66bbnhz1TU",
 		"youtube": "https://youtu.be/FxbbPp3j-uo",
 		// "apple_music": "https://music.apple.com/us/album/marionette-life/1591445674",
-		// "deezer": "https://deezer.page.link/yVFYZmBEjHhs84ZP8",
+		"deezer": "https://deezer.page.link/bdAABnu4EyaZREhC6",
 		"soundcloud": "https://soundcloud.com/super-zombi/sadness-rain",
 		"newgrounds": "https://www.newgrounds.com/audio/listen/1093155"
 	},
