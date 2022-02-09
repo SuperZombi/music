@@ -82,7 +82,7 @@ function build_links(){
 window.onload = function(){
 	(function load_page(){
 		if (typeof darkThemeMq === 'undefined'){
-			setTimeout(function(){load_page()}, 500)
+			setTimeout(function(){load_page()}, 100)
 		}
 		else if (typeof header !== 'undefined' && typeof body !== 'undefined' && typeof footer !== 'undefined' && darkThemeMq !== 'undefined'){
 			document.body.innerHTML += header
