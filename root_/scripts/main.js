@@ -235,6 +235,8 @@ function main(){
 	    plugins: plugin
 	}, theme_params));
 
+	window.onresize = function(){setTimeout(function(){wavesurfer.drawBuffer();}, 1000) }
+
 	if(!config.audio_preview){
 		document.getElementById("player").style.display = "none";
 		document.getElementById("hr_").style.display = "none";
