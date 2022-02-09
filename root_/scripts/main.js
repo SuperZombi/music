@@ -7,8 +7,6 @@ function set_background(){
 	}
 	document.getElementById("background").setAttribute('style', comand);	
 }
-window.onresize = function(){ set_background() }
-window.orientationchange = function(){ set_background() }
 
 
 function try_dark(e){
@@ -186,6 +184,8 @@ function easter_egg() {
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
 	set_background()
+	window.onresize = function(){ set_background() }
+	window.orientationchange = function(){ set_background() }
 
 	build_links()
 
