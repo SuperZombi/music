@@ -272,14 +272,14 @@ function tracking(){
 		if (init){
 			totalSeconds = Math.round(wavesurfer.getDuration());
 			minutes = Math.floor(totalSeconds / 60);
-			seconds = totalSeconds % 60;
+			seconds = (totalSeconds % 60).toString().padStart(2, 0);
 			string = minutes + ":" + seconds
 			document.getElementById('time-total').innerText = string
 		}
 		else{
 			totalSeconds = Math.round(wavesurfer.getCurrentTime());
 			minutes = Math.floor(totalSeconds / 60);
-			seconds = totalSeconds % 60;
+			seconds = (totalSeconds % 60).toString().padStart(2, 0);
 			string = minutes + ":" + seconds
 			document.getElementById('time-current').innerText = string
 		}
