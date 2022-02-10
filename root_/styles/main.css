@@ -48,6 +48,7 @@ body{
 #wraper{
 	display: table-row;
 	height: 100%;
+	transition: 0.5s;
 }
 #background{
 	height: 100%;
@@ -275,7 +276,7 @@ hr{
 #share svg{
 	height: 60%;
 }
-#share_manu{
+#share_menu{
 	display: none;
 	height: 60%;
 	width: 80%;
@@ -283,9 +284,23 @@ hr{
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
-	transition: 1s;
+	transform: translate(-50%, -50%) scale(0);
+	opacity: 0;
+	transition: 0.5s;
 	filter: drop-shadow(0px 0px 4px var(--contrast-color));
+	border-radius: 25px;
+}
+#close_share_menu{
+	height: 45px;
+	fill: #FF0028;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#close_share_menu:hover{
+	transform: rotate(-90deg);
 }
 
 #footer{
