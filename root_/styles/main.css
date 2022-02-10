@@ -159,7 +159,6 @@ hr{
 }
 #links_area{
 	border-radius: 0 0 25px 25px;
-	padding-bottom: 5px;
 	background: var(--body-color);
 	height: 100%;
 	transition: all 1s;
@@ -221,7 +220,7 @@ hr{
 	background: #E6E6E6;
 }
 .link:last-child{
-	border-radius: 0 0 20px 20px;
+	border-radius: 0 0 25px 25px;
 	box-shadow: none;
 	border-bottom: none;
 }
@@ -245,18 +244,34 @@ hr{
 	border: 2px solid grey;
 	border-radius: 15px;
 	transition: 0.3s;
+	cursor: pointer;
 }
 .link a:hover{
 	color: black;
 	border-color: white;
 	background-color: white;
 }
-#download{
+.other_link{
+	height: 65px;
 	justify-content: center;
 }
-#download a{
+.other_link svg{
+	width: 50%;
+}
+.other_link span{
+	width: 50%;
+}
+.other_link a{
 	position: unset;
-	margin-left: 10px;
+}
+#share{
+	height: 60px;
+}
+#share a{
+	font-size: 13pt;
+}
+#share svg{
+	height: 60%;
 }
 
 #footer{
