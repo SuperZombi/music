@@ -2,6 +2,7 @@
     --header-color: #222222;
     --body-color: #13181E;
     --page_head-color: #13181E;
+    --contrast-color: white;
 }
 ::-webkit-scrollbar
 {
@@ -15,12 +16,6 @@
 {
     background-color: #555 !important;
 }
-body{
-    color: white !important;
-}
-#header a{
-    color: white !important;
-}
 #header a:hover{
     color: yellow !important;
 }
@@ -28,34 +23,10 @@ body{
     filter: drop-shadow(0 0 1px yellow) !important;
 }
 
-#header_ a{color: white !important;}
-
-#track_name{
-    color: white !important;
-}
-#artist{
-    color: white !important;
-}
 #artist:hover{
     color: yellow !important;
 }
 
-#page{
-    border: 1px solid white !important;
-}
-hr{
-    border-color: white !important;
-    background-color: white !important;
-}
-#player i{
-    color: white !important;
-}
-#time-total{
-    color: white !important;
-}
-#time-current{
-    color: white !important;
-}
 #links_area{
     background: #1A242F !important;
 }
@@ -68,7 +39,6 @@ hr{
     border: 2px solid lightgrey !important;
 }
 .link a:hover{
-    color: white !important;
     border-color: #101010 !important;
     background-color: #101010 !important;
 }
@@ -76,30 +46,17 @@ hr{
     background: #111B25 !important;
 }
 .other_link svg{
-    fill: white !important;
-}
-#footer a{
-    color: white !important;
+    fill: var(--contrast-color);
 }
 #footer a:hover{
     color: yellow !important;
 }
-#footer div{
-    color: white !important;
-}
 
-
-#support a{
-    color: white !important;
-    border: 2px solid white !important;
-}
 
 #main_page table{
-    border: 2px solid white !important;
     background: #252F48 !important;
 }
 #main_page table th {
-  color: white !important;
   border-bottom: 1px solid #37B5A5 !important;
 }
 #main_page table tr:nth-child(2n) {
@@ -109,10 +66,6 @@ hr{
   color: lightgrey !important;
   border-bottom: 1px solid #37B5A5 !important;
   border-right: 1px solid #37B5A5 !important;
-}
-.config_link{
-    color: white !important;
-    border-bottom: 1px dashed white !important;
 }
 .config_link:hover{
     color: #7ACBFF !important;
@@ -130,17 +83,9 @@ hr{
 /* ---------------- */
 .about_box{
     background: #1E2C3C !important;
-    border: 1px solid white !important;
-    color: white !important;
 }
 .about_box:hover{
     background: #345171 !important;
-}
-.track_name{
-    color: white !important;
-}
-.artist{
-    color: white !important;
 }
 
 /* ---------------- */
@@ -166,7 +111,6 @@ hr{
     border: 2px solid lightgrey !important;
 }
 .link_button:hover{
-    color: white !important;
     border-color: #555555 !important;
     background-color: #101010 !important;
 }
