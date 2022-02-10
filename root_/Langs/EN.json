@@ -17,6 +17,7 @@ LANG = {
 	"player_play": "Play",
 	"player_stop": "Pause",
 	"share": "Share",
+	"close": "Close",
 
 	//Support
 	"support_title": "Support",
