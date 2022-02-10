@@ -99,7 +99,7 @@ body{
 /* Phone  */
 @media all and (max-width: 500px), all and (max-height: 160px) {
 	#embed_img > img{
-		height: 100px;
+		height: 120px;
 	}
 	#embed_img > i{
 		transform: scale(2);
