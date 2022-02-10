@@ -17,6 +17,7 @@ LANG = {
 	"player_play": "Воспроизвести",
 	"player_stop": "Приостановить",
 	"share": "Поделиться",
+	"close": "Закрыть",
 
 	//Support
 	"support_title": "Поддержка",
