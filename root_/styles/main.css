@@ -9,6 +9,7 @@
 	--header-color: #EDEEF0;
 	--body-color: white;
 	--page_head-color: #E2E2E2;
+	--contrast-color: black;
 }
 ::-webkit-scrollbar
 {
@@ -37,6 +38,7 @@ html{margin: 0; padding: 0; overflow-x:hidden;}
 body{
 	margin: 0;
 	padding: 0;
+	color: var(--contrast-color);
 	background: var(--body-color);
 	overflow-x: hidden;
 	display: table;
@@ -88,7 +90,7 @@ body{
 	position: relative;
 	z-index: 4;
 	text-decoration: none;
-	color: black;
+	color: var(--contrast-color);
 	transition: 0.35s;
 }
 #header a:hover{
@@ -111,7 +113,7 @@ body{
 
 #header_{position: relative;white-space: nowrap;user-select: none;height: 70px;font-size: 31pt;font-family: 'Architects Daughter', cursive;background: var(--header-color);transition: background 1s;overflow: hidden;}
 #header_ img{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
-#header_ a{position: relative;z-index: 4;text-decoration: none;color: black;transition: 0.35s;}
+#header_ a{position: relative;z-index: 4;text-decoration: none;color: var(--contrast-color);transition: 0.35s;}
 #header_ svg{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
 
 #page{
@@ -124,7 +126,7 @@ body{
 	margin-bottom: 10px;
 	border-radius: 25px;
 	margin-top: 10px;
-	border: 1px solid black;
+	border: 1px solid var(--contrast-color);
 	transition: all 1s;
 }
 #page > img{
@@ -138,13 +140,13 @@ body{
 	font-weight: bold;
 	margin: 10px 0 5px;
 	display: inline-block;
-	color: black;
+	color: var(--contrast-color);
 	transition: 0.4s;
 }
 #artist{
 	font-size: 1.1em;
 	display: inline-block;
-	color: black;
+	color: var(--contrast-color);
 	transition: 0.4s;
 	text-decoration: none;
 }
@@ -153,8 +155,8 @@ body{
 }
 hr{
 	margin-bottom: 0;
-	border-color: black;
-	background-color: black;
+	border-color: var(--contrast-color);
+	background-color: var(--contrast-color);
 	transition: 1s;
 }
 #links_area{
@@ -182,7 +184,7 @@ hr{
 	cursor: pointer;
 	top: 25px;
 	position: relative;
-	color: black;
+	color: var(--contrast-color);
 	transition: 0.5s;
 }
 #player span{
@@ -195,14 +197,14 @@ hr{
 	display: none;
 	float: right;
 	transition: 0.3s;
-	color: black;
+	color: var(--contrast-color);
 	margin-right: 10px;
 }
 #time-current{
 	display: none;
 	float: left;
 	transition: 0.3s;
-	color: black;
+	color: var(--contrast-color);
 	margin-left: 10px;
 }
 
@@ -247,7 +249,7 @@ hr{
 	cursor: pointer;
 }
 .link a:hover{
-	color: black;
+	color: var(--contrast-color);
 	border-color: white;
 	background-color: white;
 }
@@ -273,6 +275,18 @@ hr{
 #share svg{
 	height: 60%;
 }
+#share_manu{
+	display: none;
+	height: 60%;
+	width: 80%;
+	background-color: var(--page_head-color);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: 1s;
+	filter: drop-shadow(0px 0px 4px black);
+}
 
 #footer{
 	background: var(--header-color);
@@ -288,11 +302,11 @@ hr{
 #footer a{
 	font-size: 15pt;
 	text-decoration: none;
-	color: black;
+	color: var(--contrast-color);
 	transition: 0.35s;
 }
 #footer div{
-	color: black;
+	color: var(--contrast-color);
 	margin-top: 20px;
 	font-size: 11pt;
 	transition: 0.35s;
@@ -318,8 +332,8 @@ hr{
 	font-size: 1.55em;
 	display: inline-block;
 	margin: 15px;
-	color: black;
-	border: 2px solid black;
+	color: var(--contrast-color);
+	border: 2px solid var(--contrast-color);
 	border-radius: 25px;
 	padding: 5px 20px;
 	transition: 0.3s;
@@ -364,7 +378,7 @@ hr{
 	font-family: sans-serif;
 }
 #main_page table{
-	border: 2px solid black;
+	border: 2px solid var(--contrast-color);
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 15pt;
 	border-collapse: collapse;
@@ -373,7 +387,7 @@ hr{
 	transition: 0.75s;
 }
 #main_page table th {
-  color: black;
+  color: var(--contrast-color);
   border-bottom: 1px solid grey;
   padding: 12px 20px;
   font-size: 16pt;
@@ -397,8 +411,8 @@ hr{
 	margin-top: 50px;
 	font-family: sans-serif;
 	font-size: 13pt;
-	color: black;
-	border-bottom: 1px dashed black;
+	color: var(--contrast-color);
+	border-bottom: 1px dashed var(--contrast-color);
 	padding-bottom: 1px;
   text-decoration: none;
   transition: 0.3s;
@@ -489,11 +503,11 @@ hr{
 	margin: 10px;
 	border-radius: 30px;
 	background: #F3F9FF;
-	border: 1px solid black;
+	border: 1px solid var(--contrast-color);
 	transition: 0.7s;
 	cursor: pointer;
 	text-decoration: none;
-	color: black;
+	color: var(--contrast-color);
 	display: inline-block;
 	text-align: center;
 }
@@ -518,7 +532,7 @@ hr{
 	overflow: hidden;
 	font-size: 1.8em;
 	font-weight: bold;
-	color: black;
+	color: var(--contrast-color);
 	transition: 0.5s;
 }
 .marquee {
@@ -537,7 +551,7 @@ hr{
 }
 .artist{
 	font-size: 1em;
-	color: black;
+	color: var(--contrast-color);
 	transition: 0.5s;
 }
 
@@ -704,7 +718,7 @@ hr{
 .link_button:hover{
 	border-radius: 20px;
 	padding: 8px 12px;
-	color: black;
+	color: var(--contrast-color);
 	border-color: white;
 	background-color: #E6E6E6;
 }
