@@ -1,6 +1,7 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
+/* Theme */
 if (params.theme){
 	if (params.theme == "dark"){
 		darkThemeMq = true
@@ -18,6 +19,8 @@ else{
 	darkThemeMq = false
 }
 
+
+/* Lang */
 if (params.lang){
 	language = params.lang
 }
@@ -44,3 +47,12 @@ else{
 	}
 	xhr.send();
 })()
+
+
+/* Border radius */
+if (params.round){
+	roundPage = (params.round === 'true');
+}
+else{
+	roundPage = true;
+}
