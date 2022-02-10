@@ -1,3 +1,8 @@
+:root{
+    --header-color: #222222;
+    --body-color: #13181E;
+    --page_head-color: #13181E;
+}
 ::-webkit-scrollbar
 {
     background-color: #2020 !important;
@@ -11,11 +16,7 @@
     background-color: #555 !important;
 }
 body{
-    background: #13181E !important;
     color: white !important;
-}
-#header{
-    background: #222222 !important;
 }
 #header a{
     color: white !important;
@@ -27,7 +28,6 @@ body{
     filter: drop-shadow(0 0 1px yellow) !important;
 }
 
-#header_{background: #222222 !important;}
 #header_ a{color: white !important;}
 
 #track_name{
@@ -41,7 +41,6 @@ body{
 }
 
 #page{
-    background: #13181E !important;
     border: 1px solid white !important;
 }
 hr{
@@ -78,9 +77,6 @@ hr{
 }
 .other_link svg{
     fill: white !important;
-}
-#footer{
-    background: #222222 !important;
 }
 #footer a{
     color: white !important;
@@ -160,7 +156,6 @@ hr{
   background:#ccd !important;
 }
 #cover{
-  background: #222222 !important;
   transform:translate(14.5px,-62.5px) !important;
 }
 
