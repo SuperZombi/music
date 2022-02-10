@@ -14,10 +14,21 @@ window.onload = function(){
 		}
 	})()
 }
+function checkRoundPage(){
+	try{
+		if (!roundPage){
+			document.getElementById("page").style.borderRadius = "0px"
+		}
+	}
+	catch{
+
+	}
+}
 
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
 	document.body.style.setProperty('background-color', 'unset', 'important');
+	checkRoundPage()
 
 	if (darkThemeMq){
 		theme_params = {
