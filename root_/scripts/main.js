@@ -18,6 +18,50 @@ function try_dark(e){
 	}
 }
 
+var shareMenuTimer;
+function shareMenu(e) {
+	for (let i=0; i<e.path.length;i++){
+		if (e.path[i] == document.getElementById("header")){
+			return
+		}
+	}
+	if (e.target == document.getElementById("close_share_menu")){
+		close()
+		return
+	}
+	if (e.target == document.getElementById("share_menu")){
+		return
+	}
+	function close(){
+		document.getElementById("share_menu").style.transform = "translate(-50%, -50%) scale(0)"
+		document.getElementById("share_menu").style.opacity = 0
+		document.getElementById("wraper").style.pointerEvents = "auto";
+		document.getElementById("wraper").style.userSelect = "auto";
+		document.getElementById("wraper").style.filter = "";
+		document.body.onclick = ""
+		shareMenuTimer = setTimeout(function(){document.getElementById("share_menu").style.display = "none"}, 500)
+	}
+	if (document.getElementById("share_menu").style.display == "block"){
+		close()
+	}
+	else{
+		if (shareMenuTimer){
+			clearTimeout(shareMenuTimer)
+		}
+		document.getElementById("share_menu").style.display = "block"
+		document.getElementById("wraper").style.pointerEvents = "none";
+		document.getElementById("wraper").style.userSelect = "none";
+		document.getElementById("wraper").style.filter = "blur(4px)";
+		setTimeout(function(){
+			document.getElementById("share_menu").style.transform = "translate(-50%, -50%) scale(1)"
+			document.getElementById("share_menu").style.opacity = 1
+		},1)
+		setTimeout(function(){
+			document.body.onclick = function(){shareMenu(event)}
+		}, 500)
+	}
+}
+
 function create_link(name, link, but, img) {
 	if (name == "Download"){
 		document.getElementById("links_area").innerHTML +=
@@ -33,7 +77,7 @@ function create_link(name, link, but, img) {
 		`<div class="link other_link" id="share">
 			<svg viewBox="0 0 24 24"><g><path d="M15,5.63L20.66,12L15,18.37V15v-1h-1c-3.96,0-7.14,1-9.75,3.09c1.84-4.07,5.11-6.4,9.89-7.1L15,9.86V9V5.63 M14,3v6 C6.22,10.13,3.11,15.33,2,21c2.78-3.97,6.44-6,12-6v6l8-9L14,3L14,3z"></path></g></svg>
 			<span>
-				<a>${but}</a>
+				<a onclick="shareMenu(event)">${but}</a>
 			</span>
 		</div>`
 	}
