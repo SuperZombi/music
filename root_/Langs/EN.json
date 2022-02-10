@@ -16,6 +16,7 @@ LANG = {
 	"download": "Download",
 	"player_play": "Play",
 	"player_stop": "Pause",
+	"share": "Share",
 
 	//Support
 	"support_title": "Support",
