@@ -285,7 +285,7 @@ hr{
 	left: 50%;
 	transform: translate(-50%, -50%);
 	transition: 1s;
-	filter: drop-shadow(0px 0px 4px black);
+	filter: drop-shadow(0px 0px 4px var(--contrast-color));
 }
 
 #footer{
@@ -398,7 +398,7 @@ hr{
   transition: 0.75s;
 }
 #main_page table td {
-  color: black;
+  color: var(--contrast-color);
   border-bottom: 1px solid grey;
   border-right:1px solid grey;
   padding: 7px 17px;
