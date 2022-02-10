@@ -16,6 +16,7 @@ LANG = {
 	"download": "Скачать",
 	"player_play": "Воспроизвести",
 	"player_stop": "Приостановить",
+	"share": "Поделиться",
 
 	//Support
 	"support_title": "Поддержка",
