@@ -21,9 +21,20 @@ function try_dark(e){
 function create_link(name, link, but, img) {
 	if (name == "Download"){
 		document.getElementById("links_area").innerHTML +=
-		`<div class="link" id="download">
+		`<div class="link other_link" id="download">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2ZM9.71,10.29,11,11.59V6h2v5.59l1.29-1.29,1.41,1.41L12,15.41,8.29,11.71ZM16,18H8V16h8Z" data-name="Layer 2"/></svg>
-			<a href="${link}" download>${but}</a>
+			<span>
+				<a href="${link}" download>${but}</a>
+			</span>
+		</div>`
+	}
+	else if (name == "Share"){
+		document.getElementById("links_area").innerHTML +=
+		`<div class="link other_link" id="share">
+			<svg viewBox="0 0 24 24"><g><path d="M15,5.63L20.66,12L15,18.37V15v-1h-1c-3.96,0-7.14,1-9.75,3.09c1.84-4.07,5.11-6.4,9.89-7.1L15,9.86V9V5.63 M14,3v6 C6.22,10.13,3.11,15.33,2,21c2.78-3.97,6.44-6,12-6v6l8-9L14,3L14,3z"></path></g></svg>
+			<span>
+				<a>${but}</a>
+			</span>
 		</div>`
 	}
 	else{
@@ -73,6 +84,7 @@ function build_links(){
 			document.getElementById("page").style.paddingBottom = "10px"
 		}
 	}
+	//create_link("Share", "", LANG.share)
 	if (config.allow_download){
 		create_link("Download", config.download_file, LANG.download)
 	}	
