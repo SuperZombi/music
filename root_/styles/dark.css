@@ -3,6 +3,8 @@
     --body-color: #13181E;
     --page_head-color: #13181E;
     --contrast-color: white;
+    --share-element: #080808;
+    --share-element-inside: #1A1A1B;
 }
 ::-webkit-scrollbar
 {
