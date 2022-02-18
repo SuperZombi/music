@@ -20,17 +20,17 @@ function try_dark(e){
 
 var shareMenuTimer;
 function shareMenu(e) {
-	for (let i=0; i<e.path.length;i++){
-		if (e.path[i] == document.getElementById("header")){
-			return
-		}
-	}
 	if (e.target == document.getElementById("close_share_menu")){
 		close()
 		return
 	}
-	if (e.target == document.getElementById("share_menu")){
-		return
+	for (let i=0; i<e.path.length;i++){
+		if (e.path[i] == document.getElementById("header")){
+			return
+		}
+		if (e.path[i] == document.getElementById("share_menu")){
+			return
+		}		
 	}
 	function close(){
 		document.getElementById("share_menu").style.transform = "translate(-50%, -50%) scale(0)"
@@ -60,6 +60,15 @@ function shareMenu(e) {
 			document.body.onclick = function(){shareMenu(event)}
 		}, 500)
 	}
+}
+function copy_link(element){
+	const link = element.parentElement.getElementsByTagName('span')[0].innerHTML
+	const elem = document.createElement('textarea');
+	elem.value = link;
+	document.body.appendChild(elem);
+	elem.select();
+	document.execCommand('copy');
+	document.body.removeChild(elem);
 }
 
 function create_link(name, link, but, img) {
@@ -128,7 +137,7 @@ function build_links(){
 			document.getElementById("page").style.paddingBottom = "10px"
 		}
 	}
-	//create_link("Share", "", LANG.share)
+	create_link("Share", "", LANG.share)
 	if (config.allow_download){
 		create_link("Download", config.download_file, LANG.download)
 	}	
@@ -240,6 +249,12 @@ function easter_egg() {
 	}
 }
 
+function loadRipple(){
+	var l = document.createElement("script")
+	l.setAttribute("src", `../../root_/scripts/ripple.js`);
+	document.head.appendChild(l);
+}
+
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
 	set_background()
@@ -251,6 +266,8 @@ function main(){
 	document.getElementById("main_img").onclick = function(){
 		easter_egg()
 	}
+
+	loadRipple()
 
 	if (darkThemeMq){
 		theme_params = {
