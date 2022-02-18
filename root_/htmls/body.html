@@ -35,7 +35,7 @@ body = `
 	</svg>
 
 	<div class="share-element">
-		<span>${location.host+location.pathname}</span>
+		<span>${location.host+location.pathname.replaceAll("/", "/<wbr>")}</span>
 		<button onclick="copy_link(this)" class="ripple_but" title="${LANG.copy}">🔗</button>
 	</div>
 </div>
