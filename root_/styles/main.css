@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'ripple.css';
 
 :root{
 	scroll-behavior: smooth;
@@ -10,6 +12,8 @@
 	--body-color: white;
 	--page_head-color: #E2E2E2;
 	--contrast-color: black;
+	--share-element: #F7F7F7;
+	--share-element-inside: #E5E5E4;
 }
 ::-webkit-scrollbar
 {
@@ -280,7 +284,7 @@ hr{
 	display: none;
 	height: 70%;
 	width: 65%;
-	background-color: var(--page_head-color);
+	background-color: var(--body-color);
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -289,6 +293,8 @@ hr{
 	transition: 0.5s;
 	filter: drop-shadow(0px 0px 4px var(--contrast-color));
 	border-radius: 25px;
+	text-align: center;
+	font-family: 'Nunito', sans-serif;
 }
 #close_share_menu{
 	height: 45px;
@@ -298,9 +304,41 @@ hr{
 	right: 5px;
 	cursor: pointer;
 	transition: 0.3s;
+	z-index: 4;
 }
 #close_share_menu:hover{
 	transform: rotate(-90deg);
+}
+.share-element{
+	padding: 6px;
+	background: var(--share-element);
+	font-family: 'Roboto', sans-serif;
+	border-radius: 12px;
+	text-align: left;
+	width: 85%;
+	margin: 10px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: 0.5s;
+}
+.share-element > *{
+	background: var(--share-element-inside);
+	padding: 10px 25px;
+	border-radius: 25px;
+	margin: 0 5px;
+	color: var(--contrast-color);
+	font-size: 16px;
+	transition: 0.5s;
+}
+.share-element button{
+	user-select: none;
+	display: flex;
+	justify-content: center;
+	min-width: 70px;
+}
+div.ripple {
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 #footer{
