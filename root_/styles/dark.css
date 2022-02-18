@@ -1,123 +1,123 @@
 :root{
-    --header-color: #222222;
-    --body-color: #13181E;
-    --page_head-color: #13181E;
-    --contrast-color: white;
-    --share-element: #080808;
-    --share-element-inside: #1A1A1B;
+	--header-color: #222222;
+	--body-color: #13181E;
+	--page_head-color: #13181E;
+	--contrast-color: white;
+	--share-element: #080808;
+	--share-element-inside: #1A1A1B;
 }
 ::-webkit-scrollbar
 {
-    background-color: #2020 !important;
+	background-color: #2020 !important;
 }
 ::-webkit-scrollbar-track
 {
-    background-color: #2020 !important;
+	background-color: #2020 !important;
 }
 ::-webkit-scrollbar-thumb
 {
-    background-color: #555 !important;
+	background-color: #555 !important;
 }
 #header a:hover{
-    color: yellow !important;
+	color: yellow !important;
 }
 #header a:hover img{
-    filter: drop-shadow(0 0 1px yellow) !important;
+	filter: drop-shadow(0 0 1px yellow) !important;
 }
 
 #artist:hover{
-    color: yellow !important;
+	color: yellow !important;
 }
 
 #links_area{
-    background: #1A242F !important;
+	background: #1A242F !important;
 }
 .link{
-    box-shadow: inset 0 -2px 9px 0 rgb(255, 255, 255, 0.1) !important;
-    border-bottom: 1px solid rgb(255, 255, 255, 0.1) !important;
+	box-shadow: inset 0 -2px 9px 0 rgb(255, 255, 255, 0.1) !important;
+	border-bottom: 1px solid rgb(255, 255, 255, 0.1) !important;
 }
 .link a{
-    color: lightgrey !important;
-    border: 2px solid lightgrey !important;
+	color: lightgrey !important;
+	border: 2px solid lightgrey !important;
 }
 .link a:hover{
-    border-color: #101010 !important;
-    background-color: #101010 !important;
+	border-color: #101010 !important;
+	background-color: #101010 !important;
 }
 .link:hover{
-    background: #111B25 !important;
+	background: #111B25 !important;
 }
 .other_link svg{
-    fill: var(--contrast-color);
+	fill: var(--contrast-color);
 }
 #footer a:hover{
-    color: yellow !important;
+	color: yellow !important;
 }
 #share_menu{
-    background-color: var(--page_head-color);
+	background-color: var(--page_head-color);
 }
 div.ripple {
-  background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.7);
 }
 
 #main_page table{
-    background: #252F48 !important;
+	background: #252F48 !important;
 }
 #main_page table th {
-  border-bottom: 1px solid #37B5A5 !important;
+	border-bottom: 1px solid #37B5A5 !important;
 }
 #main_page table tr:nth-child(2n) {
-  background: #303B56 !important;
+	background: #303B56 !important;
 }
 #main_page table td {
-  color: lightgrey !important;
-  border-bottom: 1px solid #37B5A5 !important;
-  border-right: 1px solid #37B5A5 !important;
+	color: lightgrey !important;
+	border-bottom: 1px solid #37B5A5 !important;
+	border-right: 1px solid #37B5A5 !important;
 }
 .config_link:hover{
-    color: #7ACBFF !important;
-    border-bottom: 2px solid #7ACBFF !important;
+	color: #7ACBFF !important;
+	border-bottom: 2px solid #7ACBFF !important;
 }
 .config_link i{
-    color: #009CFF !important;
+	color: #009CFF !important;
 }
 .config_link:hover i{
-    color: #7ACBFF !important;
+	color: #7ACBFF !important;
 }
 
 
 
 /* ---------------- */
 .about_box{
-    background: #1E2C3C !important;
+	background: #1E2C3C !important;
 }
 .about_box:hover{
-    background: #345171 !important;
+	background: #345171 !important;
 }
 
 /* ---------------- */
 #moon{
-  background: #eef !important;
-  border: none !important;
-  filter: none !important;
+	background: #eef !important;
+	border: none !important;
+	filter: none !important;
 }
 #moonspot1{
-  background:#ccd !important;
+	background:#ccd !important;
 }
 #moonspot2{
-  background:#ccd !important;
+	background:#ccd !important;
 }
 #cover{
-  transform:translate(14.5px,-62.5px) !important;
+	transform:translate(14.5px,-62.5px) !important;
 }
 
 /*  */
 
 .link_button{
-    color: lightgrey !important;
-    border: 2px solid lightgrey !important;
+	color: lightgrey !important;
+	border: 2px solid lightgrey !important;
 }
 .link_button:hover{
-    border-color: #555555 !important;
-    background-color: #101010 !important;
+	border-color: #555555 !important;
+	background-color: #101010 !important;
 }
