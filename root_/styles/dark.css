@@ -53,7 +53,12 @@
 #footer a:hover{
     color: yellow !important;
 }
-
+#share_menu{
+    background-color: var(--page_head-color);
+}
+div.ripple {
+  background-color: rgba(255, 255, 255, 0.7);
+}
 
 #main_page table{
     background: #252F48 !important;
