@@ -122,8 +122,8 @@ body{
 #header_ svg{pointer-events: none;vertical-align: bottom;height: 70px;margin-left: 10px;filter: drop-shadow(0 0 1px white);transition: 0.2s;}
 
 #page{
-  max-width: 380px;
-  background: var(--page_head-color);
+	max-width: 380px;
+	background: var(--page_head-color);
 	margin: auto;
 	text-align: center;
 	font-family: 'Nunito', sans-serif;
@@ -217,10 +217,10 @@ hr{
 	height: 70px;
 	display: flex;
 	justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  transition: 0.35s;
-  box-shadow: inset 0 -2px 9px 0 rgb(0, 0, 0, 0.1);
+	align-items: center;
+	position: relative;
+	transition: 0.35s;
+	box-shadow: inset 0 -2px 9px 0 rgb(0, 0, 0, 0.1);
 	border-bottom: 1px solid rgb(0, 0, 0, 0.1);
 }
 .link:hover{
@@ -378,7 +378,7 @@ div.ripple {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-  align-items: center;
+	align-items: center;
 }
 #support a{
 	text-decoration: none;
@@ -440,22 +440,22 @@ div.ripple {
 	transition: 0.75s;
 }
 #main_page table th {
-  color: var(--contrast-color);
-  border-bottom: 1px solid grey;
-  padding: 12px 20px;
-  font-size: 16pt;
-  transition: 0.75s;
+	color: var(--contrast-color);
+	border-bottom: 1px solid grey;
+	padding: 12px 20px;
+	font-size: 16pt;
+	transition: 0.75s;
 }
 #main_page table tr:nth-child(2n) {
-  background: #DFE7EE;
-  transition: 0.75s;
+	background: #DFE7EE;
+	transition: 0.75s;
 }
 #main_page table td {
-  color: var(--contrast-color);
-  border-bottom: 1px solid grey;
-  border-right:1px solid grey;
-  padding: 7px 17px;
-  transition: 0.75s;
+	color: var(--contrast-color);
+	border-bottom: 1px solid grey;
+	border-right:1px solid grey;
+	padding: 7px 17px;
+	transition: 0.75s;
 }
 #main_page table tr:last-child td { border-bottom: none; }
 #main_page table td:last-child { border-right: none; }
@@ -467,8 +467,8 @@ div.ripple {
 	color: var(--contrast-color);
 	border-bottom: 1px dashed var(--contrast-color);
 	padding-bottom: 1px;
-  text-decoration: none;
-  transition: 0.3s;
+	text-decoration: none;
+	transition: 0.3s;
 }
 .config_link:hover{
 	color: blue;
@@ -504,8 +504,8 @@ div.ripple {
 	text-decoration: none;
 	color: inherit;
 	display: inline-block;
-  position: relative;
-  padding: 0.2em 0;
+	position: relative;
+	padding: 0.2em 0;
 }
 .category_title > a::after {
 	content: '';
@@ -535,9 +535,9 @@ div.ripple {
 }
 .flexable > .category_body{
 	display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
 }
 #artist_image{
 	margin-top: 10px !important;
@@ -617,37 +617,37 @@ div.ripple {
 	cursor: pointer;
 }
 #moon{
-  width:50px;
-  height:50px;
-  background:#F6D602;
-  border-radius:50%;
-  transition: 1s;
-  border: 2px solid #f5eb71;
-  filter: drop-shadow(0 0 5px yellow);
+	width:50px;
+	height:50px;
+	background:#F6D602;
+	border-radius:50%;
+	transition: 1s;
+	border: 2px solid #f5eb71;
+	filter: drop-shadow(0 0 5px yellow);
 }
 #moonspot1{
-  width:8px;
-  height:8px;
-  background:#F6D602;
-  border-radius:50%;
-  transform:translate(4px,20px);
-  transition:all 1s;
+	width:8px;
+	height:8px;
+	background:#F6D602;
+	border-radius:50%;
+	transform:translate(4px,20px);
+	transition:all 1s;
 }
 #moonspot2{
-  width:5px;
-  height:5px;
-  background:#F6D602;
-  border-radius:50%;
-  transform:translate(10px,22px);
-  transition:all 1s;
+	width:5px;
+	height:5px;
+	background:#F6D602;
+	border-radius:50%;
+	transform:translate(10px,22px);
+	transition:all 1s;
 }
 #cover{
-  width:50px;
-  height:50px;
-  background: var(--header-color);
-  border-radius:50%;
-  transform:translate(42px,-92px);
-  transition:all 1s;
+	width:50px;
+	height:50px;
+	background: var(--header-color);
+	border-radius:50%;
+	transform:translate(42px,-92px);
+	transition:all 1s;
 }
 
 #toTop{
@@ -663,7 +663,7 @@ div.ripple {
 /* Phone  */
 @media all and (max-width: 500px) {
 	#page{
-	    max-width: 100%;
+			max-width: 100%;
 	}
 	#header{
 		font-size: 27pt;
@@ -707,10 +707,10 @@ div.ripple {
 	}
 	#main_page table th {
 		font-size: 15pt;
-	  padding: 12px 5px;
+		padding: 12px 5px;
 	}
 	#main_page table td {
-	  padding: 7px 5px;
+		padding: 7px 5px;
 	}
 	.category{
 		width: 100vw;
@@ -751,7 +751,7 @@ div.ripple {
 	opacity: 1 !important;
 }
 #header a{
-  backdrop-filter: blur(2px);
+	backdrop-filter: blur(2px);
 }
 #header_ a{backdrop-filter: blur(2px);border-radius: 50%;}
 
