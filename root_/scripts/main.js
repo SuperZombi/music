@@ -62,9 +62,12 @@ function shareMenu(e) {
 	}
 }
 function copy_link(element){
+	function format(text){
+		return text.replaceAll("<wbr>", "")
+	}
 	const link = element.parentElement.getElementsByTagName('span')[0].innerHTML
 	const elem = document.createElement('textarea');
-	elem.value = link;
+	elem.value = format(link);
 	document.body.appendChild(elem);
 	elem.select();
 	document.execCommand('copy');
