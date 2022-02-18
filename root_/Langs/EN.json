@@ -18,6 +18,7 @@ LANG = {
 	"player_stop": "Pause",
 	"share": "Share",
 	"close": "Close",
+	"copy": "Copy",
 
 	//Support
 	"support_title": "Support",
