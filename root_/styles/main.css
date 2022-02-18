@@ -702,6 +702,9 @@ div.ripple {
 		height: 80%;
 		width: 98%;
 	}
+	.share-element{
+		width: 93%;
+	}
 	#main_page table{
 		font-size: 14pt;
 	}
