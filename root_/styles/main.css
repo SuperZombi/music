@@ -282,8 +282,8 @@ hr{
 }
 #share_menu{
 	display: none;
-	height: 70%;
-	width: 65%;
+	height: 65%;
+	width: 50%;
 	background-color: var(--body-color);
 	position: fixed;
 	top: 50%;
@@ -336,6 +336,25 @@ hr{
 	display: flex;
 	justify-content: center;
 	min-width: 70px;
+}
+.share-element.social_network{
+	justify-content: flex-start;
+	white-space: nowrap;
+	overflow-x: auto;
+}
+.share-element .social_network{
+	flex-shrink: 0;
+	padding: 0;
+	width: 60px;
+	min-width: unset;
+	background: transparent;
+	border-radius: 50px;
+	margin: 2px 8px;
+}
+.share-element .social_network img{
+	width: inherit;
+	border-radius: 50px;
+	pointer-events: none;
 }
 div.ripple {
 	background-color: rgba(0, 0, 0, 0.3);
