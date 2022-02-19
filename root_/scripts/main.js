@@ -88,7 +88,7 @@ function open_website(site_name){
 		var link = `https://telegram.me/share/url?url=${location.protocol}//${location.host+location.pathname}&text=${document.title}`
 	}
 	else if (site_name == "viber"){
-		var link = `viber://forward?text=${document.title} ${location.protocol}//${location.host+location.pathname}`
+		var link = `viber://forward?text=${document.title}\n${location.protocol}//${location.host+location.pathname}`
 	}
 	if (link){
 		window.open(encodeURI(link), "_blank");
