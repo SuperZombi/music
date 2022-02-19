@@ -38,6 +38,21 @@ body = `
 		<span>${location.host+location.pathname.replaceAll("/", "/<wbr>")}</span>
 		<button onclick="copy_link(this)" class="ripple_but" title="${LANG.copy}">🔗</button>
 	</div>
+
+	<div class="share-element social_network">
+		<button onclick="open_website('vk')" class="social_network ripple_but" title="VKontakte">
+			<img src="../../root_/images/share/vk.svg">
+		</button>
+		<button onclick="open_website('facebook')" class="social_network ripple_but" title="Facebook">
+			<img src="../../root_/images/share/facebook.svg">
+		</button>
+		<button onclick="open_website('telegram')" class="social_network ripple_but" title="Telegram">
+			<img src="../../root_/images/share/telegram.svg">
+		</button>
+		<button onclick="open_website('viber')" class="social_network ripple_but" title="Viber">
+			<img src="../../root_/images/share/viber.svg">
+		</button>
+	</div>
 </div>
 `
 }
