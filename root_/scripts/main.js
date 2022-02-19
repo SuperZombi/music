@@ -67,7 +67,7 @@ function copy_link(element){
 	}
 	const link = element.parentElement.getElementsByTagName('span')[0].innerHTML
 	const elem = document.createElement('textarea');
-	elem.value = format(link);
+	elem.value = location.protocol + "//" + format(link);
 	document.body.appendChild(elem);
 	elem.select();
 	document.execCommand('copy');
