@@ -73,6 +73,28 @@ function copy_link(element){
 	document.execCommand('copy');
 	document.body.removeChild(elem);
 }
+function open_website(site_name){
+	function image_url(){
+		return new URL(config.main_img, document.baseURI).href
+	}
+
+	if (site_name == "vk"){
+		var link = `https://vk.com/share.php?url=${location.host+location.pathname}&title=${document.title}&description=Zombi Music&image=${image_url()}`
+	}
+	else if (site_name == "facebook"){
+		var link = `https://www.facebook.com/sharer.php?u=${location.host+location.pathname}`
+	}
+	else if (site_name == "telegram"){
+		var link = `https://telegram.me/share/url?url=${location.host+location.pathname}&text=${document.title}`
+	}
+	else if (site_name == "viber"){
+		var link = `viber://forward?text=${document.title} ${location.host+location.pathname}`
+	}
+	if (link){
+		console.log(encodeURI(link))
+		window.open(encodeURI(link), "_blank");
+	}
+}
 
 function create_link(name, link, but, img) {
 	if (name == "Download"){
