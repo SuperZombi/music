@@ -14,6 +14,7 @@
 	--contrast-color: black;
 	--share-element: #F7F7F7;
 	--share-element-inside: #E5E5E4;
+	--notifications-back: rgba(255, 255, 255, 0.7);
 }
 ::-webkit-scrollbar
 {
@@ -271,6 +272,18 @@ hr{
 .other_link a{
 	position: unset;
 }
+#notifications{
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40%;
+	z-index: 10;
+}
+#notifications > * {
+	background: var(--notifications-back);
+	backdrop-filter: blur(2px);
+}
 #share{
 	height: 60px;
 }
@@ -297,6 +310,7 @@ hr{
 	font-family: 'Nunito', sans-serif;
 	z-index: 4;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 #share_menu::-webkit-scrollbar-track
 {
@@ -728,6 +742,9 @@ div.ripple {
 	}
 	#support a:hover{
 		padding: 5px 25px;
+	}
+	#notifications{
+		width: 95%;
 	}
 	#share_menu{
 		height: 80%;
