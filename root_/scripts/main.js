@@ -20,17 +20,20 @@ function try_dark(e){
 
 var shareMenuTimer;
 function shareMenu(e) {
-	if (e.target == document.getElementById("close_share_menu")){
-		close()
-		return
-	}
 	for (let i=0; i<e.path.length;i++){
+		if (e.path[i] == document.getElementById("close_share_menu")){
+			close()
+			return
+		}
 		if (e.path[i] == document.getElementById("header")){
 			return
 		}
 		if (e.path[i] == document.getElementById("share_menu")){
 			return
-		}		
+		}
+		if (e.path[i] == document.getElementById("notifications")){
+			return
+		}	
 	}
 	function close(){
 		document.getElementById("share_menu").style.transform = "translate(-50%, -50%) scale(0)"
@@ -72,6 +75,8 @@ function copy_link(element){
 	elem.select();
 	document.execCommand('copy');
 	document.body.removeChild(elem);
+
+	notice.Success(LANG.copied, 3000)
 }
 function open_website(site_name){
 	function image_url(){
@@ -278,6 +283,21 @@ function loadRipple(){
 	l.setAttribute("src", `../../root_/scripts/ripple.js`);
 	document.head.appendChild(l);
 }
+(function load_notifications() {
+	var l = document.createElement("link")
+	l.rel = "stylesheet"
+	l.setAttribute("href", "https://superzombi.github.io/Notification_JS/notifications.css");
+	document.head.appendChild(l)
+
+	var l = document.createElement("link")
+	l.rel = "stylesheet"
+	l.setAttribute("href", "https://superzombi.github.io/Notification_JS/plugins/simplity.css");
+	document.head.appendChild(l)
+
+	var s = document.createElement("script")
+	s.setAttribute("src", `https://superzombi.github.io/Notification_JS/notifications.js`);
+	document.head.appendChild(s);
+})()
 
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
@@ -292,6 +312,8 @@ function main(){
 	}
 
 	loadRipple()
+
+	notice = Notification('#notifications');
 
 	if (darkThemeMq){
 		theme_params = {
