@@ -295,6 +295,13 @@ hr{
 	border-radius: 25px;
 	text-align: center;
 	font-family: 'Nunito', sans-serif;
+	z-index: 4;
+	overflow-y: auto;
+}
+#share_menu::-webkit-scrollbar-track
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 #close_share_menu{
 	height: 45px;
@@ -304,7 +311,7 @@ hr{
 	right: 5px;
 	cursor: pointer;
 	transition: 0.3s;
-	z-index: 4;
+	z-index: 5;
 }
 #close_share_menu:hover{
 	transform: rotate(-90deg);
@@ -678,7 +685,12 @@ div.ripple {
 	cursor: pointer;
 }
 
-
+@media all and (max-height: 500px) {
+	#share_menu{
+		height: 80%;
+		width: 98%;
+	}
+}
 /* Phone  */
 @media all and (max-width: 500px) {
 	#page{
