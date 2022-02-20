@@ -5,6 +5,7 @@
 	--contrast-color: white;
 	--share-element: #080808;
 	--share-element-inside: #1A1A1B;
+	--notifications-back: rgba(0, 0, 0, 0.7);
 }
 ::-webkit-scrollbar
 {
