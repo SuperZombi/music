@@ -277,12 +277,17 @@ hr{
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 40%;
+	width: 35%;
 	z-index: 10;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 #notifications > * {
 	background: var(--notifications-back);
 	backdrop-filter: blur(2px);
+	width: unset;
+	min-width: 50%;
 }
 #share{
 	height: 60px;
