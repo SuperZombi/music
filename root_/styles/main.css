@@ -289,6 +289,9 @@ hr{
 	width: unset;
 	min-width: 50%;
 }
+#notifications > * > .Message-body{
+	font-size: 15pt;
+}
 #share{
 	height: 60px;
 }
@@ -757,6 +760,12 @@ div.ripple {
 	}
 	.share-element{
 		width: 93%;
+	}
+	#notifications > * > .Message-body{
+		font-size: 14pt;
+	}
+	.share-element .social_network{
+		width: 50px;
 	}
 	#main_page table{
 		font-size: 14pt;
