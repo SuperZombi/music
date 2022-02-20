@@ -288,9 +288,15 @@ hr{
 	backdrop-filter: blur(2px);
 	width: unset;
 	min-width: 50%;
+	margin: 8px auto 8px;
 }
 #notifications > * > .Message-body{
 	font-size: 15pt;
+	text-align: center;
+}
+#notifications > * > .Message-body > p{
+	text-align: center;
+	float: unset;
 }
 #share{
 	height: 60px;
