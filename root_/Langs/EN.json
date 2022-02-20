@@ -19,6 +19,7 @@ LANG = {
 	"share": "Share",
 	"close": "Close",
 	"copy": "Copy",
+	"copied": "Copied!",
 
 	//Support
 	"support_title": "Support",
