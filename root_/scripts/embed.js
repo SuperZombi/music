@@ -33,16 +33,16 @@ function main(){
 	if (darkThemeMq){
 		theme_params = {
 			cursorColor: 'green',
-		    waveColor: 'lightgreen',
-		    progressColor: 'darkgreen'
+			waveColor: 'lightgreen',
+			progressColor: 'darkgreen'
 		}
 		region_color = 'rgb(255, 255, 255, 0.15)'
 	}
 	else{
 		theme_params = {
 			cursorColor: '#00B600',
-		    waveColor: 'darkgreen',
-		    progressColor: '#00D000'
+			waveColor: 'darkgreen',
+			progressColor: '#00D000'
 		}
 		region_color = 'rgb(0, 0, 0, 0.15)'
 	}
@@ -50,27 +50,27 @@ function main(){
 	plugin = []
 	if (config.preview_z){
 		plugin = [WaveSurfer.regions.create({
-            regions: [
-                {	
-                	id: "preview",
-                    start: config.preview_zone[0],
-                    end: config.preview_zone[1],
-                    loop: false,
-                    drag: false,
-                    resize: false,
-                    color: region_color
-                }
-            ]
-        })]
+			regions: [
+				{	
+					id: "preview",
+					start: config.preview_zone[0],
+					end: config.preview_zone[1],
+					loop: false,
+					drag: false,
+					resize: false,
+					color: region_color
+				}
+			]
+		})]
 	}
 
 	wavesurfer = WaveSurfer.create(Object.assign({
 		container: '#waveform',
-	    height: 30,
-	    barWidth: 1,
-	    barHeight: 0.5,
-	    hideScrollbar: true,
-	    plugins: plugin
+		height: 30,
+		barWidth: 1,
+		barHeight: 0.5,
+		hideScrollbar: true,
+		plugins: plugin
 	}, theme_params));
 
 	window.onresize = function(){wavesurfer.drawBuffer();}
@@ -82,10 +82,10 @@ function main(){
 		try{
 			wavesurfer.load(config.audio_preview);
 			wavesurfer.on('ready',_=>{
-			  document.getElementById("play_pause").style.display = "block"
-			  setTimeout(function(){
-			  	document.getElementById("play_pause").style.opacity = 1
-			  	document.getElementById("player").style.opacity = 1
+				document.getElementById("play_pause").style.display = "block"
+				setTimeout(function(){
+				document.getElementById("play_pause").style.opacity = 1
+				document.getElementById("player").style.opacity = 1
 			  }, 1)
 			})
 		}catch{
@@ -127,56 +127,59 @@ function tracking(){
 	}
 
 	wavesurfer.on('ready', function (){
-  		setCurrent(true)
-	    document.getElementById('time-current').innerText = "0:00";
-  	})
+		setCurrent(true)
+		document.getElementById('time-current').innerText = "0:00";
+		wavesurfer_isReady = true;
+	})
 
 	wavesurfer.on('seek', function() {
 		setCurrent()
 	})
 	wavesurfer.on('audioprocess', function() {
-	    if(wavesurfer.isPlaying()) {
-	        setCurrent()
-	    }
+		if(wavesurfer.isPlaying()) {
+			setCurrent()
+		}
 	});
 }
 
 region_play = false;
 function play(e){
-	if (wavesurfer.isPlaying()){
-		e.target.className = "far fa-play-circle"
-		e.target.title = LANG.player_play
-		wavesurfer.pause()
-	}
-	else{
-		if (config.preview_z && !region_play){
-			region_play = true;
-			wavesurfer.regions.list["preview"].play()
-			wavesurfer.on('pause', function() {
-				if (config.preview_z){
-					if (Math.round(wavesurfer.getCurrentTime()*100)/100 == config.preview_zone[1]){
-						region_play = false;
-					    e.target.className = "far fa-play-circle"
-					    e.target.title = LANG.player_play
-						wavesurfer.pause()
-					}
-				}
-			});
-			wavesurfer.on('region-out', function() {
-			    region_play = false;
-			    e.target.className = "far fa-play-circle"
-			    e.target.title = LANG.player_play
-				wavesurfer.pause()
-			});
-		}
-		else{
-			wavesurfer.play()
-		}
-		e.target.className = "far fa-pause-circle"
-		e.target.title = LANG.player_stop
-		wavesurfer.on('finish', function (){
+	if (wavesurfer_isReady){
+		if (wavesurfer.isPlaying()){
 			e.target.className = "far fa-play-circle"
 			e.target.title = LANG.player_play
-	  	})
+			wavesurfer.pause()
+		}
+		else{
+			if (config.preview_z && !region_play){
+				region_play = true;
+				wavesurfer.regions.list["preview"].play()
+				wavesurfer.on('pause', function() {
+					if (config.preview_z){
+						if (Math.round(wavesurfer.getCurrentTime()*100)/100 == config.preview_zone[1]){
+							region_play = false;
+							e.target.className = "far fa-play-circle"
+							e.target.title = LANG.player_play
+							wavesurfer.pause()
+						}
+					}
+				});
+				wavesurfer.on('region-out', function() {
+					region_play = false;
+					e.target.className = "far fa-play-circle"
+					e.target.title = LANG.player_play
+					wavesurfer.pause()
+				});
+			}
+			else{
+				wavesurfer.play()
+			}
+			e.target.className = "far fa-pause-circle"
+			e.target.title = LANG.player_stop
+			wavesurfer.on('finish', function (){
+				e.target.className = "far fa-play-circle"
+				e.target.title = LANG.player_play
+			})
+		}
 	}
 }
