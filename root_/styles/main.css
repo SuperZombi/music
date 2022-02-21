@@ -12,6 +12,7 @@
 	--body-color: white;
 	--page_head-color: #E2E2E2;
 	--contrast-color: black;
+	--loading-wave: grey;
 	--share-element: #F7F7F7;
 	--share-element-inside: #E5E5E4;
 	--notifications-back: rgba(255, 255, 255, 0.7);
@@ -176,7 +177,17 @@ hr{
 	display: inline-block;
 	padding-right: 5px;
 }
+#loading_waveform{
+	width: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	fill: var(--loading-wave);
+	transition: 1s;
+}
 #player{
+	position: relative;
 	padding-bottom: 5px;
 	height: 72px;
 	transition: 0.3s;
