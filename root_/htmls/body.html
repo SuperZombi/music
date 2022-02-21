@@ -16,7 +16,13 @@ body = `
 	<div id="links_area">
 		<div id="player">
 			<i class="far fa-play-circle" title="${LANG.player_play}" onclick="play(event)"></i>
-			<div id="waveform"></div>
+			<div id="waveform">
+				<svg id="loading_waveform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 12">
+					<circle cx="6" cy="6" r="6"><animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1"/></circle>
+					<circle cx="26" cy="6" r="6"><animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.2"/></circle>
+					<circle cx="46" cy="6" r="6"><animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.3"/></circle>
+				</svg>
+			</div>
 			<span id="time-current">0:00</span>
 			<span id="time-total">0:00</span>
 		</div>
