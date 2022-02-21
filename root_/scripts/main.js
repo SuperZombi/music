@@ -218,10 +218,10 @@ function easter_egg() {
 		document.getElementById("leaves_area").style.position = ""
 		document.getElementById("header").style.overflow = ""
 		document.getElementById("leaves_area").getElementsByTagName("svg")[0].setAttribute("viewBox", 
-		 	`0 0 ${document.getElementById("leaves_area").offsetWidth} ${document.getElementById("leaves_area").offsetHeight}`)
+			`0 0 ${document.getElementById("leaves_area").offsetWidth} ${document.getElementById("leaves_area").offsetHeight}`)
 		
 		window.addEventListener('resize', () => document.getElementById("leaves_area").getElementsByTagName("svg")[0].setAttribute("viewBox", 
-		 	`0 0 ${document.getElementById("leaves_area").offsetWidth} ${document.getElementById("leaves_area").offsetHeight}`));
+			`0 0 ${document.getElementById("leaves_area").offsetWidth} ${document.getElementById("leaves_area").offsetHeight}`));
 		*/
 	}
 
@@ -270,10 +270,10 @@ function easter_egg() {
 		document.getElementById("header").style.overflow = "unset"
 
 		document.getElementById("leaves_area").getElementsByTagName("svg")[0].setAttribute("viewBox", 
-		 	`0 0 ${document.body.offsetWidth} ${document.body.offsetHeight}`)
+			`0 0 ${document.body.offsetWidth} ${document.body.offsetHeight}`)
 
 		window.addEventListener('resize', () => document.getElementById("leaves_area").getElementsByTagName("svg")[0].setAttribute("viewBox", 
-		 	`0 0 ${document.body.offsetWidth} ${document.body.offsetHeight}`));
+			`0 0 ${document.body.offsetWidth} ${document.body.offsetHeight}`));
 		*/
 	}
 }
@@ -318,16 +318,16 @@ function main(){
 	if (darkThemeMq){
 		theme_params = {
 			cursorColor: 'green',
-		    waveColor: 'lightgreen',
-		    progressColor: 'darkgreen'
+			waveColor: 'lightgreen',
+			progressColor: 'darkgreen'
 		}
 		region_color = 'rgb(255, 255, 255, 0.15)'
 	}
 	else{
 		theme_params = {
 			cursorColor: '#00B600',
-		    waveColor: 'darkgreen',
-		    progressColor: '#00D000'
+			waveColor: 'darkgreen',
+			progressColor: '#00D000'
 		}
 		region_color = 'rgb(0, 0, 0, 0.15)'
 	}
@@ -335,26 +335,26 @@ function main(){
 	plugin = []
 	if (config.preview_z){
 		plugin = [WaveSurfer.regions.create({
-            regions: [
-                {	
-                	id: "preview",
-                    start: config.preview_zone[0],
-                    end: config.preview_zone[1],
-                    loop: false,
-                    drag: false,
-                    resize: false,
-                    color: region_color
-                }
-            ]
-        })]
+			regions: [
+				{	
+					id: "preview",
+					start: config.preview_zone[0],
+					end: config.preview_zone[1],
+					loop: false,
+					drag: false,
+					resize: false,
+					color: region_color
+				}
+			]
+		})]
 	}
 
 	wavesurfer = WaveSurfer.create(Object.assign({
 		container: '#waveform',
-	    height: 80,
-	    barWidth: 1,
-	    hideScrollbar: true,
-	    plugins: plugin
+		height: 80,
+		barWidth: 1,
+		hideScrollbar: true,
+		plugins: plugin
 	}, theme_params));
 
 	window.onresize = function(){setTimeout(function(){wavesurfer.drawBuffer();}, 1000) }
@@ -410,17 +410,18 @@ function tracking(){
 	}
 
 	wavesurfer.on('ready', function (){
-  		setCurrent(true)
-	    document.getElementById('time-current').innerText = "0:0";
-  	})
+		setCurrent(true)
+		document.getElementById('time-current').innerText = "0:00";
+		wavesurfer_isReady = true;
+	})
 
 	wavesurfer.on('seek', function() {
 		setCurrent()
 	})
 	wavesurfer.on('audioprocess', function() {
-	    if(wavesurfer.isPlaying()) {
-	        setCurrent()
-	    }
+		if(wavesurfer.isPlaying()) {
+			setCurrent()
+		}
 	});
 }
 
@@ -460,57 +461,59 @@ function hide_anim_t(){
 
 region_play = false;
 function play(e){
-	if (wavesurfer.isPlaying()){
-		if (config.show_time && config.animate_time){
-			hide_anim_t()
+	if (wavesurfer_isReady){
+		if (wavesurfer.isPlaying()){
+			if (config.show_time && config.animate_time){
+				hide_anim_t()
+			}
+			
+			e.target.className = "far fa-play-circle"
+			e.target.title = LANG.player_play
+			wavesurfer.pause()
 		}
-		
-		e.target.className = "far fa-play-circle"
-		e.target.title = LANG.player_play
-		wavesurfer.pause()
-	}
-	else{
-		if (config.show_time && config.animate_time){
-			show_anim_t()
-		}
+		else{
+			if (config.show_time && config.animate_time){
+				show_anim_t()
+			}
 
-		if (config.preview_z && !region_play){
-			region_play = true;
-			wavesurfer.regions.list["preview"].play()
-			wavesurfer.on('pause', function() {
-				if (config.preview_z){
-					if (Math.round(wavesurfer.getCurrentTime()*100)/100 == config.preview_zone[1]){
-						region_play = false;
-					    e.target.className = "far fa-play-circle"
-					    e.target.title = LANG.player_play
-						wavesurfer.pause()
-						if (config.animate_time){
-							hide_anim_t()
+			if (config.preview_z && !region_play){
+				region_play = true;
+				wavesurfer.regions.list["preview"].play()
+				wavesurfer.on('pause', function() {
+					if (config.preview_z){
+						if (Math.round(wavesurfer.getCurrentTime()*100)/100 == config.preview_zone[1]){
+							region_play = false;
+							e.target.className = "far fa-play-circle"
+							e.target.title = LANG.player_play
+							wavesurfer.pause()
+							if (config.animate_time){
+								hide_anim_t()
+							}
 						}
 					}
-				}
-			});
-			wavesurfer.on('region-out', function() {
-			    region_play = false;
-			    e.target.className = "far fa-play-circle"
-			    e.target.title = LANG.player_play
-				wavesurfer.pause()
+				});
+				wavesurfer.on('region-out', function() {
+					region_play = false;
+					e.target.className = "far fa-play-circle"
+					e.target.title = LANG.player_play
+					wavesurfer.pause()
+					if (config.animate_time){
+						hide_anim_t()
+					}
+				});
+			}
+			else{
+				wavesurfer.play()
+			}
+			e.target.className = "far fa-pause-circle"
+			e.target.title = LANG.player_stop
+			wavesurfer.on('finish', function (){
+				e.target.className = "far fa-play-circle"
+				e.target.title = LANG.player_play
 				if (config.animate_time){
 					hide_anim_t()
 				}
-			});
-		}
-		else{
-			wavesurfer.play()
-		}
-		e.target.className = "far fa-pause-circle"
-		e.target.title = LANG.player_stop
-		wavesurfer.on('finish', function (){
-			e.target.className = "far fa-play-circle"
-			e.target.title = LANG.player_play
-			if (config.animate_time){
-				hide_anim_t()
-			}
-	  	})
+			})
+		}	
 	}
 }
