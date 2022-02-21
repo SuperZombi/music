@@ -162,7 +162,7 @@ function build_links(){
 		}
 	}
 	else{
-		if (!config.allow_download){
+		if (!config.allow_download && !config.audio_preview){
 			document.getElementById("page").style.paddingBottom = "10px"
 		}
 	}
@@ -413,6 +413,7 @@ function tracking(){
 		setCurrent(true)
 		document.getElementById('time-current').innerText = "0:00";
 		wavesurfer_isReady = true;
+		document.getElementById("loading_waveform").style.display = "none";
 	})
 
 	wavesurfer.on('seek', function() {
