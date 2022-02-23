@@ -1,6 +1,6 @@
 import os
 import time
-from flask import Flask, request, jsonify, send_from_directory, abort
+from flask import Flask, request, jsonify, send_from_directory, abort, redirect
 from flask_cors import CORS
 import json
 app = Flask(__name__)
@@ -16,10 +16,10 @@ def data(filepath):
 	if os.path.exists(p):
 		if os.path.isfile(p):
 			return send_from_directory('data', filepath)
+		if filepath[-1] != "/":
+			return redirect("/" + p + "/")
 		if os.path.isfile(os.path.join(p, 'index.html')):
 			return send_from_directory('data', os.path.join(filepath, 'index.html'))
-		if os.path.isfile(os.path.join(p, 'config.json')):
-			return send_from_directory('data', os.path.join(filepath, 'config.json'))
 	if os.path.isfile(p + '.html'):
 		return send_from_directory('data', filepath + '.html')
 	abort(404)
