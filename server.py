@@ -62,6 +62,31 @@ def save_tracks():
 		file.write(json.dumps(tracks, indent=4, ensure_ascii=False))
 
 
+def track_index(artist, track, image):
+	return f'''<!DOCTYPE html><html><head>
+	<title>Zombi Music</title>
+	<meta name="viewport" content="width=device-width"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="../../root_/images/logo2.png" type="image/png">
+	<!-- og:zone -->
+	<meta property="og:image" content="{image}">
+	<meta property="og:title" content="{artist} - {track}">
+	<meta property="og:description" content="Zombi Music">
+	<meta property="og:site_name" content="zombi.music">
+	<meta property='og:type' content="music.song">
+	<script src="../../root_/scripts/lang.js"></script>
+	<script src="../../root_/scripts/theme.js"></script>
+	<link rel="stylesheet" href="../../root_/styles/main.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<script src="config.json"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.4/wavesurfer.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.4/plugin/wavesurfer.regions.min.js"></script>
+	<script src="../../root_/htmls/header.html"></script>
+	<script src="../../root_/htmls/body.html"></script>
+	<script src="../../root_/htmls/footer.html"></script>
+	<script src="../../root_/scripts/main.js"></script>
+</head><body></body></html>'''
+
+
 @app.route("/user_exists", methods=["POST"])
 def user_exists():
 	if request.json['name'] in users.keys():
@@ -136,6 +161,13 @@ def upload_file():
 					if request.form['config']:
 						with open(os.path.join(track_folder, 'config.json'), 'w', encoding='utf8') as file:
 							file.write(request.form['config'])
+
+					try:
+						with open(os.path.join(track_folder, 'index.html'), 'w', encoding='utf8') as file:
+							file.write(track_index(request.form['artist'], request.form['track_name'], request.form['image']))
+					except:
+						return jsonify({'successfully': False, 'reason':'Неверные параметры!'})
+
 					# for i in request.form:
 					# 	print(i, request.form[i])
 
