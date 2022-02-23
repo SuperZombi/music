@@ -133,13 +133,13 @@ def fast_login(user, password):
 @app.route('/uploader', methods=['POST'])
 def upload_file():
 	if request.method == 'POST':
-		if fast_login(request.form['name'], request.form['password']):
-			user_folder = os.path.join("data", request.form['name'].lower().replace(" ", "-"))
+		if fast_login(request.form['artist'], request.form['password']):
+			user_folder = os.path.join("data", request.form['artist'].lower().replace(" ", "-"))
 			track_folder = os.path.join(user_folder, request.form['track_name'].lower().replace(" ", "-"))
 
 			if os.path.exists(user_folder):
 				try:
-					if request.form['track_name'] in tracks[request.form['name']]:
+					if request.form['track_name'] in tracks[request.form['artist']]:
 						return jsonify({'successfully': False, 'reason':'Трек уже существует!'})
 				except KeyError:
 					None
@@ -148,10 +148,10 @@ def upload_file():
 					os.makedirs(track_folder)
 
 					try:
-						tracks[request.form['name']].append(request.form['track_name'])
+						tracks[request.form['artist']].append(request.form['track_name'])
 					except KeyError:
-						tracks.update({request.form['name']:[]})
-						tracks[request.form['name']].append(request.form['track_name'])
+						tracks.update({request.form['artist']:[]})
+						tracks[request.form['artist']].append(request.form['track_name'])
 					save_tracks()
 
 					for i in request.files:
@@ -164,8 +164,9 @@ def upload_file():
 
 					try:
 						with open(os.path.join(track_folder, 'index.html'), 'w', encoding='utf8') as file:
-							file.write(track_index(request.form['artist'], request.form['track_name'], request.form['image']))
-					except:
+							file.write(track_index(request.form['artist'], request.form['track_name'], request.files['image'].filename))
+					except Exception as e:
+						print(e)
 						return jsonify({'successfully': False, 'reason':'Неверные параметры!'})
 
 					# for i in request.form:
