@@ -1,6 +1,6 @@
 import os
 import time
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import json
 app = Flask(__name__)
@@ -9,6 +9,18 @@ CORS(app)
 @app.route("/")
 def status():
 	return jsonify({'online': True, 'time': time.time()})
+
+@app.route('/data/<path:filepath>')
+def data(filepath):
+	return send_from_directory('data', filepath)
+
+@app.route('/get_tracks')
+def get_tracks():
+	unswer = []
+	for user, array in tracks.items():
+		for track in array:
+			unswer.append( os.path.join('data', user.lower().replace(" ", "-"), track.lower().replace(" ", "-"))  )
+	return jsonify(unswer)
 
 users = {}
 def load_users():
@@ -66,7 +78,7 @@ def register():
 
 	try:
 		if not os.path.exists(request.json['name'].lower()):
-			os.makedirs(request.json['name'].lower())
+			os.makedirs(os.path.join("data", request.json['name'].lower().replace(" ", "-")))
 		else:
 			return jsonify({'successfully': False, 'reason':'Ошибка создании папки пользователя на сервере! Папка уже существует!'})
 	except:
@@ -87,8 +99,8 @@ def fast_login(user, password):
 def upload_file():
 	if request.method == 'POST':
 		if fast_login(request.form['name'], request.form['password']):
-			user_folder = request.form['name'].lower()
-			track_folder = os.path.join(user_folder, request.form['track_name'].lower())
+			user_folder = os.path.join("data", request.form['name'].lower().replace(" ", "-"))
+			track_folder = os.path.join(user_folder, request.form['track_name'].lower().replace(" ", "-"))
 
 			if os.path.exists(user_folder):
 				try:
