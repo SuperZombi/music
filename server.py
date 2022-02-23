@@ -20,6 +20,8 @@ def data(filepath):
 			return send_from_directory('data', os.path.join(filepath, 'index.html'))
 		if os.path.isfile(os.path.join(p, 'config.json')):
 			return send_from_directory('data', os.path.join(filepath, 'config.json'))
+	if os.path.isfile(p + '.html'):
+		return send_from_directory('data', filepath + '.html')
 	abort(404)
 
 @app.route('/get_tracks')
