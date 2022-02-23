@@ -84,7 +84,31 @@ def track_index(artist, track, image):
 	<script src="../../root_/htmls/body.html"></script>
 	<script src="../../root_/htmls/footer.html"></script>
 	<script src="../../root_/scripts/main.js"></script>
-</head><body></body></html>'''
+	</head><body></body></html>'''
+
+def atrist_config(name, image="../root_/images/people.svg"):
+	return f'''ARTIST = {"name": "{name}", "image": "{image}"}'''
+
+def artist_index(name, image="../root_/images/people.svg"):
+	return f'''<!DOCTYPE html><html><head>
+	<title>Zombi Music</title>
+	<meta name="viewport" content="width=device-width"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="../root_/images/logo2.png" type="image/png">
+	<!-- og:zone -->
+	<meta property="og:image" content="{image}">
+	<meta property="og:title" content="{name}">
+	<meta property="og:description" content="Artist">
+	<meta property="og:site_name" content="zombi.music">
+	<script src="../root_/scripts/lang_artist.js"></script>
+	<script src="../root_/scripts/theme_artist.js"></script>
+	<script src="artist.json"></script>
+	<script src="../root_/bd.json"></script>
+	<link rel="stylesheet" href="../root_/styles/main.css">
+	<script src="../root_/htmls/header_artist.html"></script>
+	<script src="../root_/htmls/body_artist.html"></script>
+	<script src="../root_/htmls/footer_artist.html"></script>
+	<script src="../root_/scripts/artist.js"></script>
+	</head><body></body></html>'''
 
 
 @app.route("/user_exists", methods=["POST"])
@@ -113,7 +137,12 @@ def register():
 
 	try:
 		if not os.path.exists(request.json['name'].lower()):
-			os.makedirs(os.path.join("data", request.json['name'].lower().replace(" ", "-")))
+			user_folder = os.path.join("data", request.json['name'].lower().replace(" ", "-"))
+			os.makedirs(user_folder)
+			with open(os.path.join(user_folder, 'config.json'), 'w', encoding='utf8') as file:
+				file.write(atrist_config(request.json['name']))
+			with open(os.path.join(user_folder, 'index.html'), 'w', encoding='utf8') as file:
+				file.write(artist_index(request.json['name']))
 		else:
 			return jsonify({'successfully': False, 'reason':'Ошибка создании папки пользователя на сервере! Папка уже существует!'})
 	except:
