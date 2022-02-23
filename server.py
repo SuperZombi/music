@@ -87,7 +87,7 @@ def track_index(artist, track, image):
 	</head><body></body></html>'''
 
 def atrist_config(name, image="../root_/images/people.svg"):
-	return f'''ARTIST = {"name": "{name}", "image": "{image}"}'''
+	return "ARTIST = {" + f'''"name": "{name}", "image": "{image}"''' + "}"
 
 def artist_index(name, image="../root_/images/people.svg"):
 	return f'''<!DOCTYPE html><html><head>
