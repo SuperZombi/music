@@ -1,6 +1,6 @@
 import os
 import time
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, abort
 from flask_cors import CORS
 import json
 app = Flask(__name__)
@@ -12,7 +12,15 @@ def status():
 
 @app.route('/data/<path:filepath>')
 def data(filepath):
-	return send_from_directory('data', filepath)
+	p = os.path.join("data", filepath)
+	if os.path.exists(p):
+		if os.path.isfile(p):
+			return send_from_directory('data', filepath)
+		if os.path.isfile(os.path.join(p, 'index.html')):
+			return send_from_directory('data', os.path.join(filepath, 'index.html'))
+		if os.path.isfile(os.path.join(p, 'config.json')):
+			return send_from_directory('data', os.path.join(filepath, 'config.json'))
+	abort(404)
 
 @app.route('/get_tracks')
 def get_tracks():
