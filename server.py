@@ -52,7 +52,7 @@ tracks = {}
 def load_tracks():
 	global tracks
 	try:
-		with open(os.path.join('root_', 'bd.json'), 'r', encoding='utf8') as file:
+		with open(os.path.join('data', 'root_', 'bd.json'), 'r', encoding='utf8') as file:
 			string = file.read()
 			string = string.split('=', 1)[1]
 			
@@ -66,7 +66,7 @@ load_tracks()
 
 def save_tracks():
 	global tracks
-	with open(os.path.join('root_', 'bd.json'), 'w', encoding='utf8') as file:
+	with open(os.path.join('data', 'root_', 'bd.json'), 'w', encoding='utf8') as file:
 		file.write(json.dumps(tracks, indent=4, ensure_ascii=False))
 
 def user_exists(artist):
@@ -143,7 +143,7 @@ def artist_index(name, image="../root_/images/people.svg"):
 
 
 @app.route("/user_exists", methods=["POST"])
-def user_exists():
+def user_exists_post():
 	if request.json['name'] in users.keys():
 		return jsonify({'exist': True})
 	return jsonify({'exist': False})
