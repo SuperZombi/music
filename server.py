@@ -1,8 +1,10 @@
 import os
+import shutil
 import time
 from flask import Flask, request, jsonify, send_from_directory, abort, redirect
 from flask_cors import CORS
 import json
+import re
 app = Flask(__name__)
 CORS(app)
 
@@ -50,16 +52,45 @@ tracks = {}
 def load_tracks():
 	global tracks
 	try:
-		with open('tracks.bd', 'r', encoding='utf8') as file:
-			tracks = eval(file.read())
+		with open(os.path.join('root_', 'bd.json'), 'r', encoding='utf8') as file:
+			string = file.read()
+			string = string.split('=', 1)[1]
+			
+			regex = r'''(?<=[}\]"']),(?!\s*[{["'])'''
+			result = re.sub(regex, "", string, 0)
+			
+			tracks = json.loads(result)
 	except FileNotFoundError:
 		None
 load_tracks()
 
 def save_tracks():
 	global tracks
-	with open('tracks.bd', 'w', encoding='utf8') as file:
+	with open(os.path.join('root_', 'bd.json'), 'w', encoding='utf8') as file:
 		file.write(json.dumps(tracks, indent=4, ensure_ascii=False))
+
+def user_exists(artist):
+	return artist in tracks.keys()
+def track_exists(artist, track):
+	if user_exists(artist):
+		return track in tracks[artist]['tracks'].keys()
+	return False
+
+def add_user(artist):
+	global tracks
+	tracks[artist] = {}
+	tracks[artist]['path'] = artist.lower().replace(" ", "-")
+	tracks[artist]['tracks'] = {}
+
+def add_track(artist, track_name, genre, image, date):
+	global tracks
+	if not user_exists(artist):
+		add_user(artist)
+	tracks[artist]['tracks'][track_name] = {}
+	tracks[artist]['tracks'][track_name]["path"] = track_name.lower().replace(" ", "-")
+	tracks[artist]['tracks'][track_name]["genre"] = genre
+	tracks[artist]['tracks'][track_name]["image"] = image
+	tracks[artist]['tracks'][track_name]["date"] = date
 
 
 def track_index(artist, track, image):
@@ -167,20 +198,23 @@ def upload_file():
 			track_folder = os.path.join(user_folder, request.form['track_name'].lower().replace(" ", "-"))
 
 			if os.path.exists(user_folder):
-				try:
-					if request.form['track_name'] in tracks[request.form['artist']]:
-						return jsonify({'successfully': False, 'reason':'Трек уже существует!'})
-				except KeyError:
-					None
+				if track_exists(request.form['artist'], request.form['track_name']):
+					return jsonify({'successfully': False, 'reason':'Трек уже существует!'})
 
 				if not os.path.exists(track_folder):
 					os.makedirs(track_folder)
 
 					try:
-						tracks[request.form['artist']].append(request.form['track_name'])
-					except KeyError:
-						tracks.update({request.form['artist']:[]})
-						tracks[request.form['artist']].append(request.form['track_name'])
+						add_track(artist=request.form['artist'],
+								track_name=request.form['track_name'],
+								genre=request.form['genre'],
+								image=request.files['image'].filename,
+								date=request.form['release_date'])
+					except Exception as e:
+						print(e)
+						shutil.rmtree(track_folder)
+						return jsonify({'successfully': False, 'reason':'Неверные параметры!'})
+
 					save_tracks()
 
 					for i in request.files:
@@ -196,10 +230,8 @@ def upload_file():
 							file.write(track_index(request.form['artist'], request.form['track_name'], request.files['image'].filename))
 					except Exception as e:
 						print(e)
+						shutil.rmtree(track_folder)
 						return jsonify({'successfully': False, 'reason':'Неверные параметры!'})
-
-					# for i in request.form:
-					# 	print(i, request.form[i])
 
 					return jsonify({'successfully': True})
 			
