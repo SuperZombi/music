@@ -1,6 +1,7 @@
 import os
 import shutil
 import time
+from dateutil import parser as dataparse
 from flask import Flask, request, jsonify, send_from_directory, abort, redirect
 from flask_cors import CORS
 import json
@@ -90,7 +91,11 @@ def add_track(artist, track_name, genre, image, date):
 	tracks[artist]['tracks'][track_name]["path"] = track_name.lower().replace(" ", "-")
 	tracks[artist]['tracks'][track_name]["genre"] = genre
 	tracks[artist]['tracks'][track_name]["image"] = image
-	tracks[artist]['tracks'][track_name]["date"] = date
+
+	d = dataparse.parse(date)
+	d_str = f'{str(d.day).zfill(2)}.{str(d.month).zfill(2)}.{d.year}'
+
+	tracks[artist]['tracks'][track_name]["date"] = d_str
 
 
 def track_index(artist, track, image):
