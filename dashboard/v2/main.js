@@ -95,39 +95,7 @@ function sendForm(form){
         }
     });
 
-
-    var links = {};
-    Object.keys(hosts).forEach(function(e){
-        if (final[e]){
-            Object.assign(links, {[e] : final[e]})
-        }
-    })
-    var string = 
-`config = {
-    "track_name": "${final.track_name}",
-    "artist": "${final.artist}",
-    "genre": "${final.genre}",
-    "main_img": "${final.image}",
-    "allow_download": ${final.allow_download},
-    "download_file": "${final.audio}",
-`
-    if (links){
-        string += `    "links": {\n`;
-        Object.keys(links).forEach(function(e){
-            string += `        "${e}": "${links[e]}",\n`;
-        })
-        string += "    },";
-    }
-
-    string += `
-    "audio_preview": "${final.audio}",
-    "show_time": true,
-    "animate_time": true
-}`
-
-    formData.append("config", string)
-
-    formData.append('name', 'user')
+    // TODO
     formData.append('password', 'password')
 
     let req = new XMLHttpRequest();                          
