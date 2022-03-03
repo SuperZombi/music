@@ -95,6 +95,9 @@ function open_website(site_name){
 	else if (site_name == "viber"){
 		var link = `viber://forward?text=${document.title}\n${location.protocol}//${location.host+location.pathname}`
 	}
+	else if (site_name == "whatsapp"){
+		var link = `https://api.whatsapp.com/send?text=${document.title}\n${location.protocol}//${location.host+location.pathname}`
+	}
 	if (link){
 		window.open(encodeURI(link), "_blank");
 	}
