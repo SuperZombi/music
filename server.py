@@ -68,7 +68,7 @@ load_tracks()
 def save_tracks():
 	global tracks
 	with open(os.path.join('data', 'root_', 'bd.json'), 'w', encoding='utf8') as file:
-		file.write(json.dumps(tracks, indent=4, ensure_ascii=False))
+		file.write('bd = ' + json.dumps(tracks, indent=4, ensure_ascii=False))
 
 def user_exists(artist):
 	return artist in tracks.keys()
@@ -189,6 +189,30 @@ def register():
 	return jsonify({'successfully': True})
 
 
+def make_config(data, files):
+	config = {}
+	config["track_name"] = data["track_name"]
+	config["artist"] = data["artist"]
+	config["genre"] = data["genre"]
+	config["main_img"] = files["image"].filename
+	config["allow_download"] = data["allow_download"]
+	config["download_file"] = files["audio"].filename
+	config["audio_preview"] = files["audio"].filename
+
+	config["show_time"] = True
+	config["animate_time"] = True
+
+	links = {}
+	hosts = ['spotify', 'youtube_music', 'youtube', 'apple_music', 'deezer', 'soundcloud', 'newgrounds']
+	for i in hosts:
+		if i in data.keys():
+			links[i] = data[i]
+	if links:
+		config['links'] = links
+
+	return config
+
+
 def fast_login(user, password):
 	if user in users.keys():
 		if users[user] == password:
@@ -209,36 +233,32 @@ def upload_file():
 				if not os.path.exists(track_folder):
 					os.makedirs(track_folder)
 
+					for i in request.files:
+						f = request.files[i]
+						f.save(os.path.join(track_folder, f.filename))
+
 					try:
+						config = make_config(request.form.to_dict(), request.files.to_dict())
+						with open(os.path.join(track_folder, 'config.json'), 'w', encoding='utf8') as file:
+							file.write('config = ' + json.dumps(config, indent=4, ensure_ascii=False))
+
+						with open(os.path.join(track_folder, 'index.html'), 'w', encoding='utf8') as file:
+							file.write(track_index(request.form['artist'], request.form['track_name'], request.files['image'].filename))
+					
 						add_track(artist=request.form['artist'],
 								track_name=request.form['track_name'],
 								genre=request.form['genre'],
 								image=request.files['image'].filename,
 								date=request.form['release_date'])
+
+						save_tracks()
+
+						return jsonify({'successfully': True})
+
 					except Exception as e:
 						print(e)
 						shutil.rmtree(track_folder)
 						return jsonify({'successfully': False, 'reason':'Неверные параметры!'})
-
-					save_tracks()
-
-					for i in request.files:
-						f = request.files[i]
-						f.save(os.path.join(track_folder, f.filename))
-
-					if request.form['config']:
-						with open(os.path.join(track_folder, 'config.json'), 'w', encoding='utf8') as file:
-							file.write(request.form['config'])
-
-					try:
-						with open(os.path.join(track_folder, 'index.html'), 'w', encoding='utf8') as file:
-							file.write(track_index(request.form['artist'], request.form['track_name'], request.files['image'].filename))
-					except Exception as e:
-						print(e)
-						shutil.rmtree(track_folder)
-						return jsonify({'successfully': False, 'reason':'Неверные параметры!'})
-
-					return jsonify({'successfully': True})
 			
 			return jsonify({'successfully': False, 'reason':'Ошибка создании папки трека на сервере!'})
 
