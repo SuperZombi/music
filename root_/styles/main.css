@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import 'ripple.css';
 
 :root{
@@ -50,6 +51,16 @@ body{
 	display: table;
 	height: 100vh;
 	width: 100%;
+}
+#ads{
+	font-size: 80pt;
+	background: linear-gradient(180deg, rgba(75,44,255,1) 55%, rgba(250,255,0,1) 45%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	text-align: center;
+	margin-bottom: -20px;
+	font-family: 'Lobster', sans-serif;
 }
 #wraper{
 	display: table-row;
@@ -732,7 +743,11 @@ div.ripple {
 /* Phone  */
 @media all and (max-width: 500px) {
 	#page{
-			max-width: 100%;
+		max-width: 100%;
+	}
+	#ads{
+		font-size: 40pt;
+		margin-top: 10px;
 	}
 	#header{
 		font-size: 27pt;
