@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+<style>
+
+form{
+	text-align: center;
+	background: #454857;
+	padding: 20px;
+}
+
+/* INPUTS */
+.group *{
+	box-sizing: border-box;
+}
+.group {
+	position: relative;
+	margin: 45px 0;
+}
+
+.center-wrap{
+	display: flex;
+	flex-direction: column;
+		align-items: center;
+		margin-top: 10px;
+}
+.center-wrap .group{
+	margin: 30px 0;
+}
+
+input {
+	background: none;
+	color: #c6c6c6;
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	width: 320px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #c6c6c6;
+}
+input:focus {
+	outline: none;
+}
+input:focus ~ label, input:valid ~ label {
+	top: -14px;
+	font-size: 12px;
+	color: #2196f3;
+}
+input:focus ~ .bar:before {
+	transform: scale(1);
+}
+
+input[type=password] {
+	letter-spacing: 0.3em;
+}
+
+label {
+	color: #c6c6c6;
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	transition: 300ms ease all;
+}
+
+.bar {
+	position: relative;
+	display: block;
+	width: 320px;
+}
+.bar:before {
+	content: "";
+	height: 2px;
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+	background: #2196f3;
+	transition: 300ms ease all;
+	left: 0%;
+	transform: scale(0);
+	transform-origin: center bottom;
+}
+
+/* CARD */
+.flip-card {
+	perspective: 1000px;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.flip-card-front{
+	display: block;
+}
+.flip-card-back{
+	display: none;
+}
+
+.flip-card-front, .flip-card-back {
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+.flip-card-back {
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+}
+
+/* Radio  */
+
+.radio {
+	background: inherit;
+	padding: 6px;
+	border-radius: 5px;
+	display: inline-block;
+}
+
+.radio input {
+	display: inline-block;
+	width: auto;
+	height: 100%;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 4px 12px;
+	background: inherit;
+	color: #bdbdbdbd;
+	font-size: 18pt;
+	transition: all 100ms linear;
+}
+
+.radio input:checked {
+	background-image: linear-gradient(180deg, #95d891, #74bbad);
+	color: #fff;
+	box-shadow: 0 1px 1px #0000002e;
+	text-shadow: 0 1px 0px #79485f7a;
+}
+
+.radio input:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+
+/* Button */
+.button {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	border: 5em;
+	cursor: pointer;
+	outline: none;
+	font-size: 18px;
+	transform: translate(0);
+	background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+	padding: 0.7em 2em;
+	border-radius: 65px;
+	user-select: none;
+	/*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);*/
+	box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
+	transition: box-shadow 0.25s, font-size 0.3s ease-out;
+	color: white;  /*<<*/
+}
+.button:after {
+	content: "";
+	border-radius: 18px;
+	position: absolute;
+	margin: 4px;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: -1;
+	transition: 0.1s;
+	background: #181818;  /*<<*/
+}
+.button:hover {
+	background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
+	box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1) !important;
+}
+.button:active:after {
+	margin: 6px;
+}
+
+</style>
+</head>
+<body>
+	<form onsubmit="action_();return false">
+		<div class="radio">
+			<input label="Log In" type="radio" name="form_action" value="login" checked>
+			<input label="Sign Up" type="radio" name="form_action" value="signup">
+		</div>
+
+		<div class="flip-card">
+			<div class="flip-card-front">
+				
+				<form onsubmit="action_();return false">
+					<div class="center-wrap">
+						<div class="group">
+								<input type="text" name="login" required/><span class="highlight"></span><span class="bar"></span>
+								<label>Name</label>
+						</div>
+
+						<div class="group">
+							<input type="password" name="login" required/><span class="highlight"></span><span class="bar"></span>
+							<label>Password</label>
+						</div>
+					</div>
+					<button type="submit" class="button">Login</button>
+				</form>
+
+			</div>
+			<div class="flip-card-back">
+
+				<form onsubmit="action_();return false">
+					<div class="center-wrap">
+						<div class="group">
+								<input type="email" name="signup" required/><span class="highlight"></span><span class="bar"></span>
+								<label>Email</label>
+						</div>
+
+						<div class="group">
+								<input type="text" name="signup" required/><span class="highlight"></span><span class="bar"></span>
+								<label>Name</label>
+						</div>
+
+						<div class="group">
+							<input type="password" name="signup" required/><span class="highlight"></span><span class="bar"></span>
+							<label>Password</label>
+						</div>
+					</div>
+					<button type="submit" class="button">Sign Up</button>
+				</form>
+				
+			</div>
+		</div>
+
+	</form>
+
+
+<script type="text/javascript">
+	var rad = document.querySelectorAll('input[name="form_action"]');
+	for (var i = 0; i < rad.length; i++) {
+			rad[i].addEventListener('change', function() {
+					if (this.value == "signup"){
+						document.querySelector(".flip-card").style.transform = "rotateY(180deg)"
+						document.querySelector(".flip-card-front").style.display = "none"
+						document.querySelector(".flip-card-back").style.display = "block"
+						location.hash = "signup"
+					}
+					else if(this.value == "login"){
+						document.querySelector(".flip-card").style.transform = "rotateY(0deg)"
+						document.querySelector(".flip-card-front").style.display = "block"
+						document.querySelector(".flip-card-back").style.display = "none"
+						location.hash = ""
+						history.replaceState("", "", location.pathname)
+					}
+			});
+	}
+
+	function action_(){
+		var type = document.querySelector('input[name="form_action"]:checked').value
+		console.log(type)
+		var inputs = document.querySelectorAll(`input[name="${type}"]`);
+		console.log(inputs)
+	}
+
+	window.onload = function(){
+		if (window.location.hash.split('#')[1] == "signup"){
+			document.querySelector(".flip-card").style.transform = "rotateY(180deg)"
+			document.querySelector(".flip-card-front").style.display = "none"
+			document.querySelector(".flip-card-back").style.display = "block"
+			document.querySelectorAll('input[name="form_action"]')[1].checked = true
+		}
+	}
+</script>
+</body>
+</html>
