@@ -40,14 +40,24 @@ def load_users():
 	global users
 	try:
 		with open('users.bd', 'r', encoding='utf8') as file:
-			users = eval("{" + file.read() +"}")
+			users = json.loads(file.read())
 	except FileNotFoundError:
 		None
 load_users()
 
-def save_user(name, password):
-	with open('users.bd', 'a', encoding='utf8') as file:
-		file.write(f'"{name}": "{password}",\n')
+def save_users():
+	with open('users.bd', 'w', encoding='utf8') as file:
+		file.write(json.dumps(users, indent=4, ensure_ascii=False))
+def reqister_user(data):
+	temp = {}
+	temp[data['name']] = {}
+	temp[data['name']]['password'] = data['password']
+
+	if 'email' in data.keys():
+		temp[data['name']]['email'] = data['email']
+
+	global users
+	users.update(temp)
 
 tracks = {}
 def load_tracks():
@@ -153,10 +163,19 @@ def user_exists_post():
 		return jsonify({'exist': True})
 	return jsonify({'exist': False})
 
+@app.route("/name_available", methods=["POST"])
+def name_available():
+	if request.json['name'] in users.keys():
+		return jsonify({'available': False})
+	user_folder = os.path.join("data", request.json['name'].lower().replace(" ", "-"))
+	if os.path.exists(user_folder):
+		return jsonify({'available': False})
+	return jsonify({'available': True})
+
 @app.route("/login", methods=["POST"])
 def login():
 	if request.json['name'] in users.keys():
-		if users[request.json['name']] == request.json['password']:
+		if users[request.json['name']]['password'] == request.json['password']:
 			return jsonify({'successfully': True})
 		else:
 			return jsonify({'successfully': False, 'reason':'Не верное имя пользователя или пароль!'})
@@ -172,8 +191,8 @@ def register():
 		return jsonify({'successfully': False, 'reason':'Запрещённый символ в нике!'})
 
 	try:
-		if not os.path.exists(request.json['name'].lower()):
-			user_folder = os.path.join("data", request.json['name'].lower().replace(" ", "-"))
+		user_folder = os.path.join("data", request.json['name'].lower().replace(" ", "-"))
+		if not os.path.exists(user_folder):
 			os.makedirs(user_folder)
 			with open(os.path.join(user_folder, 'config.json'), 'w', encoding='utf8') as file:
 				file.write(atrist_config(request.json['name']))
@@ -183,9 +202,14 @@ def register():
 			return jsonify({'successfully': False, 'reason':'Ошибка создании папки пользователя на сервере! Папка уже существует!'})
 	except:
 		return jsonify({'successfully': False, 'reason':'Ошибка создании папки пользователя на сервере!'})
-		
-	users[request.json['name']] = request.json['password']
-	save_user(request.json['name'], request.json['password'])
+
+	try:
+		reqister_user(request.json)
+	except:
+		shutil.rmtree(user_folder)
+		return jsonify({'successfully': False, 'reason':'Неверные параметры!'})
+
+	save_users()
 	return jsonify({'successfully': True})
 
 
@@ -215,7 +239,7 @@ def make_config(data, files):
 
 def fast_login(user, password):
 	if user in users.keys():
-		if users[user] == password:
+		if users[user]['password'] == password:
 			return True
 	return False
 
