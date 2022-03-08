@@ -41,7 +41,7 @@ body{
 }
 form{
 	text-align: center;
-	padding: 20px;
+	padding: 15px;
 }
 
 /* INPUTS */
@@ -252,87 +252,86 @@ form{
 </style>
 </head>
 <body>
-	<form onsubmit="action_();return false">
+	<form>
 		<div class="radio">
 			<input label="Log In" type="radio" name="form_action" value="login" checked>
 			<input label="Sign Up" type="radio" name="form_action" value="signup">
 		</div>
+	</form>
 
-		<div class="flip-card">
-			<div class="flip-card-front">
-				
-				<form onsubmit="action_();return false">
-					<div class="center-wrap">
-						<div class="group">
-							<input type="text" name="login" placeholder=" " required/>
+	<div class="flip-card">
+		<div class="flip-card-front">
+			
+			<form name="login" onsubmit="action_();return false">
+				<div class="center-wrap">
+					<div class="group">
+						<input type="text" name="name" placeholder=" " required/>
+						<span class="bar"></span>
+						<label>Name</label>
+					</div>
+
+					<div class="group">
+						<input type="password" minlength="4" name="password" placeholder=" " required>
+						<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
+						<span class="bar"></span>
+						<label>Password</label>
+					</div>
+
+				</div>
+				<button type="submit" class="button">Login</button>
+			</form>
+
+		</div>
+		<div class="flip-card-back">
+
+			<form name="signup" onsubmit="action_();return false">
+				<div class="center-wrap">
+					<div class="group">
+							<input type="text" name="name" placeholder=" " required/>
 							<span class="bar"></span>
 							<label>Name</label>
-						</div>
-
-						<div class="group">
-							<input type="password" minlength="4" name="login" placeholder=" " required>
-							<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
-							<span class="bar"></span>
-							<label>Password</label>
-						</div>
-
 					</div>
-					<button type="submit" class="button">Login</button>
-				</form>
 
-			</div>
-			<div class="flip-card-back">
-
-				<form onsubmit="action_();return false">
-					<div class="center-wrap">
-						<div class="group">
-								<input type="text" name="signup" placeholder=" " required/>
-								<span class="bar"></span>
-								<label>Name</label>
-						</div>
-
-						<div class="group">
-								<input type="email" name="signup" placeholder=" "/>
-								<span class="bar"></span>
-								<label>Email</label>
-						</div>
-
-						<div class="group">
-								<input type="tel" name="signup" placeholder=" "/>
-								<span class="bar"></span>
-								<label>Phone</label>
-						</div>
-
-						<div class="group">
-								<select onchange="this.dataset.chosen = this.value;" data-chosen="" name="signup">
-								  <option value="" selected></option>
-								  <option value="man">Man</option>
-								  <option value="woman">Woman</option>
-								</select>
-								<label>Gender</label>
-						</div>
-
-						<div class="group">
-							<input type="password" minlength="4" name="signup" placeholder=" " required/>
-							<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
+					<div class="group">
+							<input type="email" name="email" placeholder=" "/>
 							<span class="bar"></span>
-							<label>Password</label>
-						</div>
-
-						<div class="group">
-							<input type="password" minlength="4" name="signup" placeholder=" " required/>
-							<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
-							<span class="bar"></span>
-							<label>Repeat Password</label>
-						</div>
+							<label>Email</label>
 					</div>
-					<button type="submit" class="button">Sign Up</button>
-				</form>
-				
-			</div>
+
+					<div class="group">
+							<input type="tel" name="phone" placeholder=" "/>
+							<span class="bar"></span>
+							<label>Phone</label>
+					</div>
+
+					<div class="group">
+							<select onchange="this.dataset.chosen = this.value;" data-chosen="" name="gender">
+							  <option value="" selected></option>
+							  <option value="man">Man</option>
+							  <option value="woman">Woman</option>
+							</select>
+							<label>Gender</label>
+					</div>
+
+					<div class="group">
+						<input type="password" minlength="4" name="password" placeholder=" " required/>
+						<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
+						<span class="bar"></span>
+						<label>Password</label>
+					</div>
+
+					<div class="group">
+						<input type="password" minlength="4" name="confirm_password" placeholder=" " required/>
+						<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
+						<span class="bar"></span>
+						<label>Repeat Password</label>
+					</div>
+				</div>
+				<button type="submit" class="button">Sign Up</button>
+			</form>
+			
 		</div>
-
-	</form>
+	</div>
 
 
 <script type="text/javascript">
@@ -372,17 +371,48 @@ form{
 	function confirmPassword(main, child){
 		if(main.value != child.value) {
 			child.setCustomValidity("Passwords Don't Match");
+			child.reportValidity();
+			main.onchange = _=> child.setCustomValidity('');
+			child.onkeydown = _=> child.setCustomValidity('');
+			return false;
 		}
 		else {
-			//child.setCustomValidity('');
+			child.setCustomValidity('');
+			return true;
 		}
 	}
 
 	function action_(){
-		var type = document.querySelector('input[name="form_action"]:checked').value
-		console.log(type)
-		var inputs = document.querySelectorAll(`input[name="${type}"]`);
-		console.log(inputs)
+		var type = document.querySelector('input[name="form_action"]:checked').value;
+		var form = document.querySelector(`form[name="${type}"]`);
+
+		if (form.querySelector('input[name="confirm_password"]')){
+			if (
+				confirmPassword(
+					form.querySelector('input[name="password"]'),
+					form.querySelector('input[name="confirm_password"]')
+				)
+			)
+			{
+				parseForm(type, form)
+			}
+		}
+		else{
+			parseForm(type, form)
+		}
+	}
+
+	function parseForm(type, form){
+		var elements = Array.from(form.elements).filter(e => e.tagName.toLowerCase() != "button");
+		elements = elements.filter(e => e.value);
+		var final = {}
+		elements.map(e => {
+			if (e.name != "confirm_password"){
+				final[e.name] = e.value;
+			}
+		})
+		console.log(type);
+		console.log(final);
 	}
 
 	window.onload = function(){
