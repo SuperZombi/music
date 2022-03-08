@@ -48,16 +48,20 @@ load_users()
 def save_users():
 	with open('users.bd', 'w', encoding='utf8') as file:
 		file.write(json.dumps(users, indent=4, ensure_ascii=False))
-def reqister_user(data):
+def register_user(data):
 	temp = {}
 	temp[data['name']] = {}
 	temp[data['name']]['password'] = data['password']
+	temp[data['name']]['registration_time'] = time.time()
 
 	if 'email' in data.keys():
 		temp[data['name']]['email'] = data['email']
 
 	if 'gender' in data.keys():
 		temp[data['name']]['gender'] = data['gender']
+
+	if 'phone' in data.keys():
+		temp[data['name']]['phone'] = data['phone']	
 
 	global users
 	users.update(temp)
@@ -207,7 +211,7 @@ def register():
 		return jsonify({'successfully': False, 'reason':'Ошибка создании папки пользователя на сервере!'})
 
 	try:
-		reqister_user(request.json)
+		register_user(request.json)
 	except:
 		shutil.rmtree(user_folder)
 		return jsonify({'successfully': False, 'reason':'Неверные параметры!'})
