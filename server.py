@@ -56,6 +56,9 @@ def reqister_user(data):
 	if 'email' in data.keys():
 		temp[data['name']]['email'] = data['email']
 
+	if 'gender' in data.keys():
+		temp[data['name']]['gender'] = data['gender']
+
 	global users
 	users.update(temp)
 
