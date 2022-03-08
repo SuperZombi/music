@@ -2,11 +2,45 @@
 <html>
 <head>
 	<title>Document</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 <style>
 
+:root{
+	scroll-behavior: smooth;
+}
+::-webkit-scrollbar
+{
+	width: 10px;
+	height: 8px;
+	background-color: #2020;
+	transition: 1s;
+}
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #2020;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	transition: 1s;
+}
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+	transition: 1s;
+}
+html, body{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #454857;
+}
 form{
 	text-align: center;
-	background: #454857;
 	padding: 20px;
 }
 
@@ -29,7 +63,7 @@ form{
 	margin: 30px 0;
 }
 
-input {
+.group input, select {
 	background: none;
 	color: #c6c6c6;
 	font-size: 18px;
@@ -39,24 +73,43 @@ input {
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid #c6c6c6;
-}
-input:focus {
 	outline: none;
 }
-input:focus ~ label, input:valid ~ label {
+.group input:-webkit-autofill {
+  -webkit-text-fill-color: #c6c6c6;
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.group select option {
+	background: rgba(0, 0, 0, 0.3);
+	color: black;
+}
+
+.group input:focus {
+	outline: none;
+}
+.group input:focus ~ label, .group input:not(:placeholder-shown) ~ label,
+.group select:not([data-chosen='']) ~ label {
 	top: -14px;
 	font-size: 12px;
 	color: #2196f3;
 }
-input:focus ~ .bar:before {
+
+
+.group input:focus ~ .bar:before {
 	transform: scale(1);
 }
 
-input[type=password] {
+.group input[type=password] {
 	letter-spacing: 0.3em;
 }
 
-label {
+.group input[required] ~ label:before {
+	content: "* ";
+	color: red;
+}
+
+.group label {
 	color: #c6c6c6;
 	font-size: 16px;
 	font-weight: normal;
@@ -65,6 +118,13 @@ label {
 	left: 5px;
 	top: 10px;
 	transition: 300ms ease all;
+}
+
+.toggle{
+	color: #B5B5B5;
+	float: right;
+	margin-top: -25px;
+	cursor: pointer;
 }
 
 .bar {
@@ -164,10 +224,9 @@ label {
 	padding: 0.7em 2em;
 	border-radius: 65px;
 	user-select: none;
-	/*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);*/
 	box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
 	transition: box-shadow 0.25s, font-size 0.3s ease-out;
-	color: white;  /*<<*/
+	color: white;
 }
 .button:after {
 	content: "";
@@ -180,7 +239,7 @@ label {
 	right: 0;
 	z-index: -1;
 	transition: 0.1s;
-	background: #181818;  /*<<*/
+	background: #181818;
 }
 .button:hover {
 	background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
@@ -205,14 +264,18 @@ label {
 				<form onsubmit="action_();return false">
 					<div class="center-wrap">
 						<div class="group">
-								<input type="text" name="login" required/><span class="highlight"></span><span class="bar"></span>
-								<label>Name</label>
+							<input type="text" name="login" placeholder=" " required/>
+							<span class="bar"></span>
+							<label>Name</label>
 						</div>
 
 						<div class="group">
-							<input type="password" name="login" required/><span class="highlight"></span><span class="bar"></span>
+							<input type="password" minlength="4" name="login" placeholder=" " required>
+							<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
+							<span class="bar"></span>
 							<label>Password</label>
 						</div>
+
 					</div>
 					<button type="submit" class="button">Login</button>
 				</form>
@@ -223,18 +286,44 @@ label {
 				<form onsubmit="action_();return false">
 					<div class="center-wrap">
 						<div class="group">
-								<input type="email" name="signup" required/><span class="highlight"></span><span class="bar"></span>
-								<label>Email</label>
-						</div>
-
-						<div class="group">
-								<input type="text" name="signup" required/><span class="highlight"></span><span class="bar"></span>
+								<input type="text" name="signup" placeholder=" " required/>
+								<span class="bar"></span>
 								<label>Name</label>
 						</div>
 
 						<div class="group">
-							<input type="password" name="signup" required/><span class="highlight"></span><span class="bar"></span>
+								<input type="email" name="signup" placeholder=" "/>
+								<span class="bar"></span>
+								<label>Email</label>
+						</div>
+
+						<div class="group">
+								<input type="tel" name="signup" placeholder=" "/>
+								<span class="bar"></span>
+								<label>Phone</label>
+						</div>
+
+						<div class="group">
+								<select onchange="this.dataset.chosen = this.value;" data-chosen="" name="signup">
+								  <option value="" selected></option>
+								  <option value="man">Man</option>
+								  <option value="woman">Woman</option>
+								</select>
+								<label>Gender</label>
+						</div>
+
+						<div class="group">
+							<input type="password" minlength="4" name="signup" placeholder=" " required/>
+							<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
+							<span class="bar"></span>
 							<label>Password</label>
+						</div>
+
+						<div class="group">
+							<input type="password" minlength="4" name="signup" placeholder=" " required/>
+							<i class="fa fa-eye toggle" title="Show" onclick="passwordToggle(this)"></i>
+							<span class="bar"></span>
+							<label>Repeat Password</label>
 						</div>
 					</div>
 					<button type="submit" class="button">Sign Up</button>
@@ -264,6 +353,29 @@ label {
 						history.replaceState("", "", location.pathname)
 					}
 			});
+	}
+
+	function passwordToggle(what){
+		var input = what.parentNode.getElementsByTagName("input")[0]
+		if (input.type === "password") {
+			input.type = "text";
+			what.classList.add("fa-eye-slash");
+			what.title = "Hide";
+		}
+		else {
+			input.type = "password";
+			what.classList.remove("fa-eye-slash");
+			what.title = "Show";
+		}
+	}
+
+	function confirmPassword(main, child){
+		if(main.value != child.value) {
+			child.setCustomValidity("Passwords Don't Match");
+		}
+		else {
+			//child.setCustomValidity('');
+		}
 	}
 
 	function action_(){
