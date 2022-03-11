@@ -32,8 +32,8 @@ class Errors(Enum):
 		'ru': "Запрещённый символ в нике!"
 	}
 	creating_folder_error = {
-		'en': "Error creating folder on server!",
-		'ru': "Ошибка создания папки на сервере!"
+		'en': "Error creating folder on server! A similar name with a different case is already taken.",
+		'ru': "Ошибка создания папки на сервере! Аналогичное имя с другим регистром уже занято."
 	}
 	invalid_parameters = {
 		'en': "Invalid parameters!",
