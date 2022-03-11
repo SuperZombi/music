@@ -175,7 +175,7 @@ def track_index(artist, track, image):
 	<script src="../../root_/scripts/lang.js"></script>
 	<script src="../../root_/scripts/theme.js"></script>
 	<link rel="stylesheet" href="../../root_/styles/main.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	<link rel="stylesheet" href="../../root_/styles/fontawesome/css/all.min.css">
 	<script src="config.json"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.4/wavesurfer.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.4/plugin/wavesurfer.regions.min.js"></script>
