@@ -360,11 +360,11 @@ function main(){
 		height: 80,
 		barWidth: 1,
 		hideScrollbar: true,
-		plugins: plugin
+		plugins: plugin,
+		backend: 'MediaElement'
 	}, theme_params));
 
 	window.onresize = function(){setTimeout(function(){wavesurfer.drawBuffer();}, 1000) }
-
 	if(!config.audio_preview){
 		document.getElementById("player").style.display = "none";
 		document.getElementById("hr_").style.display = "none";
@@ -415,10 +415,14 @@ function tracking(){
 		}
 	}
 
-	wavesurfer.on('ready', function (){
+	wavesurfer.on('loading', function (e) {
+		document.querySelector('#waveform > wave').style.display = "none";
+	});
+	wavesurfer.on('waveform-ready', function (){
 		setCurrent(true)
 		document.getElementById('time-current').innerText = "0:00";
 		wavesurfer_isReady = true;
+		document.querySelector('#waveform > wave').style.display = "block";
 		document.getElementById("loading_waveform").style.display = "none";
 	})
 
@@ -466,61 +470,68 @@ function hide_anim_t(){
 	}, 200)
 }
 
+wavesurfer_isReady = false;
 region_play = false;
+play_clicked = false;
 function play(e){
-	if (wavesurfer_isReady){
-		if (wavesurfer.isPlaying()){
-			if (config.show_time && config.animate_time){
-				hide_anim_t()
-			}
-			
-			e.target.className = "far fa-play-circle"
-			e.target.title = LANG.player_play
-			wavesurfer.pause()
-		}
-		else{
-			if (config.show_time && config.animate_time){
-				show_anim_t()
-			}
+	if (!play_clicked){
+		play_clicked = true;
 
-			if (config.preview_z && !region_play){
-				region_play = true;
-				wavesurfer.regions.list["preview"].play()
-				wavesurfer.on('pause', function() {
-					if (config.preview_z){
-						if (Math.round(wavesurfer.getCurrentTime()*100)/100 == config.preview_zone[1]){
-							region_play = false;
-							e.target.className = "far fa-play-circle"
-							e.target.title = LANG.player_play
-							wavesurfer.pause()
-							if (config.animate_time){
-								hide_anim_t()
+		if (wavesurfer_isReady){
+			if (wavesurfer.isPlaying()){
+				if (config.show_time && config.animate_time){
+					hide_anim_t()
+				}
+				
+				e.target.className = "far fa-play-circle"
+				e.target.title = LANG.player_play
+				wavesurfer.pause()
+			}
+			else{
+				if (config.show_time && config.animate_time){
+					show_anim_t()
+				}
+
+				if (config.preview_z && !region_play){
+					region_play = true;
+					wavesurfer.regions.list["preview"].play()
+					wavesurfer.on('pause', function() {
+						if (config.preview_z){
+							if (Math.round(wavesurfer.getCurrentTime()*100)/100 == config.preview_zone[1]){
+								region_play = false;
+								e.target.className = "far fa-play-circle"
+								e.target.title = LANG.player_play
+								wavesurfer.pause()
+								if (config.animate_time){
+									hide_anim_t()
+								}
 							}
 						}
-					}
-				});
-				wavesurfer.on('region-out', function() {
-					region_play = false;
+					});
+					wavesurfer.on('region-out', function() {
+						region_play = false;
+						e.target.className = "far fa-play-circle"
+						e.target.title = LANG.player_play
+						wavesurfer.pause()
+						if (config.animate_time){
+							hide_anim_t()
+						}
+					});
+				}
+				else{
+					wavesurfer.play()
+				}
+				e.target.className = "far fa-pause-circle"
+				e.target.title = LANG.player_stop
+				wavesurfer.on('finish', function (){
 					e.target.className = "far fa-play-circle"
 					e.target.title = LANG.player_play
-					wavesurfer.pause()
 					if (config.animate_time){
 						hide_anim_t()
 					}
-				});
+				})
 			}
-			else{
-				wavesurfer.play()
-			}
-			e.target.className = "far fa-pause-circle"
-			e.target.title = LANG.player_stop
-			wavesurfer.on('finish', function (){
-				e.target.className = "far fa-play-circle"
-				e.target.title = LANG.player_play
-				if (config.animate_time){
-					hide_anim_t()
-				}
-			})
-		}	
+		}
+		setTimeout(function(){play_clicked=false}, 10)
 	}
 }
