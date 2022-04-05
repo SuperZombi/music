@@ -434,6 +434,70 @@ function tracking(){
 			setCurrent()
 		}
 	});
+	
+	wavesurfer.on('play', function() {
+		play_pause_animation()
+	});
+	wavesurfer.on('pause', function() {
+		play_pause_animation()
+	});
+}
+
+function play_pause_animation(){
+	if (!play_clicked){
+		if (wavesurfer_isReady){
+			if (!wavesurfer.isPlaying()){
+				if (config.show_time && config.animate_time){
+					hide_anim_t()
+				}
+				
+				document.getElementById('play_pause_button').className = "far fa-play-circle"
+				document.getElementById('play_pause_button').title = LANG.player_play
+			}
+			else{
+				if (config.show_time && config.animate_time){
+					show_anim_t()
+				}
+
+				if (config.preview_z && !region_play){
+					region_play = true;
+					wavesurfer.regions.list["preview"].play()
+					wavesurfer.on('pause', function() {
+						if (config.preview_z){
+							if (Math.round(wavesurfer.getCurrentTime()*100)/100 == config.preview_zone[1]){
+								region_play = false;
+								document.getElementById('play_pause_button').className = "far fa-play-circle"
+								document.getElementById('play_pause_button').title = LANG.player_play
+								wavesurfer.pause()
+								if (config.animate_time){
+									hide_anim_t()
+								}
+							}
+						}
+					});
+					wavesurfer.on('region-out', function() {
+						region_play = false;
+						document.getElementById('play_pause_button').className = "far fa-play-circle"
+						document.getElementById('play_pause_button').title = LANG.player_play
+						wavesurfer.pause()
+						if (config.animate_time){
+							hide_anim_t()
+						}
+					});
+				}
+
+				document.getElementById('play_pause_button').className = "far fa-pause-circle"
+				document.getElementById('play_pause_button').title = LANG.player_stop
+				wavesurfer.on('finish', function (){
+					document.getElementById('play_pause_button').className = "far fa-play-circle"
+					document.getElementById('play_pause_button').title = LANG.player_play
+					if (config.animate_time){
+						hide_anim_t()
+					}
+				})
+			}
+		}
+	}
 }
 
 
