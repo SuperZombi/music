@@ -15,7 +15,7 @@ body = `
 	<hr id="hr_">
 	<div id="links_area">
 		<div id="player">
-			<i class="far fa-play-circle" title="${LANG.player_play}" onclick="play(event)"></i>
+			<i class="far fa-play-circle" title="${LANG.player_play}" id="play_pause_button" onclick="play(event)"></i>
 			<div id="waveform">
 				<svg id="loading_waveform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 12">
 					<circle cx="6" cy="6" r="6"><animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1"/></circle>
