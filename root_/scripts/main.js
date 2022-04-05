@@ -596,6 +596,6 @@ function play(e){
 				})
 			}
 		}
-		setTimeout(function(){play_clicked=false}, 10)
+		setTimeout(function(){play_clicked=false}, 100)
 	}
 }
