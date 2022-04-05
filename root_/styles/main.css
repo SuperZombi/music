@@ -731,8 +731,11 @@ div.ripple {
 	position: fixed;
 	bottom: -50%;
 	right: 5px;
-	transition: ease-in-out 0.75s;
+	transition: bottom 0.75s ease-in-out, filter 0.3s ease-in-out;
 	cursor: pointer;
+}
+#toTop:hover{
+	filter: drop-shadow(0 0 5px #3b69f4);
 }
 
 @media all and (max-height: 500px) {
