@@ -305,6 +305,17 @@ function loadRipple(){
 	document.head.appendChild(s);
 })()
 
+function set_metadata(){
+	navigator.mediaSession.metadata = new MediaMetadata({
+		title: config.track_name,
+		artist: config.artist,
+		album: 'Zombi Music',
+		artwork: [
+			 { src: config.main_img}
+		]
+	});
+}
+
 function main(){
 	document.title = `${config.artist} - ${config.track_name}`
 	set_background()
@@ -437,6 +448,7 @@ function tracking(){
 	
 	wavesurfer.on('play', function() {
 		play_pause_animation()
+		set_metadata()
 	});
 	wavesurfer.on('pause', function() {
 		play_pause_animation()
