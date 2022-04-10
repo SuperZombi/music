@@ -53,16 +53,27 @@ body{
 	width: 100%;
 }
 #ads{
-	font-size: 80pt;
-	background: linear-gradient(180deg, rgba(75,44,255,1) 55%, rgba(250,255,0,1) 45%);
-	background-clip: text;
-	-webkit-background-clip: text;
-	color: transparent;
+	font-size: 75pt;
+	background: lightblue;
+	background-image: url('../images/other/sea-edge.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
 	text-align: center;
-	margin-bottom: -20px;
-	font-family: 'Lobster', cursive;
-	filter: drop-shadow(2px 4px 6px rgb(0, 0, 0, 0.5));
+	margin-bottom: -10px;
+	font-family: 'Balsamiq Sans', sans-serif;
+	text-shadow: 2px 4px 6px black;
+	user-select: none;
+	cursor: alias;
+	display: block;
+	text-decoration: none;
+	transition: 0.5s;
 }
+#ads:hover{
+	color: yellow;
+}
+
 #wraper{
 	display: table-row;
 	height: 100%;
@@ -731,11 +742,8 @@ div.ripple {
 	position: fixed;
 	bottom: -50%;
 	right: 5px;
-	transition: bottom 0.75s ease-in-out, filter 0.3s ease-in-out;
+	transition: ease-in-out 0.75s;
 	cursor: pointer;
-}
-#toTop:hover{
-	filter: drop-shadow(0 0 5px #3b69f4);
 }
 
 @media all and (max-height: 500px) {
@@ -750,8 +758,9 @@ div.ripple {
 		max-width: 100%;
 	}
 	#ads{
-		font-size: 40pt;
-		margin-top: 10px;
+		font-size: 32pt;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	#header{
 		font-size: 27pt;
