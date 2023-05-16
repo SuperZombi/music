@@ -20,21 +20,16 @@ function try_dark(e){
 
 var shareMenuTimer;
 function shareMenu(e) {
-	for (let i=0; i<e.path.length;i++){
-		if (e.path[i] == document.getElementById("close_share_menu")){
-			close()
-			return
-		}
-		if (e.path[i] == document.getElementById("header")){
-			return
-		}
-		if (e.path[i] == document.getElementById("share_menu")){
-			return
-		}
-		if (e.path[i] == document.getElementById("notifications")){
-			return
-		}	
+	let path = e.path || (e.composedPath && e.composedPath());
+	if (path.includes(document.getElementById("close_share_menu"))){
+		close()
+		return
 	}
+	if (path.includes(document.getElementById("header")) ||
+		path.includes(document.getElementById("share_menu")) ||
+		path.includes(document.getElementById("notifications"))
+	){ return }
+	
 	function close(){
 		document.getElementById("share_menu").style.transform = "translate(-50%, -50%) scale(0)"
 		document.getElementById("share_menu").style.opacity = 0
@@ -330,7 +325,7 @@ function main(){
 
 	loadRipple()
 
-	notice = Notification('#notifications');
+	notice = new Notifications('#notifications');
 
 	if (darkThemeMq){
 		theme_params = {
